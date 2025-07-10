@@ -53,16 +53,7 @@ export default {
 			const OUTPUT = STRING_MSG.length > 1000 ? `${STRING_MSG.substring(0, 1000)}...` : STRING_MSG;
 			let outputUrl = "";
 			if (STRING_MSG.length > 1000) {
-				outputUrl = await client.utils.nibybin.create({
-					title: client.translate(guildData.language, `${this.LANG_KEY}.eval.title`, {
-						clientTag: client.user?.tag,
-					}), // `Evaluación de ${client.user.tag}`,
-					description: `${args.join(' ')}`,
-               language: 'javascript',
-               code: STRING_MSG
-				})
-					.then((x) => x.url)
-					.catch(() => client.translate(guildData.language, `${this.LANG_KEY}.error.noLink`));
+            outputUrl = client.translate(guildData.language, `${this.LANG_KEY}.error.noLink`) // Removed support for NibyBin;
 			}
 
 			return client.utils.message.edit(message, loadingMsg, {
@@ -98,16 +89,7 @@ export default {
 			const OUTPUT = STRING_MSG.length > 1000 ? `${STRING_MSG.substring(0, 1000)}...` : STRING_MSG;
 			let outputUrl = "";
 			if (STRING_MSG.length > 1000) {
-				outputUrl = await client.utils.nibybin.create({
-					title: client.translate(guildData.language, `${this.LANG_KEY}.eval.title`, {
-						clientTag: client.user?.tag,
-					}), // `Evaluación de ${client.user.tag}`,
-					description: `${args.join(' ')}`,
-               language: 'javascript',
-               code: STRING_MSG
-				})
-					.then((x) => x.url)
-					.catch(() => client.translate(guildData.language, `${this.LANG_KEY}.error.noLink`));
+            outputUrl = client.translate(guildData.language, `${this.LANG_KEY}.error.noLink`) // Removed support for NibyBin;
 			}
 
 			return client.utils.message.edit(message, loadingMsg, {
