@@ -1,4 +1,3 @@
-import { NibyBinAPI } from '@dewstouh/nibybin-api';
 import Client from '../structures/Client';
 import GeneralUtils from '../structures/utils/General';
 import LocaleUtils from './utils/LocaleUtils';
@@ -13,7 +12,6 @@ export default class ClientUtils {
    message: MessageUtils;
    locale: typeof LocaleUtils;
    client: Client;
-   nibybin: NibyBinAPI;
    economy: EconomyUtils;
    music: MusicUtils;
    constructor(client: Client) {
@@ -25,6 +23,5 @@ export default class ClientUtils {
       this.perms = new PermissionUtils(this.client);
       this.economy = new EconomyUtils(this.client);
       this.music = new MusicUtils(this.client);
-      this.nibybin = new NibyBinAPI(process.env.NIBYBIN_TOKEN);
    }
 }

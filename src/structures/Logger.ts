@@ -2,7 +2,6 @@ import colors from 'colors';
 import { WebhookClient, ColorResolvable } from 'discord.js';
 import { Embed } from '../extenders/discord/Embed';
 import fs from 'fs';
-import { NibyBinAPI } from '@dewstouh/nibybin-api';
 
 type LogLevel = 'success' | 'error' | 'warn' | 'info' | 'log' | 'debug' | 'table';
 
@@ -125,7 +124,6 @@ export default class Logger {
    private levels: Record<LogLevel, string>;
    private prefix: string;
    private webhookClient: false | WebhookClient;
-   private nibybin: NibyBinAPI;
 
    constructor(options: LogOptions = {}) {
       this.compact = options.compact ?? false;
@@ -140,7 +138,6 @@ export default class Logger {
       };
       this.prefix = options?.prefix ? `${options?.prefix} `.blue + this.space : '';
       this.webhookClient = process.env.WEBHOOK_LOGGER_URL ? new WebhookClient({ url: process.env.WEBHOOK_LOGGER_URL }) : false;
-      this.nibybin = new NibyBinAPI(process.env.NIBYBIN_TOKEN as string);
 
       if (process.env.PRETTY_LOGGER === 'true' || process.env.SAVE_LOGS === 'true' || this.webhookClient) {
          // SI SE HA ACTIVADO LA CUSTOM CONSOLE MOSTRAR SUCCESS
@@ -168,19 +165,7 @@ export default class Logger {
    uploadLog(logType: LogLevel, ...text: any[]) {
       const textContent = text.map((t) => t).join('\n');
       if (textContent.length >= 2000) {
-         return this.nibybin
-            .create({
-               title: `LOG | ${logType.toUpperCase()}`,
-               description: `Fecha: ${this.getTime()}`,
-               language: 'javascript',
-               code: textContent,
-            })
-            .then((x) => {
-               return x.url;
-            })
-            .catch(() => {
-               return false;
-            });
+         return false
       }
    }
 
