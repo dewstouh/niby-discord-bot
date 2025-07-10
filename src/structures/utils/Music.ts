@@ -43,7 +43,7 @@ export default class MusicUtils {
       const hrefs: string[] = [];
 
       if (articleElements) {
-         articleElements.forEach((articleElement: Element) => {
+         articleElements.forEach((articleElement) => {
             const h2Element = articleElement.querySelector('h2[itemprop="name"]');
             if (!h2Element) return;
             const aElement = h2Element.querySelector('a[itemprop="url"]');
