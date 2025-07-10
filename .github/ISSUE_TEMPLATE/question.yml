@@ -1,0 +1,80 @@
+name: ❓ Question/Support
+description: Ask a question or get help with the bot
+title: "[QUESTION] "
+labels: ["question", "help-wanted"]
+assignees:
+  - dewstouh
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reaching out! Please provide as much detail as possible so we can help you effectively.
+        
+        **Before submitting**: Please check our [Discord Support Server](https://discord.gg/MBPsvcphGf) for faster community support!
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Prerequisites
+      description: Please confirm you have completed the following
+      options:
+        - label: I have searched existing issues for similar questions
+          required: true
+        - label: I have read the documentation
+          required: true
+        - label: I have checked the Discord support server
+
+  - type: dropdown
+    id: question-type
+    attributes:
+      label: Question Type
+      description: What type of help do you need?
+      options:
+        - Setup/Installation
+        - Configuration
+        - Command Development
+        - Database Issues
+        - Dashboard Issues
+        - Music System
+        - Hosting/Deployment
+        - Performance
+        - General Usage
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question-description
+    attributes:
+      label: Question
+      description: What would you like to know?
+      placeholder: Please describe your question or issue in detail...
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: What Have You Tried?
+      description: What steps have you already taken to solve this?
+      placeholder: Describe what you've tried so far...
+
+  - type: textarea
+    id: environment-details
+    attributes:
+      label: Environment Details
+      description: Please provide relevant environment information
+      placeholder: |
+        - Node.js version:
+        - Bot version:
+        - Operating System:
+        - Hosting platform:
+        - Any relevant configuration:
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or logs that might help
+      placeholder: Any additional information...

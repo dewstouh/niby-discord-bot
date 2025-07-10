@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discord Support Server
+    url: https://discord.gg/MBPsvcphGf
+    about: Join our Discord server for community support and faster help
+  - name: 📖 Documentation
+    url: https://github.com/dewstouh/niby-discord-bot/blob/main/README.md
+    about: Check the documentation for setup and usage guides
+  - name: 💖 Sponsor
+    url: https://github.com/sponsors/dewstouh
+    about: Support the development of this project
+  - name: 💰 PayPal Donation
+    url: https://paypal.me/elmundodeniby
+    about: Make a one-time donation to support the project
