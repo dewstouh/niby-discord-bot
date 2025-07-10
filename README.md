@@ -17,6 +17,9 @@ The best Discord.js handler **in history** in English, Spanish (and 17 more lang
 
 > <img src="https://cdn.discordapp.com/icons/879397504075063297/a_36490f721aa5fd41f84422ba9942a855.png" width="20" style="border-radius: 50%;"></img> [El Mundo de Niby](https://discord.com/invite/MBPsvcphGf)
 
+![](./assets/help-menu.png)
+![](./assets/music-menu.png)
+
 # 📋 Table of Contents
 
 - [Hybrid, Sharded, Clustered \& Cached Handler! | V14](#hybrid-sharded-clustered--cached-handler--v14)
