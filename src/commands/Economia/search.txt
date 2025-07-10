@@ -1,0 +1,385 @@
+// FIXME: NOT WORKING COOLDOWN + I18N ZONAS 
+
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
+import { Embed, ErrorEmbed } from '../../extenders/discord/Embed';
+import { Command } from '../../structures/Command';
+import Client from '../../structures/Client';
+const listaZonas = [
+   'Cocina',
+   'Lavadora',
+   'Garaje',
+   'Calle',
+   'Tejado',
+   'Guantes',
+   'Cama',
+   'Baño',
+   'Jardín',
+   'Sala',
+   'Sótano',
+   'Comedor',
+   'Desván',
+   'Oficina',
+   'Terraza',
+   'Patio',
+   'Habitación',
+   'Piscina',
+   'Vestíbulo',
+   'Bodega',
+   'Balcón',
+   'Pasillo',
+   'Estudio',
+   'Porche',
+   'Azotea',
+];
+
+export default {
+   DESCRIPTION: 'Reclama tu recompensa de monedas mensuales',
+   ALIASES: ['mensual'],
+   COOLDOWN: 60 * 5, // 5 minutos
+   async execute(client:Client, message, args, prefix, guildData, userData) {
+      const chosenlocations = listaZonas.sort(() => Math.random() - Math.random()).slice(0, 3);
+
+      const searchMessage = await message.reply({
+         embeds: [new Embed().setTitle(client.translate(guildData.language, `${this.LANG_KEY}.whereToSearch`))],
+         components: [
+            new ActionRowBuilder().addComponents(
+               chosenlocations.map((location) => {
+                  return new ButtonBuilder().setStyle(ButtonStyle.Secondary).setLabel(location).setCustomId(location);
+               }),
+            ),
+         ],
+         fetchReply: true,
+      });
+
+      const collector = searchMessage.createMessageComponentCollector({
+         filter: (i) => i?.isButton() && i?.message?.author?.id === client?.user?.id && i?.user,
+         time: 60 * 1000, // 1 mins
+      });
+
+      collector.on('collect', (interaction) => {
+         // if not same user return
+
+         if (interaction?.user?.id !== message.author.id)
+            return message.reply({
+               embeds: [
+                  new ErrorEmbed().addField(
+                     client.translate(guildData.language, `COMMON.notAllowed.name`),
+                     client.translate(guildData.language, `COMMON.notAllowed.value`)
+                  ),
+               ],
+            });
+
+         const selectedLocation = interaction.customId;
+
+         const earnings = Math.floor(Math.random() * 700) + 100;
+
+         const odds = ['W', 'L'];
+         let odd = odds.random();
+
+         if (userData.coins <= 0) {
+            odd = 'W';
+         }
+         if (odd == 'W') {
+            const mensajesW = {
+               Cocina: [
+                  `En la ${selectedLocation} encontraste \`${earnings} monedas\` en el fondo de un cajón.`,
+                  `¡Tesoro culinario! Hallaste \`${earnings} monedas\` en un frasco escondido en la ${selectedLocation}.`,
+                  `Mientras cocinabas, te diste cuenta de que había \`${earnings} monedas\` escondidas en la despensa en la ${selectedLocation}.`,
+               ],
+               Lavadora: [
+                  `Al revisar la ropa en la ${selectedLocation}, encontraste \`${earnings} monedas\` olvidadas en un bolsillo.`,
+                  `Las \`${earnings} monedas\` que estaban dentro en la lavadora en la ${selectedLocation} te sorprendieron gratamente.`,
+                  `¡Ganaste \`${earnings} monedas\` al encontrarlas entre las prendas lavadas en la ${selectedLocation}!`,
+               ],
+               Garaje: [
+                  `Dentro de una caja en el ${selectedLocation}, encontraste \`${earnings} monedas\` escondidas entre herramientas.`,
+                  `Has ganado \`${earnings} monedas\` al revisar un viejo estante en el ${selectedLocation}.`,
+                  `Mientras organizabas el ${selectedLocation}, descubriste \`${earnings} monedas\` entre objetos acumulados.`,
+               ],
+               Calle: [
+                  `Te encontraste con una moneda de oro en la ${selectedLocation}. ¡Ganaste \`${earnings} monedas\`!`,
+                  `Un transeúnte te entregó \`${earnings} monedas\` al ayudarlo con una indicación en la ${selectedLocation}.`,
+                  `¡Enhorabuena! Encontraste \`${earnings} monedas\` en una alcantarilla mientras caminabas por la ${selectedLocation}.`,
+               ],
+               Tejado: [
+                  `Al explorar el ${selectedLocation}, encontraste \`${earnings} monedas\` en una repisa oculta.`,
+                  `¡Tesoro en las alturas! Descubriste \`${earnings} monedas\` en el ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al encontrar un nido de pájaro con monedas en el ${selectedLocation}.`,
+               ],
+               Guantes: [
+                  `Te topaste con una vieja caja de guantes en la ${selectedLocation} y encontraste \`${earnings} monedas\` dentro.`,
+                  `Mientras revisabas los guantes en la ${selectedLocation}, hallaste \`${earnings} monedas\`. ¡Buen trabajo!`,
+                  `Ganaste \`${earnings} monedas\` al revisar los guantes de trabajo en la ${selectedLocation}.`,
+               ],
+               Cama: [
+                  `¡Encontraste \`${earnings} monedas\` debajo en las almohadas en la cama en la ${selectedLocation}!`,
+                  `Has ganado \`${earnings} monedas\` al revisar debajo del colchón en la ${selectedLocation}.`,
+                  `Mientras hacías la cama en la ${selectedLocation}, descubriste \`${earnings} monedas\` entre las sábanas.`,
+               ],
+               Baño: [
+                  `Dentro de una caja olvidada en el baño en la ${selectedLocation}, encontraste \`${earnings} monedas\`.`,
+                  `¡Felicidades! Ganaste \`${earnings} monedas\` al encontrarlas en el botiquín en la ${selectedLocation}.`,
+                  `Revisaste la ducha y descubriste \`${earnings} monedas\` en la ${selectedLocation}.`,
+               ],
+               Jardín: [
+                  `Mientras cavabas en el jardín en la ${selectedLocation}, encontraste \`${earnings} monedas\`. ¡Buena cosecha!`,
+                  `¡Tesoro verde! Hallaste \`${earnings} monedas\` al cuidar las plantas en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al descubrir un cofre enterrado en la ${selectedLocation}.`,
+               ],
+               Sala: [
+                  `Al revisar los cojines en la sala en la ${selectedLocation}, encontraste \`${earnings} monedas\` escondidas.`,
+                  `¡Buena búsqueda! Ganaste \`${earnings} monedas\` al revisar detrás de un cuadro en la ${selectedLocation}.`,
+                  `En un viejo mueble en la ${selectedLocation}, descubriste \`${earnings} monedas\`. ¡Enhorabuena!`,
+               ],
+               Sótano: [
+                  `Dentro de una caja abandonada en el sótano en la ${selectedLocation}, encontraste \`${earnings} monedas\`.`,
+                  `Ganaste \`${earnings} monedas\` al explorar una esquina olvidada del sótano en la ${selectedLocation}.`,
+                  `Mientras limpiabas el sótano en la ${selectedLocation}, descubriste \`${earnings} monedas\`. ¡Buena búsqueda!`,
+               ],
+               Comedor: [
+                  `En el comedor en la ${selectedLocation}, encontraste \`${earnings} monedas\` en una antigua vitrina.`,
+                  `¡Tesoro culinario! Hallaste \`${earnings} monedas\` en una caja de galletas en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al revisar debajo del mantel en el comedor en la ${selectedLocation}.`,
+               ],
+               Desván: [
+                  `Dentro de un cofre antiguo en el desván en la ${selectedLocation}, encontraste \`${earnings} monedas\`.`,
+                  `¡Tesoro escondido! Hallaste \`${earnings} monedas\` al explorar el desván en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al encontrar un baúl olvidado en el desván en la ${selectedLocation}.`,
+               ],
+               Oficina: [
+                  `Mientras ordenabas en la oficina en la ${selectedLocation}, encontraste \`${earnings} monedas\` escondidas en un cajón.`,
+                  `¡Tesoro en papeles! Hallaste \`${earnings} monedas\` en una carpeta en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al revisar detrás de una estantería en la oficina en la ${selectedLocation}.`,
+               ],
+               Azotea: [
+                  `En la azotea en la ${selectedLocation}, encontraste \`${earnings} monedas\` en una repisa oculta.`,
+                  `¡Tesoro en las alturas! Descubriste \`${earnings} monedas\` en la azotea en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al encontrar un nido de pájaro con monedas en la azotea en la ${selectedLocation}.`,
+               ],
+               Porche: [
+                  `En el porche en la ${selectedLocation}, encontraste \`${earnings} monedas\` debajo de un cojín.`,
+                  `¡Tesoro al aire libre! Hallaste \`${earnings} monedas\` al revisar una maceta en el porche en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al descubrir un cofre escondido en el porche en la ${selectedLocation}.`,
+               ],
+               Estudio: [
+                  `En el estudio en la ${selectedLocation}, encontraste \`${earnings} monedas\` en un viejo libro.`,
+                  `¡Tesoro intelectual! Hallaste \`${earnings} monedas\` en una pila de documentos en el estudio en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al revisar detrás de un cuadro en el estudio en la ${selectedLocation}.`,
+               ],
+               Pasillo: [
+                  `Al recorrer el pasillo en la ${selectedLocation}, encontraste \`${earnings} monedas\` en una caja olvidada.`,
+                  `¡Tesoro en tránsito! Hallaste \`${earnings} monedas\` mientras caminabas por el pasillo en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al descubrir un cofre escondido en un rincón del pasillo en la ${selectedLocation}.`,
+               ],
+               Balcón: [
+                  `En el balcón en la ${selectedLocation}, encontraste \`${earnings} monedas\` entre las plantas.`,
+                  `¡Tesoro al aire libre! Hallaste \`${earnings} monedas\` al revisar una maceta en el ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al encontrar un tesoro escondido en el ${selectedLocation}.`,
+               ],
+               Bodega: [
+                  `En la bodega en la ${selectedLocation}, encontraste \`${earnings} monedas\` en una caja de vino antiguo.`,
+                  `¡Tesoro de barriles! Hallaste \`${earnings} monedas\` al explorar los rincones en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al encontrar un cofre escondido entre las botellas en la ${selectedLocation}.`,
+               ],
+               Vestíbulo: [
+                  `En el vestíbulo en la ${selectedLocation}, encontraste \`${earnings} monedas\` en un paraguas olvidado.`,
+                  `¡Tesoro de bienvenida! Hallaste \`${earnings} monedas\` en un perchero en el vestíbulo en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al revisar debajo de un felpudo en el vestíbulo en la ${selectedLocation}.`,
+               ],
+               Piscina: [
+                  `Mientras nadabas en la piscina en la ${selectedLocation}, encontraste \`${earnings} monedas\` en el fondo del agua.`,
+                  `¡Tesoro acuático! Hallaste \`${earnings} monedas\` mientras buceabas en la piscina en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al encontrar una caja sumergida en la piscina en la ${selectedLocation}.`,
+               ],
+               Habitación: [
+                  `En la habitación en la ${selectedLocation}, encontraste \`${earnings} monedas\` bajo la almohada.`,
+                  `¡Tesoro de sueños! Hallaste \`${earnings} monedas\` en una vieja caja de recuerdos en la habitación en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al descubrir un cofre escondido en la habitación en la ${selectedLocation}.`,
+               ],
+               Patio: [
+                  `Al explorar el patio en la ${selectedLocation}, encontraste \`${earnings} monedas\` en el suelo.`,
+                  `¡Tesoro al aire libre! Hallaste \`${earnings} monedas\` mientras regabas las plantas en el patio en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al encontrar un tesoro enterrado en el patio en la ${selectedLocation}.`,
+               ],
+               Terraza: [
+                  `En la terraza en la ${selectedLocation}, encontraste \`${earnings} monedas\` volando en el viento.`,
+                  `¡Buena vista! Hallaste \`${earnings} monedas\` al revisar una maceta en la terraza en la ${selectedLocation}.`,
+                  `Ganaste \`${earnings} monedas\` al descubrir un tesoro en un rincón olvidado en la terraza en la ${selectedLocation}.`,
+               ],
+            };
+
+            const mensajesSeleccionado = mensajesW[selectedLocation];
+
+            const mensajeRandomW = mensajesSeleccionado.random();
+
+            userData.updateOne({
+               coins: userData.coins + earnings,
+            })
+            .then(() => {
+               return interaction.update({
+                  embeds: [new Embed().setDescription(mensajeRandomW).setColor('Green')],
+                  components: [],
+               });
+            }).catch(() => {
+               return interaction.update({
+                  embeds: [new ErrorEmbed().setDescription(client.translate(guildData.language, `${this.LANG_KEY}.win.error.description`))],
+                  components: [],
+               });
+            });
+
+         }
+         const mensajesL = {
+            Cocina: [
+               `Te cortaste con un cuchillo en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al cocinar en la ${selectedLocation}, derramaste una poción costosa y perdiste \`${earnings} monedas\`.`,
+               `Mientras cocinabas en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Lavadora: [
+               `Mientras metías la ropa en la ${selectedLocation}, se cayó tu billetera y perdiste \`${earnings} monedas\`.`,
+               `Oops! Al usar la lavadora en la ${selectedLocation}, olvidaste sacar las monedas y se perdieron.`,
+               `Un error en la lavadora en la ${selectedLocation} hizo que perdieras \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Garaje: [
+               `Te resbalaste en el aceite del suelo del ${selectedLocation} y perdiste \`${earnings} monedas\` por curaciones.`,
+               `Oops! Al reparar tu bicicleta en el ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\`.`,
+               `Mientras limpiabas el ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Calle: [
+               `Te tropezaste en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al caminar distraído en la ${selectedLocation}, perdiste \`${earnings} monedas\` que se cayeron de tu bolsillo.`,
+               `Mientras paseabas en la ${selectedLocation}, un ladrón te robó \`${earnings} monedas\`.`,
+            ],
+            Tejado: [
+               `Resbalaste en el tejado en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al explorar el tejado en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras reparabas el tejado en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Guantes: [
+               `Te lastimaste al usar los guantes en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al revisar los guantes en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras trabajabas con los guantes en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Cama: [
+               `Caíste en la cama en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al hacer la cama en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras limpiabas debajo en la cama en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Baño: [
+               `Te resbalaste en el baño en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al salir en la ducha en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas el botiquín en el baño en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Jardín: [
+               `Te lastimaste al cuidar el jardín en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al podar las plantas en el jardín en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras cavabas en el jardín en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Sala: [
+               `Te tropezaste en la sala en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al limpiar la sala en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en la sala en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Sótano: [
+               `Te caíste en el sótano en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al limpiar el sótano en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en el sótano en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Comedor: [
+               `Te lastimaste al comer en el comedor en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al comer en el comedor en la ${selectedLocation}, derramaste una bebida costosa y perdiste \`${earnings} monedas\`.`,
+               `Mientras organizabas en el comedor en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Desván: [
+               `Te caíste en el desván en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al explorar el desván en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en el desván en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Oficina: [
+               `Te lastimaste en la oficina en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al organizar la oficina en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras limpiabas la oficina en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Azotea: [
+               `Te caíste en la azotea en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al explorar la azotea en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en la azotea en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Porche: [
+               `Te lastimaste en el porche en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al limpiar el porche en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en el porche en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Estudio: [
+               `Te lastimaste en el estudio en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al revisar el estudio en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en el estudio en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Pasillo: [
+               `Te tropezaste en el pasillo en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al caminar distraído en el pasillo en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en el pasillo en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Balcón: [
+               `Te lastimaste en el balcón en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al explorar el balcón en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en el balcón en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Bodega: [
+               `Te lastimaste en la bodega en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al explorar la bodega en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en la bodega en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Vestíbulo: [
+               `Te lastimaste en el vestíbulo en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al revisar el vestíbulo en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en el vestíbulo en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Piscina: [
+               `Te lastimaste nadando en la piscina en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al bucear en la piscina en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras jugabas en la piscina en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Habitación: [
+               `Te lastimaste en la habitación en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al buscar algo en la habitación en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en la habitación en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Patio: [
+               `Te lastimaste en el patio en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al regar las plantas en el patio en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras explorabas en el patio en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+            Terraza: [
+               `Te lastimaste en la terraza en la ${selectedLocation} y perdiste \`${earnings} monedas\` por gastos médicos.`,
+               `Oops! Al descansar en la terraza en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+               `Mientras organizabas en la terraza en la ${selectedLocation}, rompiste algo valioso y te costó \`${earnings} monedas\` en reparaciones.`,
+            ],
+         };
+
+         const mensajesSeleccionado = mensajesL[selectedLocation];
+         const mensajeRandomL = mensajesSeleccionado.random();
+
+         const loseAmount = client.utils.economy.getRandomLoseCoins(8, userData.coins);
+
+         userData.updateOne({
+            coins: userData.coins - loseAmount,
+         })
+         .then(() => {
+            return interaction.update({
+               embeds: [new Embed().setDescription(mensajeRandomL).setColor('Red')],
+               components: [],
+            });
+         })
+         .catch(() => {
+            return interaction.update({
+               embeds: [new ErrorEmbed().setDescription(client.translate(guildData.language, `${this.LANG_KEY}.lose.error.description`))],
+               components: [],
+            });
+         });
+      });
+
+      collector.on('end', async () => {
+         if (searchMessage) await client.utils.message.delete(searchMessage);
+      });
+   },
+} as Command;

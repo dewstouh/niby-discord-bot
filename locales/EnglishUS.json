@@ -1,0 +1,3475 @@
+{
+	"CATEGORIES": {
+		"Admin": {
+			"NAME": "Administration",
+			"DESCRIPTION": "Manage the server, ban members, control user actions, moderators, and more."
+		},
+		"Ajustes": {
+			"NAME": "Settings",
+			"DESCRIPTION": "Set up Niby to be the perfect bot on your server, enable/disable commands or categories you don't want to use or features you don't need.",
+			"Musica": {
+				"NAME": "Music",
+				"DESCRIPTION": "Set default music settings"
+			},
+			"Sorteos": {
+				"NAME": "Giveaways",
+				"DESCRIPTION": "Set up the giveaway system on the server"
+			}
+		},
+		"Diversion": {
+			"NAME": "Fun",
+			"DESCRIPTION": "Have fun with available fun commands",
+			"Texto": {
+				"NAME": "Text",
+				"DESCRIPTION": "Textual fun commands"
+			}
+		},
+		"Dueño": {
+			"NAME": "Owner",
+			"DESCRIPTION": "Manage the operation of Niby",
+			"Premium": {
+				"NAME": "Premium",
+				"DESCRIPTION": "Niby Premium Administration"
+			}
+		},
+		"Economia": {
+			"NAME": "Economy",
+			"DESCRIPTION": "Who will be the richest? Bet coins, play roulette, heads or tails, level up and be #1 on the list.",
+			"Info": {
+				"NAME": "Information",
+				"DESCRIPTION": "View user economy information"
+			}
+		},
+		"Info": {
+			"NAME": "Information",
+			"DESCRIPTION": "Check the information available on your server, its members or Niby.",
+			"Bot": {
+				"NAME": "Bot",
+				"DESCRIPTION": "Niby Information"
+			},
+			"Servidor": {
+				"NAME": "Server",
+				"DESCRIPTION": "Server information"
+			},
+			"Usuario": {
+				"NAME": "User",
+				"DESCRIPTION": "User information"
+			}
+		},
+		"Moderacion": {
+			"NAME": "Moderation",
+			"DESCRIPTION": "Maintain order on the server, sanction users temporarily or permanently to avoid a lack of control."
+		},
+		"Musica": {
+			"NAME": "Music",
+			"DESCRIPTION": "Listen to your favorite songs in incredible quality",
+			"Cola": {
+				"NAME": "Line",
+				"DESCRIPTION": "Manage the player queue"
+			},
+			"Filtro": {
+				"NAME": "Filter",
+				"DESCRIPTION": "Add audio filters to the player"
+			},
+			"Info": {
+				"NAME": "Information",
+				"DESCRIPTION": "View player and queue information"
+			}
+		},
+		"Nsfw": {
+			"NAME": "Nsfw",
+			"DESCRIPTION": "Have a good time with the +18 commandos",
+			"Anime": {
+				"NAME": "Anime",
+				"DESCRIPTION": "NSFW Animated Content (Anime)"
+			}
+		},
+		"Sorteos": {
+			"NAME": "Giveaways",
+			"DESCRIPTION": "Create and configure completely custom giveaways on your server"
+		},
+		"Utilidad": {
+			"NAME": "Utility",
+			"DESCRIPTION": "Streamline your work with utility commands.",
+			"Premium": {
+				"NAME": "Premium",
+				"DESCRIPTION": "See the premium utilities available"
+			}
+		},
+		"PERMISSIONS": {
+			"HANDLER": {
+				"CATEGORY": {
+					"noUserPerms": {
+						"name": "{{{noEmoji}}} You need __all__ these permissions to use a `{{{executionName}}}` command:"
+					},
+					"noBotPerms": {
+						"name": "{{{noEmoji}}} You need __all__ these permissions to use a `{{{executionName}}}` command:"
+					}
+				},
+				"noSendMsgPerms": {
+					"name": "{{{noEmoji}}} I can't view or send messages on this channel.",
+					"value": ">>> I need the `View Channel` and `Send Messages` permissions to be able to interact."
+				},
+				"noEmbedPerms": {
+					"name": "{{{noEmoji}}} I can't send Embeds on this channel.",
+					"value": ">>> I need `Send Embeds` permissions to be able to send embeds."
+				},
+				"cmdError": {
+					"name": "{{{noEmoji}}} **An error occurred while executing `{{{cmdName}}}`.**"
+				},
+				"botMention": {
+					"name": "{{{yesEmoji}}} Hey! | My name is {{{botName}}}",
+					"value": ">>> ***Try {{{helpCmdMention}}} or `{{{prefix}}}help`***"
+				},
+				"guildOnly": {
+					"name": "{{{noEmoji}}} Only on servers",
+					"value": ">>> You can only use this command within a server."
+				},
+				"ownerOnly": {
+					"name": "{{{noEmoji}}} Only developers can run this command",
+					"value": ">>> **Developers:** {{{owners}}}"
+				},
+				"noUserPerms": {
+					"name": "{{{noEmoji}}} You need the following permissions to run this command:"
+				},
+				"noBotPerms": {
+					"name": "{{{noEmoji}}} I need the following permissions to run this command:"
+				},
+				"level": {
+					"name": "{{{noEmoji}}} You do not have enough level to execute this command!",
+					"value": ">>> You need to be at least level `{{{level}}}`, and you are level `{{{userLevel}}}`."
+				},
+				"nsfw": {
+					"name": "{{{noEmoji}}} You can't run this command here!",
+					"value": ">>> **You have to go to a NSFW channel!**"
+				},
+				"premium": {
+					"name": "{{{favouriteEmoji}}} You have found a premium command!",
+					"value": ">>> **Only premium users can run this command!**"
+				}
+			}
+		}
+	},
+	"COMMANDS": {
+		"ADMIN": {
+			"ban": {
+				"USAGE": "<User> <Reason?>",
+				"DESCRIPTION": "Prohibits entry to a server user",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to ban"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Banning reason"
+					}
+				},
+				"execute": {
+					"error": {
+						"name": "{{{noEmoji}}} | An error occurred while banning the user!",
+						"value": ">>> **Make sure it has the necessary permissions!**",
+						"norags": {
+							"name": "{{{noEmoji}}} | You haven't specified any members!",
+							"value": ">>> **Mention it or indicate its ID!**"
+						},
+						"nomember": {
+							"name": "{{{noEmoji}}} | The specified member was not found!",
+							"value": ">>> **Make sure it's on the server!**"
+						}
+					},
+					"noReason": "No reason specified",
+					"success": {
+						"authorName": "Ban {{{name}}}",
+						"name": "{{{yesEmoji}}} | Member `{{{name}}}` has been banned!",
+						"value": ">>> **Reason:** *{{{reason}}}*\n**Moderator:** `{{{moderator}}}` | {{{moderatorMention}}}"
+					}
+				}
+			},
+			"kick": {
+				"USAGE": "<User> <Reason?>",
+				"DESCRIPTION": "Kick a user from the server",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to expel"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Reason for expulsion"
+					}
+				},
+				"execute": {
+					"error": {
+						"name": "{{{noEmoji}}} | An error occurred while expelling the user!",
+						"value": ">>> **Make sure it has the necessary permissions!**",
+						"norags": {
+							"name": "{{{noEmoji}}} | You haven't specified any members!",
+							"value": ">>> **Mention it or indicate its ID!**"
+						},
+						"nomember": {
+							"name": "{{{noEmoji}}} | The specified member was not found!",
+							"value": ">>> **Make sure it's on the server!**"
+						}
+					}
+				}
+			},
+			"unban": {
+				"USAGE": "<UserId> <Reason?>",
+				"DESCRIPTION": "Unban a user from the server",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "User to unban"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Unban reason"
+					}
+				},
+				"execute": {
+					"error": {
+						"name": "{{{noEmoji}}} | An error occurred while unbanning the user!",
+						"value": ">>> **Make sure it has the necessary permissions!**",
+						"norags": {
+							"name": "{{{noEmoji}}} | You haven't specified any members!",
+							"value": ">>> **Mention it or indicate its ID!**"
+						},
+						"notbanned": {
+							"name": "{{{noEmoji}}} | The user you specified is not banned!",
+							"value": ">>> **Use `{{{prefix}}}bans` to see the list of bans on this server!**"
+						}
+					}
+				}
+			}
+		},
+		"AJUSTES": {
+			"MUSICA": {
+				"defaultautoplay": {
+					"DESCRIPTION": "Enable or disable autoplay of tracks on the server by default.",
+					"execute": {
+						"success": ">>> {{{yesEmoji}}} **Autoplay has been set to {{{toggleMode}}} by default!**",
+						"error": {
+							"name": "{{{noEmoji}}} | An error occurred while {{{toggleMode}}} autoplay!",
+							"value": ">>> **I have contacted my developer about this issue.**"
+						}
+					}
+				},
+				"defaultvolume": {
+					"USAGE": "<Volume>",
+					"DESCRIPTION": "Set a default player volume on the server.",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Default volume to set"
+						}
+					},
+					"execute": {
+						"error": {
+							"name": "{{{noEmoji}}} | An error occurred while adjusting the default volume!",
+							"value": ">>> **I have contacted my developer about this issue.**",
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the default volume to set!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 50`"
+							},
+							"invalid": {
+								"name": "{{{noEmoji}}} | You have not specified a valid volume amount!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 50`"
+							}
+						},
+						"success": ">>> {{{yesEmoji}}} **The default volume of the player has been set to `{{{volume}}}`%**"
+					}
+				},
+				"leavetimeout": {
+					"USAGE": "<Time>",
+					"DESCRIPTION": "Sets the maximum wait time before Niby exits the voice channel.",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Time to set"
+						}
+					},
+					"execute": {
+						"error": {
+							"name": "{{{noEmoji}}} | An error occurred while setting the timeout!",
+							"value": ">>> **I have contacted my developer about this issue.**",
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify a waiting time!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 50`"
+							},
+							"invalid": {
+								"name": "{{{noEmoji}}} | You have not specified a valid timeout!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 50`"
+							},
+							"tooLong": {
+								"name": "{{{noEmoji}}} | The waiting duration cannot be longer than `2 hours`!",
+								"value": ">>> **Use a shorter duration**"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Player timeout has been adjusted!",
+							"value": ">>> **I will now only stop the player if it runs empty for `{{{mappedTime}}}`"
+						}
+					}
+				},
+				"playingmsg": {
+					"DESCRIPTION": "Turn the track play message on or off.",
+					"success": ">>> {{{yesEmoji}}} **Play message has been {{{toggleMode}}}!**",
+					"error": {
+						"name": "{{{noEmoji}}} | An error occurred while {{{toggleMode}}} playing message!",
+						"value": ">>> **I have contacted my developer about this issue.**"
+					},
+					"execute": {
+						"success": ">>> **{{{yesEmoji}}} | Player messages have been {{{toggleMode}}}!**"
+					}
+				},
+				"platform": {
+					"DESCRIPTION": "Change the Niby's default search engine",
+					"execute": {
+						"select": {
+							"name": "{{{lupaEmoji}}} Choose a search engine",
+							"value": ">>> **Current search engine:  {{{current}}}**"
+						},
+						"selected": {
+							"name": "{{{platformEmoji}}} Search engine set to `{{{platformName}}}`",
+							"value": ">>> **Now i will search tracks from  {{{current}}}**"
+						}
+					}
+				},
+				"autoshuffle": {
+					"DESCRIPTION": "Autoshuffle a playlist automatically when added to the queue",
+					"execute": {
+						"success": ">>> {{{yesEmoji}}} **Succesfully {{{toggleMode}}} the playlist auto-shuffling!**"
+					}
+				},
+				"djmode": {
+					"DESCRIPTION": "Setup the DJ Mode on the server",
+					"execute": {
+						"rows": {
+							"cmd": {
+								"placeholder": "Add / Remove DJ Commands"
+							},
+							"role": {
+								"placeholder": "Add / Remove DJ Roles"
+							}
+						},
+						"embed": {
+							"enabled": "🎧 System active",
+							"djRoles": "{{{roleEmoji}}} DJ Roles",
+							"noDjRoles": "No DJ Roles set",
+							"noDjCmds": "No DJ Commands set",
+							"djCmds": "{{{commandEmoji}}} DJ Commands"
+						},
+						"djMode": {
+							"disable": {
+								"name": "{{{yesEmoji}}} | Disabled the DJ Mode!",
+								"value": ">>> **Everyone will be able to execute the music commands without limitations!**"
+							},
+							"enable": {
+								"name": "{{{yesEmoji}}} | Enabled the DJ Mode!",
+								"value": ">>> **Now the DJ Roles will be the only ones able to execute the music commands set!**"
+							}
+						},
+						"djCmds": {
+							"success": "{{{yesEmoji}}} | Added {{{addedCmds}}} DJ Commands and removed {{{removedCmds}}} DJ Commands!",
+							"removed": "> **Removed:** {{{removedCmds}}}",
+							"added": "> **Added:** {{{addedCmds}}}"
+						},
+						"djRoles": {
+							"success": "{{{yesEmoji}}} | Added {{{addedRoles}}} DJ Roles and removed {{{removedRoles}}}  DJ Roles!",
+							"removed": "> **Removed:** {{{removedRoles}}}",
+							"added": "> **Added:** {{{addedRoles}}}",
+							"limitExceded": "{{{noEmoji}}} | You can't add more than 25 DJ Roles!",
+							"currentDjRoles": ">>> **Remove some of them first!**\n**Current DJ Roles:** {{{roles}}}"
+						}
+					}
+				}
+			},
+			"language": {
+				"DESCRIPTION": "Set the default Niby language on the server.",
+				"execute": {
+					"success": {
+						"name": "{{{yesEmoji}}} | Language set to {{{emoji}}} `{{{language}}}`",
+						"value": ">>> **All my answers will be in `{{{language}}}`**"
+					},
+					"error": {
+						"name": "{{{noEmoji}}} An error occurred while changing the language!",
+						"value": ">>> **I have contacted my developer about this issue.**"
+					},
+					"menu": {
+						"options": {
+							"selectLanguage": "Set Niby's language to {{{name}}}"
+						}
+					},
+					"embed": {
+						"availableRadios": "Available languages"
+					},
+					"content": {
+						"selectRadio": "**Select a language to set!**"
+					}
+				}
+			},
+			"prefix": {
+				"USAGE": "<Prefix>",
+				"DESCRIPTION": "Change the Niby prefix on the server.",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Prefix to set"
+					}
+				},
+				"execute": {
+					"noargs": {
+						"name": "{{{infoEmoji}}} The prefix for this server is `{{{prefix}}}`",
+						"value": "> **You can change it with:** `{{{prefix}}}{{{cmdName}}} <prefix>`"
+					},
+					"success": {
+						"name": "{{{yesEmoji}}} The prefix has been changed.",
+						"value": "> **New prefix:** `{{{prefix}}}`"
+					},
+					"error": {
+						"name": "{{{noEmoji}}} | An error occurred while changing the prefix!",
+						"value": ">>> **I have contacted my developer about this issue.**"
+					}
+				}
+			},
+			"noprefix": {
+				"DESCRIPTION": "Execute commands without using the prefix (PREMIUM)",
+				"execute": {
+					"enabled": {
+						"name": "{{{yesEmoji}}} Enabled no prefix system!",
+						"value": ">>> **You are now able to execute commands without using the prefix!**\n**Example:** `help`"
+					},
+					"disabled": {
+						"name": "{{{yesEmoji}}} Disabled no prefix system!",
+						"value": ">>> **You now have to use the prefix to execute a command!**\n**Example:** `{{{prefix}}}help`"
+					}
+				}
+			},
+			"SORTEOS": {
+				"gcolor": {
+					"USAGE": "<Color>",
+					"DESCRIPTION": "Change the color of the giveaways",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Color to set"
+						}
+					}
+				},
+				"gemoji": {
+					"DESCRIPTION": "Change the giveaway emoji"
+				}
+			}
+		},
+		"DIVERSION": {
+			"TEXTO": {
+				"8ball": {
+					"USAGE": "<Question>",
+					"DESCRIPTION": "Ask the 8 ball a question",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Question to ask"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the question to ask!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Do you think I will win?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Answer:"
+						},
+						"answers": [
+							"Yes, definitely.",
+							"Not at all.",
+							"It is probable.",
+							"I can't answer that right now.",
+							"Of course!",
+							"Do not count on it.",
+							"Could be.",
+							"Not sure, try again later.",
+							"Of course!",
+							"I don't believe it.",
+							"The prospects are good.",
+							"The prospects are not so good.",
+							"It is very doubtful.",
+							"Absolutely!",
+							"I can't predict it.",
+							"Maybe in the future.",
+							"Do not ask me that.",
+							"I am not qualified to answer that question.",
+							"It's better that I don't tell you.",
+							"Depends on the circumstances."
+						]
+					}
+				},
+				"fliptext": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Flip a text",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to flip"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the text to flip!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Flipped text:"
+						}
+					}
+				},
+				"leetify": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Legalize a text",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to be verified"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the text to be verified!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Legalized text:"
+						}
+					}
+				},
+				"mirrortext": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Mirror text",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to mirror"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the text to mirror!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Text in mirror mode:"
+						}
+					}
+				},
+				"morse": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Convert text to morse code",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to morse code"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the text to convert to Morse!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Morse text:"
+						}
+					}
+				},
+				"randomcase": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Modify text with random capitalization",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to modify"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the text to put in random capital letters!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Text in random capitals:"
+						}
+					}
+				},
+				"reversetext": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Reverse a text",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to invert"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the text to invert!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Inverted text:"
+						}
+					}
+				},
+				"shuffletext": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Mix the words of a text",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to mix"
+						}
+					},
+					"execute": {
+						"success": {
+							"name": "{{{yesEmoji}}} | Mixed text:"
+						},
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify a text to mix!",
+								"value": ">>> **Usage:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						}
+					}
+				},
+				"tinytext": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Convert text to thumbnail",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to go to thumbnail"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the text to put in thumbnail!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Thumbnail text:"
+						}
+					}
+				},
+				"vaporwave": {
+					"USAGE": "<Text>",
+					"DESCRIPTION": "Apply the vaporwave effect to text",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Text to vaporwave"
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the text to put in vaporwave mode!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} Hello, how are you?`"
+							}
+						},
+						"success": {
+							"name": "{{{yesEmoji}}} | Vaporwave text:"
+						}
+					}
+				}
+			}
+		},
+		"DUEÑO": {
+			"eval": {
+				"USAGE": "<Code>",
+				"DESCRIPTION": "Evaluate a Javascript code",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Code to evaluate"
+					}
+				},
+				"execute": {
+					"noOutput": "Not needed",
+					"error": {
+						"noLink": "An error occurred while generating the link"
+					},
+					"noargs": {
+						"name": "{{{noEmoji}}} | You have to specify a code to evaluate.",
+						"value": "**Usage:** `{{{prefix}}}{{{cmdName}}} <code>`"
+					},
+					"eval": {
+						"outputUri": "Output Link: {{{outputUrl}}}",
+						"inputText": "Input:",
+						"outputText": "Output:",
+						"error": "Evaluation error",
+						"title": "{{{clientTag}}}'s Evaluation",
+						"ms": "Evaluated at {{{evalMs}}}"
+					},
+					"loading": {
+						"name": "{{{loadingEmoji}}} Evaluating code",
+						"value": ">>> ***Wait a few seconds..***"
+					}
+				}
+			},
+			"leaveserver": {
+				"USAGE": "<Server Id>",
+				"DESCRIPTION": "Remove Niby from a server",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Server ID to exit"
+					}
+				},
+				"execute": {
+					"description": {
+						"success": ">>> {{{yesEmoji}}} **I have left server `{{{guildToLeave}}}`!**",
+						"error": ">>> {{{noEmoji}}} **I couldn't leave the server `{{{guildToLeave}}}`!**"
+					},
+					"error": {
+						"notfound": {
+							"name": "{{{noEmoji}}} | Server not found!",
+							"value": ">>> **Make sure you have entered your ID correctly!**"
+						}
+					}
+				}
+			},
+			"reload": {
+				"USAGE": "<Module>",
+				"DESCRIPTION": "Reload a Niby module",
+				"OPTIONS": {
+					"0STRING_CHOICES": {
+						"DESCRIPTION": "Module to reload",
+						"CHOICES": {
+							"comandos": "Commands",
+							"menciones": "Mentions",
+							"eventos": "Events",
+							"handlers": "Handlers",
+							"clusters": "Clusters",
+							"botones": "Buttons",
+							"menus": "Menus",
+							"contextmenus": "Context Menus",
+							"modales": "Modals",
+							"componentes": "All components"
+						}
+					}
+				},
+				"execute": {
+					"default": "Commands, Events and Handlers",
+					"loading": {
+						"name": "{{{loadingEmoji}}} Reloading {{{module}}}",
+						"value": "> Wait a few seconds..."
+					},
+					"reloaded": {
+						"name": "{{{yesEmoji}}} Reloaded {{{module}}}",
+						"value": "> Okay!"
+					},
+					"error": {
+						"name": "{{{noEmoji}}} An error occurred while reloading Niby!",
+						"value": "> *See console for more details*"
+					}
+				}
+			},
+			"servers": {
+				"DESCRIPTION": "Check the servers Niby's in",
+				"membersText": "Members",
+				"ownerText": "Owner",
+				"createdAtText": "Created",
+				"pagination": {
+					"title": "{{{nibyEmoji}}} Servers from {{{name}}} {{{nibyEmoji}}}"
+				},
+				"execute": {
+					"membersText": "Members",
+					"ownerText": "Owner",
+					"createdAtText": "Creation",
+					"pagination": {
+						"title": "[`{{{size}}}`] Servers of `{{{name}}}`"
+					}
+				}
+			},
+			"PREMIUM": {
+				"keygen": {
+					"USAGE": "<Duration> <Type?>",
+					"DESCRIPTION": "Generate a premium key with a specific duration",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Premium Duration"
+						},
+						"1STRING_CHOICES": {
+							"DESCRIPTION": "Premium key type",
+							"CHOICES": {
+								"user": "User",
+								"guild": "Server"
+							}
+						}
+					},
+					"execute": {
+						"error": {
+							"noargs": {
+								"name": "{{{noEmoji}}} | You have to specify the premium duration!",
+								"usage": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 30d`"
+							},
+							"invalidDuration": {
+								"name": "{{{noEmoji}}} | You have not specified a valid premium duration!",
+								"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 30d`"
+							}
+						},
+						"success": {
+							"copy": {
+								"name": "{{{infoEmoji}}} Copy Key"
+							},
+							"duration": {
+								"name": "{{{waitEmoji}}} Premium Duration"
+							},
+							"type": {
+								"name": "{{{infoEmoji}}} Key Type"
+							},
+							"content": "**PREMIUM KEY GENERATED!**"
+						},
+						"invalidType": {
+							"name": "{{{noEmoji}}} | You have not specified a valid key type!",
+							"value": ">>> **Available types:** `user` or `server`"
+						}
+					}
+				}
+			}
+		},
+		"ECONOMIA": {
+			"INFO": {
+				"balance": {
+					"USAGE": "<User?>",
+					"DESCRIPTION": "View a user's financial information",
+					"OPTIONS": {
+						"0USER": {
+							"DESCRIPTION": "User to check"
+						}
+					},
+					"execute": {
+						"embed": {
+							"author": "{{{name}}} Balance",
+							"field": {
+								"gems": "{{{gemEmoji}}} Gems:",
+								"coins": ":coin: Coins:",
+								"level": "📈 Level:"
+							},
+							"value": {
+								"gems": ">>> **`{{{gems}}} gems`**",
+								"coins": ">>> **`{{{coins}}} coins`**",
+								"level": ">>> **`Level {{{level}}}` - `{{{xp}}}xp`**"
+							}
+						}
+					}
+				},
+				"level": {
+					"USAGE": "<User?>",
+					"DESCRIPTION": "See a user's level",
+					"OPTIONS": {
+						"0USER": {
+							"DESCRIPTION": "User to check"
+						}
+					},
+					"execute": {
+						"embed": {
+							"author": "Range of {{{name}}}",
+							"description": ">>> **You are level `{{{level}}}` and have `{{{xp}}}xp`**\n*you need `{{{xpForNextLevel}}}xp` to level up*",
+							"field": {
+								"level": "📈 Level",
+								"value": ">>> **`Level {{{level}}}` - `{{{xp}}}xp/{{{xpForNextLevel}}}xp`**"
+							}
+						}
+					}
+				},
+				"leaderboard": {
+					"DESCRIPTION": "Check out the top 10 richest users",
+					"execute": {
+						"coins": "Coins",
+						"footer": "Get coins to be #1 on the list"
+					}
+				}
+			},
+			"bet": {
+				"USAGE": "<Quantity>",
+				"DESCRIPTION": "Bet a number of coins",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Amount to bet"
+					}
+				},
+				"execute": {
+					"error": {
+						"noargs": {
+							"name": "{{{noEmoji}}} | You have to specify an amount to bet.",
+							"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 50`"
+						},
+						"invalid": {
+							"name": "{{{noEmoji}}} | You have not specified a valid numerical amount.",
+							"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 50`"
+						},
+						"notenough": {
+							"name": "{{{noEmoji}}} | You don't have enough coins to bet.",
+							"value": ">>> **Take coins from the bank or get more!**"
+						}
+					},
+					"win": {
+						"success": {
+							"name": "😎 You have won the bet!",
+							"value": ">>> **You have collected {{{coinEmoji}}} `{{{amount}}} coins`!**"
+						},
+						"error": {
+							"name": "{{{noEmoij}}} The bet could not be processed!",
+							"value": ">>> **I have contacted my developer about this issue.**"
+						}
+					},
+					"lose": {
+						"success": {
+							"name": "😭 You have lost the bet!",
+							"value": ">>> **You have lost {{{coinEmoji}}} `{{{amount}}} coins`!**"
+						},
+						"error": {
+							"name": "{{{noEmoij}}} The bet could not be processed!",
+							"value": ">>> **I have contacted my developer about this issue.**"
+						}
+					}
+				}
+			},
+			"daily": {
+				"DESCRIPTION": "Claim your daily reward",
+				"execute": {
+					"success": {
+						"name": "{{{yesEmoji}}} | You have claimed your daily reward!",
+						"value": ">>> **You have collected {{{coinEmoji}}} `{{{claimed}}} coins`!**"
+					},
+					"cooldown": {
+						"name": "{{{waitEmoji}}} | You can't claim your daily reward yet!",
+						"value": ">>> **You can claim it {{{cooldown}}}**"
+					}
+				}
+			},
+			"monthly": {
+				"DESCRIPTION": "Claim your monthly reward",
+				"execute": {
+					"success": {
+						"name": "{{{yesEmoji}}} | You have claimed your monthly reward!",
+						"value": ">>> **You have collected {{{coinEmoji}}} `{{{claimed}}} coins`!**"
+					},
+					"cooldown": {
+						"name": "{{{waitEmoji}}} | You can't claim your monthly reward yet!",
+						"value": ">>> **You can claim it {{{cooldown}}}**"
+					}
+				}
+			},
+			"search": {
+				"DESCRIPTION": "Search in hidden areas and places to get coins",
+				"execute": {
+					"whereToSearch": "What area do you want to search?",
+					"win": {
+						"error": {
+							"description": ">>> {{{noEmoji}}} **An error has occurred**"
+						}
+					}
+				}
+			},
+			"work": {
+				"DESCRIPTION": "Work and get coins",
+				"execute": {
+					"journeys": [
+						"Package delivery man",
+						"Programmer",
+						"Graphic designer",
+						"Administrative assistant",
+						"Software engineer",
+						"Data analyst",
+						"Chef",
+						"Doctor",
+						"Lawyer",
+						"Fitness instructor",
+						"Teacher",
+						"Counter",
+						"Architect",
+						"Electrician",
+						"Plumber",
+						"Automotive mechanic",
+						"Carpenter",
+						"Painter",
+						"Waiter",
+						"Receptionist",
+						"Secretary",
+						"Financial Advisor",
+						"Community manager",
+						"Content writer",
+						"Translator",
+						"Business consultant",
+						"Machine operator",
+						"Seller",
+						"Pharmacist"
+					],
+					"success": {
+						"name": "{{{yesEmoji}}} | You have finished your day as {{{job}}}!",
+						"value": ">>> **You have been paid {{{coinEmoji}}} `{{{amount}}} coins`!**"
+					},
+					"cooldown": {
+						"name": "{{{waitEmoji}}} | You have already worked recently!",
+						"value": ">>> **You will be able to work again {{{cooldown}}}**"
+					},
+					"error": {
+						"name": "{{{waitEmoji}}} | An error occurred while adding coins!",
+						"value": ">>> **I have contacted my developer about this issue.**"
+					}
+				}
+			}
+		},
+		"INFO": {
+			"BOT": {
+				"help": {
+					"USAGE": "<Command | Category>",
+					"DESCRIPTION": "See all the information and functions available in Niby",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Command or Category to check"
+						}
+					},
+					"execute": {
+						"helpEmbed": {
+							"title": "Help Menu",
+							"description": "{{{flechaderEmoji}}} Server prefix: `{{{prefix}}}`\n{{{flechaderEmoji}}} Type: `{{{prefix}}}help <command>` for more info.",
+							"field1": {
+								"name": "{{{commandEmoji}}} Commands",
+								"value": "> `{{{commandCount}}} Commands`"
+							},
+							"field2": {
+								"name": "{{{wifiEmoji}}} Ping"
+							},
+							"field3": {
+								"name": "{{{infoEmoji}}} Version"
+							},
+							"field4": {
+								"name": "{{{nibyEmoji}}} Categories"
+							}
+						},
+						"menu": {
+							"category": {
+								"description": "Check the {{{amount}}} {{{category}}} Commands"
+							}
+						},
+						"catEmbed": {
+							"nocmds": "> *There are no commands for this category yet...*"
+						},
+						"command": {
+							"notfound": {
+								"name": "{{{noEmoji}}} The command you specified was not found.",
+								"value": "> Use `{{{prefix}}}help` to see commands and categories!"
+							},
+							"name": "💬 Command Name:",
+							"usage": "😎 Usage:",
+							"alias": "{{{mouseEmoji}}} Aliases:",
+							"description": "✍ Description:",
+							"userPermissions": "{{{personEmoji}}} Permissions required:",
+							"botPermissions": "{{{nibyEmoji}}} Niby permissions required:"
+						}
+					}
+				},
+				"ping": {
+					"DESCRIPTION": "Check out Niby's connection stability",
+					"execute": {
+						"embed": {
+							"field1": {
+								"name": "{{{discordEmoji}}} Discord API"
+							},
+							"field2": {
+								"name": "{{{waitEmoji}}} [DB] Latency"
+							},
+							"field3": {
+								"name": "{{{onlineEmoji}}} [DB] Ping"
+							},
+							"footer": "These response times are approximate"
+						}
+					}
+				},
+				"stats": {
+					"DESCRIPTION": "View Niby's global statistics",
+					"execute": {
+						"loadingEmbed": {
+							"field1": {
+								"name": "{{{loadingEmoji}}} Loading Niby statistics...",
+								"value": "> *It may take a few minutes...*"
+							}
+						},
+						"statsEmbed": {
+							"title": "Global Statistics",
+							"field4": {
+								"name": "{{{discordEmoji}}} Servers",
+								"value": ">>> ```yml\n{{{guilds}}} Servers```"
+							},
+							"field5": {
+								"name": "{{{personEmoji}}} Members",
+								"value": ">>> ```yml\n{{{members}}} Members```"
+							},
+							"field6": {
+								"name": "RAM Usage"
+							},
+							"field7": {
+								"name": "{{{pcEmoji}}} CPU Usage"
+							},
+							"name": "{{{infoEmoji}}} Name:",
+							"connection": {
+								"name": "{{{wifiEmoji}}} Connection data:",
+								"dbPing": "Database",
+								"dbLatency": "Data latency"
+							},
+							"counters": {
+								"name": "{{{personEmoji}}} Counters:",
+								"users": "Users",
+								"guilds": "Servers",
+								"players": "Players"
+							},
+							"hardware": {
+								"name": "{{{mouseEmoji}}} Hardware Usage:",
+								"memory": "RAM",
+								"memoryFile": "Main file",
+								"memoryTotal": "Reserved memory",
+								"cpuUsage": "CPU",
+								"players": "Players"
+							},
+							"instances": {
+								"name": "{{{nibyEmoji}}} Instances:",
+								"playerNodes": "Nodes"
+							}
+						},
+						"singleStatsEmbed": {
+							"title": "{{{thisOrOther}}} `#{{{cluster}}}` | Active since {{{uptime}}}",
+							"description": ">>> ```yml\nShards: {{{shards}}}\nPing: {{{ping}}}ms\nServers: {{{guilds}}}\nMembers: {{{members}}}\nPlayers: {{{players}}}\nNodes: {{{playerNodes}}}\nRAM: {{{memory}}}```"
+						},
+						"thisOrOther": {
+							"this": "{{{onlineEmoji}}} This cluster:",
+							"other": "Cluster"
+						}
+					}
+				},
+				"support": {
+					"DESCRIPTION": "Receive support on the official server",
+					"execute": {
+						"embed": {
+							"name": "{{{nibyEmoji}}} Join the support server."
+						},
+						"button": {
+							"support": "Support",
+							"invite": "Invite me"
+						}
+					}
+				},
+				"uptime": {
+					"DESCRIPTION": "Check Niby's uptime",
+					"execute": {
+						"embed": {
+							"field1": {
+								"name": "{{{waitEmoji}}} Uptime:"
+							}
+						}
+					}
+				},
+				"invite": {
+					"DESCRIPTION": "Invite Niby to your server",
+					"execute": {
+						"embed": {
+							"name": "{{{nibyEmoji}}} Invite me to your server.",
+							"value": ">>> [`Click`]({{{invite}}})"
+						},
+						"button": {
+							"invite": "Invite me",
+							"support": "Support"
+						}
+					}
+				},
+				"memory": {
+					"DESCRIPTION": "Check Niby's memory usage"
+				}
+			},
+			"SERVIDOR": {
+				"admins": {
+					"DESCRIPTION": "See server administrators",
+					"execute": {
+						"noAdmins": "'There are no administrators'",
+						"andMore": "*and `{{{amount}}}` admins more...*",
+						"embed": {
+							"field": {
+								"owner": "{{{crownEmoji}}} Owner:",
+								"userAdmins": "{{{personEmoji}}} Administrator Users:",
+								"botAdmins": "{{{botEmoji}}} Administrator Bots:"
+							},
+							"footer": {
+								"onlyCached": "Only administrators in the Niby cache are shown."
+							}
+						}
+					}
+				},
+				"avatar": {
+					"DESCRIPTION": "See the server avatar",
+					"execute": {
+						"embed": {
+							"author": "Avatar of {{{name}}}"
+						}
+					}
+				},
+				"banner": {
+					"DESCRIPTION": "Check the server banner",
+					"execute": {
+						"error": {
+							"nobanner": "`>>> {{{noEmoji}}} | **The server does not have a banner set!**"
+						},
+						"embed": {
+							"author": "{{{name}}} banner"
+						}
+					}
+				},
+				"members": {
+					"DESCRIPTION": "See the number of members on the server",
+					"execute": {
+						"embed": {
+							"description": {
+								"totalMemberCount": ">>> **There are a total of `{{{memberCount}}} members` on this server.**",
+								"members": "**`{{{memberCount}}} members` (`{{{percentage}}}%`)**",
+								"bots": "**`{{{memberCount}}} bots` (`{{{percentage}}}%`)**",
+								"cached": "**`{{{memberCount}}} cached` (`{{{percentage}}}%`)**"
+							},
+							"field": {
+								"members": {
+									"name": "{{{personEmoji}}} Members",
+									"value": {
+										"cached": ">>> {{{nibyEmoji}}} **Cached:** `{{{memberCount}}}`",
+										"admins": "{{{roleEmoji}}} **Administrators:** `{{{memberCount}}}`",
+										"online": "{{{onlineEmoji}}} **Connected:** `{{{memberCount}}}`",
+										"dnd": "{{{dndEmoji}}} **Busy:** `{{{memberCount}}}`",
+										"idle": "{{{idleEmoji}}} **Absent:** `{{{memberCount}}}`",
+										"offline": "{{{offlineEmoji}}} **Disconnected:** `{{{memberCount}}}`"
+									}
+								},
+								"bots": {
+									"name": "{{{botEmoji}}} Bots",
+									"value": {
+										"cached": ">>> {{{nibyEmoji}}} **Cached:** `{{{memberCount}}}`",
+										"admins": "{{{roleEmoji}}} **Administrators:** `{{{memberCount}}}`",
+										"online": "{{{onlineEmoji}}} **Connected:** `{{{memberCount}}}`",
+										"dnd": "{{{dndEmoji}}} **Busy:** `{{{memberCount}}}`",
+										"idle": "{{{idleEmoji}}} **Absent:** `{{{memberCount}}}`",
+										"offline": "{{{offlineEmoji}}} **Disconnected:** `{{{memberCount}}}`"
+									}
+								}
+							},
+							"footer": {
+								"onlyCached": "Only members in the Niby cache are shown."
+							}
+						}
+					}
+				},
+				"splash": {
+					"DESCRIPTION": "Check the server welcome image (Splash)",
+					"execute": {
+						"error": {
+							"noSplash": "`>>> {{{noEmoji}}} | **The server does not have a splash set!**"
+						},
+						"embed": {
+							"author": "{{{name}}} Splash"
+						}
+					}
+				}
+			},
+			"USUARIO": {
+				"avatar": {
+					"USAGE": "<User?>",
+					"DESCRIPTION": "View a user's avatar",
+					"OPTIONS": {
+						"0USER": {
+							"DESCRIPTION": "User to check"
+						}
+					},
+					"execute": {
+						"embed": {
+							"author": {
+								"avatar": "Avatar of {{{name}}}"
+							}
+						}
+					}
+				},
+				"banner": {
+					"USAGE": "<User?>",
+					"DESCRIPTION": "View a user's banner",
+					"OPTIONS": {
+						"0USER": {
+							"DESCRIPTION": "User to check"
+						}
+					},
+					"execute": {
+						"embed": {
+							"author": {
+								"avatar": "{{{name}}} banner"
+							},
+							"description": ">>> {{{noEmoji}}} **Member does not have a banner set!**"
+						}
+					}
+				}
+			},
+			"emoji": {
+				"USAGE": "<Emoji(s)>",
+				"DESCRIPTION": "View information about one or more emojis",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Emoji(s) to check"
+					}
+				},
+				"execute": {
+					"emoji": {
+						"name": "Name:",
+						"animated": "Animated:",
+						"type": {
+							"name": "Emoji Type:",
+							"custom": {
+								"value": "`Custom Emoji`"
+							},
+							"default": {
+								"value": "`Default Emoji`"
+							}
+						},
+						"url": "Emoji URL:",
+						"copy": "Copy Emoji:"
+					},
+					"error": {
+						"invalid": {
+							"name": "{{{noEmoji}}} You have not specified any valid emoji!",
+							"value": ">>> **Use emojis from __this server__ or __native emojis__**\n**Example:** `{{{prefix}}}{{{cmdName}}} 🍋`"
+						}
+					}
+				}
+			},
+			"emojis": {
+				"DESCRIPTION": "View the list of emojis on the server",
+				"execute": {
+					"embed": {
+						"author": "{{{name}}} Emojis",
+						"footer": "You can use {{{prefix}}}emoji <Emoji> to view their information."
+					},
+					"noEmojis": "{{{noEmoji}}} | No emojis found on this server!"
+				}
+			},
+			"guild": {
+				"DESCRIPTION": "View server information",
+				"execute": {
+					"embed": {
+						"field": {
+							"guild": "Server:",
+							"owner": "Owner:",
+							"dates": "Dates:",
+							"creation": "Creation:",
+							"gotInvitedAt": "I was invited at:",
+							"members": {
+								"name": "Members:",
+								"totals": "Totals:",
+								"cached": "Cached:",
+								"admins": "Administrators:",
+								"online": "Connected:",
+								"dnd": "Busy:",
+								"idle": "Idling:",
+								"offline": "Disconnected:"
+							},
+							"channels": {
+								"name": "Channels:",
+								"totals": "Totals:",
+								"text": "Cached:",
+								"threads": "Threads:",
+								"voice": "Voice:",
+								"announcements": "Advertisements:",
+								"rules": "Rules:"
+							},
+							"events": "Events:",
+							"roles": "Roles:",
+							"bans": "Bans:",
+							"level": "Level:",
+							"boosts": "Boosts:",
+							"invites": "Invitations:",
+							"stickers": "Stickers:",
+							"language": "Language:"
+						}
+					}
+				}
+			},
+			"id": {
+				"USAGE": "<User | Channel | Role>",
+				"DESCRIPTION": "Check the ID of a user/channel/server role",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "User/Channel/Role to check"
+					}
+				},
+				"execute": {
+					"embed": {
+						"author": "ID of {{{name}}}"
+					}
+				}
+			},
+			"member": {
+				"USAGE": "<User?>",
+				"DESCRIPTION": "View a user's information on the server",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to check"
+					}
+				},
+				"execute": {
+					"andMore": "*and `{{{amount}}}` more roles...*",
+					"embed": {
+						"field": {
+							"member": "Member:",
+							"dates": "Dates:",
+							"creation": "Creation:",
+							"joinedAt": "Joined on:",
+							"status": "State:",
+							"highestRole": "Highest role:",
+							"booster": "Booster",
+							"badges": {
+								"name": "Badges:",
+								"noBadges": "No badges."
+							},
+							"roles": "Roles",
+							"permissions": "Permissions:"
+						}
+					},
+					"hasNoRoles": "has no roles"
+				}
+			},
+			"permissions": {
+				"USAGE": "<User | Role>",
+				"DESCRIPTION": "View the permissions of a user or role on the server",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "User/Role to check"
+					}
+				},
+				"execute": {
+					"author": "{{{name}}} Permissions"
+				}
+			},
+			"roles": {
+				"USAGE": "<User?>",
+				"DESCRIPTION": "View a user's or server's roles",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to check"
+					}
+				},
+				"execute": {
+					"embed": {
+						"field": {
+							"noRoles": "'He has no roles'",
+							"andMore": "*and `{{{amount}}}` more roles...*"
+						},
+						"author": "{{{name}}} Roles",
+						"footer": "The roles are ordered from highest to lowest according to their importance."
+					}
+				}
+			},
+			"premium": {
+				"DESCRIPTION": "View your premium and server status.",
+				"execute": {
+					"fields": {
+						"guild": {
+							"notPremium": {
+								"name": "{{{noEmoji}}} | This server is not premium.",
+								"value": ">>> **The server does not have access to Niby's premium benefits.**"
+							},
+							"premium": {
+								"name": "{{{yesEmoji}}} | This server is premium.",
+								"value": ">>> **The server has all the exclusive premium benefits and functions of Niby until <t:{{{expiration}}}:F>..**"
+							}
+						},
+						"user": {
+							"premium": {
+								"name": "{{{yesEmoji}}} | You are a premium user.",
+								"value": ">>> **You have all the benefits and exclusive premium features of Niby until <t:{{{expiration}}}:F>.**"
+							},
+							"notPremium": {
+								"name": "{{{noEmoji}}} | You are not a premium user.",
+								"value": ">>> **You do not have access to Niby's premium benefits.**"
+							}
+						}
+					},
+					"button": {
+						"getPremium": "Get premium"
+					}
+				}
+			},
+			"role": {
+				"USAGE": "<Role>",
+				"DESCRIPTION": "Check the information about a role",
+				"OPTIONS": {
+					"0ROLE": {
+						"DESCRIPTION": "Role to check"
+					}
+				},
+				"execute": {
+					"notfound": {
+						"name": "{{{noEmoji}}} | The specified role was not found!",
+						"value": "> Use `{{{prefix}}}roles` to check all server roles!"
+					},
+					"embed": {
+						"field": {
+							"role": "Role:",
+							"dates": "Dates:",
+							"creation": "Creation:",
+							"position": "Position:",
+							"hexColor": "Hexadecimal Color:",
+							"extras": {
+								"name": "Extras:",
+								"emoji": "Has emoji?",
+								"mentionable": "Is it mentionable?",
+								"managed": "Is it an integrated role?",
+								"hoisted": "Does it show the users who have it separately?",
+								"boosterRole": "Is it the booster role?",
+								"purchaseable": "Is it purchasable?",
+								"editable": "Is it editable?"
+							},
+							"permissions": "Permissions:",
+							"membersWhoHaveIt": "Members who have it:"
+						}
+					},
+					"noargs": {
+						"name": "{{{noEmoji}}} You have to specify the role to check!",
+						"value": ">>> **Use: `{{{prefix}}}{{{cmdName}}} <Role>`**\n*check out the server roles by using {{{prefix}}}roles*"
+					}
+				}
+			},
+			"channel": {
+				"USAGE": "<Channel?>",
+				"DESCRIPTION": "Check the information about a channel",
+				"OPTIONS": {
+					"0CHANNEL": {
+						"DESCRIPTION": "Channel to check"
+					}
+				},
+				"execute": {
+					"embed": {
+						"field": {
+							"channel": "Channel:",
+							"dates": "Dates:",
+							"creation": "Creation:",
+							"position": "Position:",
+							"parent": "Category:",
+							"membersWhoSeeIt": "Members who can see it",
+							"extras": {
+								"name": "Extras:",
+								"type": "Type",
+								"deletable": "Is it deletable?",
+								"viewable": "Is it visible?",
+								"manageable": "Is it manageable?",
+								"nsfw": "Is it +18?"
+							}
+						}
+					}
+				}
+			}
+		},
+		"MODERACION": {
+			"baninfo": {
+				"USAGE": "<User ID>",
+				"DESCRIPTION": "View ban information on the server",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "User ID to check"
+					}
+				},
+				"execute": {
+					"error": {
+						"norags": {
+							"name": "{{{noEmoji}}} | You haven't specified any members!",
+							"value": ">>> **Mention it or indicate its ID!**"
+						},
+						"notbanned": {
+							"name": "{{{noEmoji}}} | The member you specified is not banned!",
+							"value": ">>> **Use `{{{prefix}}}bans` to see the list of bans on this server!**"
+						}
+					},
+					"embed": {
+						"author": "{{{name}}} ban",
+						"field": {
+							"username": "{{{personEmoji}}} Username:",
+							"userid": "{{{infoEmoji}}} User ID:",
+							"bot": "{{{botEmoji}}} Bot:",
+							"banReason": "{{{infoEmoji}}} Ban Reason:"
+						}
+					}
+				}
+			},
+			"bans": {
+				"DESCRIPTION": "View total bans on the server and their details",
+				"execute": {
+					"loadingBans": {
+						"name": "{{{loadingEmoji}}} Loading server bans",
+						"value": ">>> ***Wait a few seconds..***"
+					},
+					"noBans": ">>> {{{noEmoji}}} | **There are no banned users on this server!**"
+				}
+			},
+			"clear": {
+				"USAGE": "<Quantity>",
+				"DESCRIPTION": "Delete a number of messages in a channel (Maximum: 100) (Premium: 500)",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Number of messages to delete"
+					}
+				},
+				"execute": {
+					"error": {
+						"norags": {
+							"name": "{{{noEmoji}}} | You have to specify the number of messages to delete!",
+							"value": ">>> **Minimum:** `1 message`\n**Maximum:** `500 messages`"
+						},
+						"invalid": {
+							"name": "{{{noEmoji}}} | You have not specified a valid number of messages to delete!",
+							"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 50`"
+						}
+					},
+					"success": {
+						"description": ">>> {{{yesEmoji}}} | **{{{amount}}} messages have been deleted**\n**Total operating duration: {{{duration}}}**"
+					}
+				}
+			},
+			"clearwarnings": {
+				"USAGE": "<User>",
+				"DESCRIPTION": "Delete all notices for a user on the server",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to remove notices"
+					}
+				},
+				"execute": {
+					"error": {
+						"norags": {
+							"name": "{{{noEmoji}}} | You haven't specified any members!",
+							"value": ">>> **Mention it or indicate its ID!**"
+						},
+						"nomember": {
+							"name": "{{{noEmoji}}} | The specified member was not found!",
+							"value": ">>> **Make sure it's on the server!**"
+						}
+					},
+					"success": {
+						"author": "{{{name}}} notices removed!",
+						"name": "{{{yesEmoji}}} | All notices from member `{{{name}}}` have been removed",
+						"value": ">>> **You now have `0` warnings on the server**"
+					},
+					"footer": {
+						"allRemoved": "All ads removed"
+					},
+					"nowarns": ">>> {{{yesEmoji}}} | {{{mention}}} **does not have any notice.**"
+				}
+			},
+			"slowmode": {
+				"USAGE": "<Time> <Channel?>",
+				"DESCRIPTION": "Set a cooldown on the current channel",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Channel to set the cooldown"
+					},
+					"1CHANNEL": {
+						"DESCRIPTION": "Waiting time between messages"
+					}
+				},
+				"execute": {
+					"error": {
+						"norags": {
+							"name": "{{{noEmoji}}} | You haven't specified a cooldown time!",
+							"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} 5s`"
+						},
+						"tooHighTimeout": {
+							"name": "{{{noEmoji}}} | The cooldown duration cannot be longer than `6 hours`!",
+							"value": ">>> **Use a shorter duration!**"
+						},
+						"notimeout": {
+							"name": "{{{noEmoji}}} | You haven't specified a cooldown time!",
+							"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} 5s`"
+						},
+						"invalidtimeout": {
+							"name": "{{{noEmoji}}} | You have not specified a valid cooldown time!",
+							"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} 5s`"
+						}
+					},
+					"success": {
+						"author": "Slow mode set to {{{name}}}",
+						"name": "{{{yesEmoji}}} Slow mode has been set to {{{channel}}}",
+						"value": ">>> **Reason:** *{{{reason}}}*\n**Moderator:** `{{{moderator}}}` | {{{moderatorMention}}}\n**Cooldown:** {{{duration}}} wait per message"
+					}
+				}
+			},
+			"fixusername": {
+				"USAGE": "<User>",
+				"DESCRIPTION": "Replaces a user's strange characters on the server with normal characters",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to normalize"
+					}
+				},
+				"execute": {
+					"error": {
+						"name": "{{{noEmoji}}} | I couldn't normalize the username!",
+						"value": ">>> **Make sure it has the necessary permissions!**"
+					},
+					"success": {
+						"author": "Name normalization to {{{name}}}",
+						"name": "{{{yesEmoji}}} | Member name `{{{name}}}` has been normalized!",
+						"value": ">>> **Reason:** *{{{reason}}}*\n**Moderator:** `{{{moderator}}}` | {{{moderatorMention}}}"
+					}
+				}
+			},
+			"lock": {
+				"USAGE": "<Channel?> <Users?> <Roles?>",
+				"DESCRIPTION": "Block a channel on the server so that no one can send messages",
+				"OPTIONS": {
+					"0CHANNEL": {
+						"DESCRIPTION": "Channel to block"
+					},
+					"1USER": {
+						"DESCRIPTION": "Users to block"
+					},
+					"2ROLE": {
+						"DESCRIPTION": "Roles to block"
+					}
+				},
+				"execute": {
+					"noThreads": {
+						"name": "{{{noEmoji}}} | That channel is a thread!",
+						"value": ">>> **You cannot block threads!**"
+					},
+					"alreadyLocked": {
+						"name": "{{{noEmoji}}} | Channel {{{channel}}} was already blocked!",
+						"value": ">>> **You can unlock it using `{{{prefix}}}unlock` {{{channel}}}**"
+					},
+					"error": {
+						"name": "{{{noEmoji}}} | I couldn't block the channel!",
+						"value": ">>> **Make sure it has the necessary permissions!**"
+					},
+					"success": {
+						"name": "{{{yesEmoji}}} | Channel {{{channel}}} blocked",
+						"value": ">>> **Channel blocked members:** `{{{usersAmount}}} members`\n**Locked channel roles:** `{{{rolesAmount}}} roles`",
+						"description": ">>> {{{yesEmoji}}} **Channel {{{channel}}} blocked for everyone!**"
+					}
+				}
+			},
+			"snipe": {
+				"USAGE": "<Channel?>",
+				"DESCRIPTION": "View recently deleted messages in a server channel",
+				"OPTIONS": {
+					"0CHANNEL": {
+						"DESCRIPTION": "Channel to see messages"
+					}
+				},
+				"execute": {
+					"error": {
+						"nosnipes": ">>> {{{noEmoji}}} **There are no deleted messages in** {{{channel}}}"
+					},
+					"embed": {
+						"footer": {
+							"userid": "User ID:",
+							"messageid": "Message ID:"
+						}
+					}
+				}
+			},
+			"timeout": {
+				"USAGE": "<User> <Duration> <Reason?>",
+				"DESCRIPTION": "Mutes a member of the server",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to mute"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Mute duration"
+					},
+					"2STRING": {
+						"DESCRIPTION": "Mute reason"
+					}
+				},
+				"execute": {
+					"error": {
+						"notimeout": {
+							"name": "{{{noEmoji}}} | You have not specified the timeout time!",
+							"value": ">>> **Example:** `7d`"
+						},
+						"invalidTimeout": {
+							"name": "{{{noEmoji}}} | You have not specified a valid timeout time!",
+							"value": ">>> **Example:** `7d`"
+						},
+						"tooHighTimeout": {
+							"name": "{{{noEmoji}}} | The timeout duration cannot be longer than `27 days`!",
+							"value": ">>> **Use a shorter duration!**"
+						},
+						"tooLowTimeout": {
+							"name": "{{{noEmoji}}} | The timeout duration cannot be less than `30 seconds`!",
+							"value": ">>> **Use a longer duration!**"
+						},
+						"name": "{{{noEmoji}}} | An error occurred while muting the user!",
+						"value": ">>> **Make sure you have the necessary permissions and the user to be muted is not an administrator!**"
+					},
+					"dm": {
+						"success": {
+							"name": "{{{yesEmoji}}} | You have been muted from `{{{name}}}`",
+							"value": ">>> **Reason:** *{{{reason}}}*\n**Moderator:** `{{{moderator}}}` | {{{moderatorMention}}}\n**Duration:** {{{duration}}}\n**You will be dismuted {{{unmutedTimeUnix}}}**"
+						}
+					},
+					"author": "Mute of {{{name}}}",
+					"success": {
+						"name": "{{{yesEmoji}}} | Member `{{{name}}}` has been muted!",
+						"value": ">>> **Reason:** *{{{reason}}}*\n**Moderator:** `{{{moderator}}}` | {{{moderatorMention}}}\n**Duration:** {{{duration}}}\n**You will be dismuted {{{unmutedTimeUnix}}}**"
+					},
+					"alreadyMuted": {
+						"name": "{{{noEmoji}}} | The member was already mutated!",
+						"value": ">>> **Will be unmuted {{{timeout}}}**"
+					}
+				}
+			},
+			"unlock": {
+				"USAGE": "<Channel?> <Users?> <Roles?>",
+				"DESCRIPTION": "Unblocks a previously blocked channel on the server.",
+				"OPTIONS": {
+					"0CHANNEL": {
+						"DESCRIPTION": "Channel to unlock"
+					},
+					"1USER": {
+						"DESCRIPTION": "Users to unblock"
+					},
+					"2ROLE": {
+						"DESCRIPTION": "Roles to unlock"
+					}
+				},
+				"execute": {
+					"noThreads": {
+						"name": "{{{noEmoji}}} | That channel is a thread!",
+						"value": ">>> **You can't unblock threads!**"
+					},
+					"alreadyLocked": {
+						"name": "{{{noEmoji}}} | Channel {{{channel}}} was already unlocked!",
+						"value": ">>> **You can unlock it using `{{{prefix}}}lock` {{{channel}}}**"
+					},
+					"error": {
+						"name": "{{{noEmoji}}} | I couldn't unblock the channel!",
+						"value": ">>> **Make sure it has the necessary permissions!**"
+					},
+					"success": {
+						"name": "{{{yesEmoji}}} | Channel {{{channel}}} unlocked",
+						"value": ">>> **Unlocked channel members:** `{{{usersAmount}}} members`\n**Unlocked channel roles:** `{{{rolesAmount}}} roles`",
+						"description": ">>> {{{yesEmoji}}} **Channel {{{channel}}} unlocked for everyone!**"
+					}
+				}
+			},
+			"untimeout": {
+				"USAGE": "<User> <Reason?>",
+				"DESCRIPTION": "Unmutes a member on the server.",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to be dismuted"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Dismutation reason"
+					}
+				},
+				"execute": {
+					"notMuted": "{{{noEmoji}}} | **The member was not muted!**",
+					"author": "Timeout removed from {{{name}}}",
+					"success": {
+						"name": "{{{yesEmoji}}} | Member `{{{name}}}` has been demutated!",
+						"value": ">>> **Reason:** *{{{reason}}}*\n**Moderator:** `{{{moderator}}}` | {{{moderatorMention}}}"
+					},
+					"error": {
+						"name": "{{{noEmoji}}} | I couldn't unmute the member!",
+						"value": ">>> **Make sure it has the necessary permissions!**"
+					}
+				}
+			},
+			"unwarn": {
+				"USAGE": "<User> <Notice ID>",
+				"DESCRIPTION": "Delete a notice from a user based on their id",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to delete the notice"
+					},
+					"0NUMBER": {
+						"DESCRIPTION": "Notice ID to delete"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Notice removal reason"
+					}
+				},
+				"execute": {
+					"nowarns": ">>> {{{yesEmoji}}} | {{{memberMention}}} **does not have any notice.**",
+					"error": {
+						"name": "{{{noEmoji}}} An error occurred while removing the notice!",
+						"value": ">>> **I have contacted my developer about this issue.**",
+						"noId": {
+							"name": "{{{noEmoji}}} You have not specified the ID of the notice to remove!",
+							"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} <Member> 1`"
+						},
+						"notFound": {
+							"name": "{{{noEmoji}}} Notice with Id `{{{warnId}}}` of `{{{name}}}` not found",
+							"value": ">>> **Check `{{{name}}}` warnings with `{{{prefix}}}warnings {{{memberId}}}`**"
+						}
+					},
+					"success": {
+						"author": "Notice {{{warnId}}} of {{{name}}} removed",
+						"name": "{{{yesEmoji}}} | Removed warning `{{{warnId}}}` from `{{{name}}}`",
+						"value": ">>> **Warn Id:** `{{{warnId}}}`",
+						"footer": "Punishment ID Removed"
+					}
+				}
+			},
+			"warn": {
+				"USAGE": "<User> <Reason?>",
+				"DESCRIPTION": "Send a notice to a server user",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to notify"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Notice reason"
+					}
+				},
+				"execute": {
+					"dm": {
+						"success": {
+							"name": "{{{warnEmoji}}} You have received a notice on `{{{name}}}`",
+							"value": ">>> **Reason:** *{{{reason}}}*\n**Moderator:** `{{{moderator}}}` | {{{moderatorMention}}}"
+						}
+					},
+					"author": "Warn to {{{name}}}",
+					"success": {
+						"name": "Member `{{{name}}}` has been warned!",
+						"value": ">>> **Reason:** *{{{reason}}}*\n**Moderator:** `{{{moderator}}}` | {{{moderatorMention}}}"
+					},
+					"footer": "Punishment Id",
+					"error": {
+						"name": "{{{noEmoji}}} An error occurred while sending the notice!",
+						"value": ">>> **I have contacted my developer about this issue.**"
+					}
+				}
+			},
+			"warnings": {
+				"USAGE": "<User>",
+				"DESCRIPTION": "View all notices from a user on the server.",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "User to check"
+					}
+				},
+				"execute": {
+					"nowarns": ">>> {{{yesEmoji}}} | {{{memberMention}}} **does not have any notice.**",
+					"warnText": {
+						"date": "Date",
+						"moderator": "Moderator",
+						"reason": "Reason"
+					},
+					"pagination": {
+						"title": "Warnings from `{{{name}}}`"
+					}
+				}
+			}
+		},
+		"MUSICA": {
+			"247": {
+				"DESCRIPTION": "Make Niby stay 24/7 on your voice channel playing music."
+			},
+			"COLA": {
+				"autoplay": {
+					"DESCRIPTION": "Enable or Disable automatic playback of new tracks on the server."
+				},
+				"clearqueue": {
+					"DESCRIPTION": "Clear the entire song queue",
+					"execute": {
+						"success": {
+							"description": ">>> **Cleared `{{{amount}}} tracks from the queue!**`"
+						},
+						"error": {
+							"description": ">>> {{{noEmoji}}} | **There are no next tracks to clear!*"
+						}
+					}
+				},
+				"jump": {
+					"DESCRIPTION": "Jump to a track of the queue",
+					"USAGE": "<Track ID>",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Track ID to Jump to"
+						}
+					},
+					"execute": {
+						"success": {
+							"description": ">>> {{{yesEmoji}}} | **Jumping to track `{{{name}}}`!**"
+						},
+						"error": {
+							"description": ">>> {{{noEmoji}}} | **There are no next tracks to play!*",
+							"invalid": {
+								"name": "{{{noEmoji}}} | You have not specified a valid destiny position!",
+								"value": ">>> **Usage: `{{{prefix}}}{{{cmdName}}} <destinyPosition>`**\n*check all track positions by using ${prefix}queue*"
+							},
+							"notfound": {
+								"name": "{{{noEmoji}}} | No track exists on the destiny position you've specified!",
+								"value": ">>> **Usage: `{{{prefix}}}{{{cmdName}}} <destinyPosition>`**\n*check all track positions by using ${prefix}queue*"
+							}
+						}
+					}
+				},
+				"loop": {
+					"USAGE": "<(queue | hint | off)?>",
+					"DESCRIPTION": "Turns the track/tail loop on or off",
+					"OPTIONS": {
+						"0STRING_CHOICES": {
+							"DESCRIPTION": "Loop to sets",
+							"CHOICES": {
+								"track": "Clue",
+								"queue": "Line",
+								"off": "disabled"
+							}
+						}
+					},
+					"execute": {
+						"noargs": {
+							"name": "{{{noEmoji}}} | You have to specify the loop mode!",
+							"value": ">>> **Available modes:**\n{{{loopModes}}}"
+						},
+						"invalidloop": {
+							"name": "{{{noEmoji}}} | You have not specified a valid loop mode!",
+							"value": ">>> **Available modes:**\n{{{loopModes}}}"
+						}
+					}
+				},
+				"move": {
+					"USAGE": "<Source Track Id> <Destination Track Id>",
+					"DESCRIPTION": "Change the position of a track to a new position",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Origin track to change"
+						},
+						"1NUMBER": {
+							"DESCRIPTION": "Destination track to replace"
+						}
+					}
+				},
+				"shuffle": {
+					"DESCRIPTION": "Shuffle the track queue",
+					"execute": {
+						"success": {
+							"description": ">>> {{{yesEmoji}}} | **Mixed `{{{amount}}}` tracks!**"
+						}
+					}
+				},
+				"unshuffle": {
+					"DESCRIPTION": "Unmix the track queue",
+					"execute": {
+						"success": {
+							"description": ">>> {{{yesEmoji}}} | **Ordered `{{{amount}}}` tracks!**"
+						}
+					}
+				}
+			},
+			"FILTRO": {
+				"3d": {
+					"DESCRIPTION": "Set the 3d filter in the player"
+				},
+				"clearfilters": {
+					"DESCRIPTION": "Clear all filters and equalizers on the player",
+					"execute": {
+						"success": ">>> {{{yesEmoji}}} **| Filters and equalizers reset**"
+					}
+				},
+				"echo": {
+					"DESCRIPTION": "Set echo filter in player"
+				},
+				"karaoke": {
+					"DESCRIPTION": "Set the karaoke filter in the player"
+				},
+				"left": {
+					"DESCRIPTION": "Sets the audio output from the left earphone on the player"
+				},
+				"lowpass": {
+					"DESCRIPTION": "Set the lowpass filter in the player"
+				},
+				"mono": {
+					"DESCRIPTION": "Sets the audio output from both headphones equally on the player"
+				},
+				"nightcore": {
+					"DESCRIPTION": "Set the nightcore filter in the player"
+				},
+				"pitch": {
+					"USAGE": "<Tone Amount>",
+					"DESCRIPTION": "Change the tone of the player",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Tone to set"
+						}
+					}
+				},
+				"rate": {
+					"USAGE": "<Pitch Amount + Speed>",
+					"DESCRIPTION": "Changes speed and pitch track proportionally",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Tone+Speed ​​to set"
+						}
+					},
+					"execute": {
+						"success": {
+							"description": ">>> {{{yesEmoji}}} **Establecido el tono a `{{{speed}}}`!**"
+						}
+					}
+				},
+				"reverb": {
+					"DESCRIPTION": "Set the reveerb filter in the player"
+				},
+				"right": {
+					"DESCRIPTION": "Sets the audio output from the right earphone on the player"
+				},
+				"speed": {
+					"USAGE": "<Speed>",
+					"DESCRIPTION": "Change the speed of the player",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Speed ​​to set"
+						}
+					},
+					"execute": {
+						"success": {
+							"description": ">>> {{{yesEmoji}}} | **Speed set to `{{{speed}}}x`!**"
+						},
+						"noargs": {
+							"name": "{{{noEmoji}}} | You have to specify the player speed multiplier!",
+							"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 2`"
+						},
+						"invalid": {
+							"name": "{{{noEmoji}}} | You have not specified a valid player speed multiplier!",
+							"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} 2`"
+						}
+					}
+				},
+				"stereo": {
+					"DESCRIPTION": "Set the audio output from both headphones on the player"
+				},
+				"tremolo": {
+					"DESCRIPTION": "Set the tremolo filter in the player"
+				},
+				"vaporwave": {
+					"DESCRIPTION": "Set the vaporwave filter in the player"
+				},
+				"vibrato": {
+					"DESCRIPTION": "Set the vibrato filter in the player"
+				}
+			},
+			"INFO": {
+				"nowplaying": {
+					"DESCRIPTION": "View the player's current track information",
+					"execute": {
+						"embed": {
+							"nowplaying": "{{{diskEmoji}}} Now playing:",
+							"duration": "{{{waitEmoji}}} Duration:"
+						},
+						"footer": {
+							"addedBy": "Added by",
+							"queueSongs": "{{{amount}}} queued tracks."
+						},
+						"button": {
+							"listen": "Listen to track"
+						}
+					}
+				},
+				"queue": {
+					"DESCRIPTION": "View the player's track queue",
+					"execute": {
+						"text": {
+							"current": "Current track",
+							"nosongs": "No next tracks",
+							"next": "Next track",
+							"nowplaying": "Now playing",
+							"title": "[`{{{amount}}}`] Queue of `{{{name}}}`"
+						}
+					}
+				},
+				"save": {
+					"DESCRIPTION": "Save the current track to your DMs",
+					"execute": {
+						"title": "{{{yesEmoji}}} | Saved track!",
+						"field": {
+							"title": "{{{clockEmoji}}} Title:",
+							"duration": "{{{waitEmoji}}} Duration:",
+							"artist": "{{{micEmoji}}} Artist:"
+						},
+						"button": {
+							"listen": "Listen to track"
+						},
+						"footer": "Saved on timestamp: {{{timestamp}}}"
+					}
+				}
+			},
+			"forward": {
+				"USAGE": "<Seconds>",
+				"DESCRIPTION": "Advances a number of seconds of the player",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Amount to advance"
+					}
+				}
+			},
+			"pause": {
+				"DESCRIPTION": "Pause the player"
+			},
+			"play": {
+				"DESCRIPTION": "Play a track on the player or let Niby search for one",
+				"USAGE": "<Search>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "clue to search"
+					}
+				}
+			},
+			"playnext": {
+				"DESCRIPTION": "Add a track next to the current one",
+				"USAGE": "<Search>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "clue to search"
+					}
+				}
+			},
+			"playnow": {
+				"DESCRIPTION": "Play a track in the player now",
+				"USAGE": "<Search>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "clue to search"
+					}
+				}
+			},
+			"playprevious": {
+				"DESCRIPTION": "Adds the previous track played"
+			},
+			"playskip": {
+				"DESCRIPTION": "Play a track now and skip the current one"
+			},
+			"reconnect": {
+				"DESCRIPTION": "Reconnect the player if it has been dropped"
+			},
+			"remove": {
+				"USAGE": "<Track ID>",
+				"DESCRIPTION": "Remove a track from the queue",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Track ID to remove"
+					}
+				},
+				"execute": {
+					"success": {
+						"description": "COMMANDS.MUSICA.remove.execute.success.description"
+					}
+				}
+			},
+			"replay": {
+				"DESCRIPTION": "Repeat current track"
+			},
+			"resume": {
+				"DESCRIPTION": "Resume the player"
+			},
+			"rewind": {
+				"USAGE": "<Seconds>",
+				"DESCRIPTION": "Skip the player back a number of seconds",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Seconds to go back"
+					}
+				}
+			},
+			"seek": {
+				"USAGE": "<Second>",
+				"DESCRIPTION": "Set a specific player position",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Second to set"
+					}
+				},
+				"execute": {
+					"error": {
+						"invalid": {
+							"name": "You have not specified a seek amount!",
+							"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} 60`"
+						}
+					}
+				}
+			},
+			"skip": {
+				"DESCRIPTION": "Skip current track"
+			},
+			"stop": {
+				"DESCRIPTION": "Stop the player"
+			},
+			"volume": {
+				"USAGE": "<Quantity>",
+				"DESCRIPTION": "Change the volume amount of the player",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Volume to set"
+					}
+				}
+			},
+			"radio": {
+				"DESCRIPTION": "Play a station from the available radios!",
+				"execute": {
+					"menu": {
+						"options": {
+							"playRadio": "Play station {{{name}}}"
+						},
+						"placeholder": "Stations from {{{name}}}"
+					},
+					"embed": {
+						"availableRadios": "Available stations",
+						"field": {
+							"value": {
+								"fm": "{{{amount}}} Stations"
+							}
+						}
+					},
+					"content": {
+						"selectRadio": "**Select a station!**"
+					},
+					"radios": {
+						"NIBYFM": "NibyFM",
+						"ILOVERADIO": "ILoveRadio",
+						"REYFM": "ReyFM",
+						"United_Kingdom": "United Kingdom",
+						"Austria": "Austria",
+						"Belgium": "Belgium",
+						"Bosnia": "Bosnia",
+						"Czech": "Czech Republic",
+						"Denmark": "Denmark",
+						"Germany": "Germany",
+						"Hungary": "Hungary",
+						"Ireland": "Ireland",
+						"Italy": "Italy",
+						"Luxembourg": "Luxembourg",
+						"Romania": "Romania",
+						"Serbia": "Serbia",
+						"Spain": "Spain",
+						"Sweden": "Sweden",
+						"TURKEY": "Türkiye",
+						"Ukraine": "Ukraine"
+					}
+				}
+			},
+			"mix": {
+				"DESCRIPTION": "Play a Mix from the list of available mixes!",
+				"execute": {
+					"menu": {
+						"options": {
+							"playRadio": "Play the mix {{{name}}}",
+							"CarBass": "Car Music",
+							"Study": "Studio Music",
+							"Focus": "Concentration Music",
+							"NCS": "No Copyright Music",
+							"EDM": "Electronic music",
+							"Trap": "Trap",
+							"Reggaeton": "Reggaeton",
+							"Rock": "Rock",
+							"Pop": "Pop",
+							"Spanish": "Hits from Spain"
+						}
+					},
+					"embed": {
+						"availableRadios": "Mixes available"
+					},
+					"content": {
+						"selectRadio": "**Select a mix!**"
+					}
+				}
+			},
+			"lyrics": {
+				"DESCRIPTION": "Check the lyrics of a song",
+				"execute": {
+					"noargs": {
+						"name": "{{{noEmoji}}} **You have to specify the song title to check its lyrics!**",
+						"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} Never gonna give you up`"
+					},
+					"loading": {
+						"name": "{{{loadingEmoji}}} Searching lyrics for `{{{songTitle}}}`",
+						"value": ">>> ***Wait a few seconds..***"
+					},
+					"notfound": {
+						"description": ">>> {{{noEmoji}}} | **No lyrics found for `{{{songTitle}}}`!**"
+					},
+					"title": "`{{{songTitle}}}`'s Lyrics"
+				}
+			},
+			"addprevious": {
+				"DESCRIPTION": "COMMANDS.MUSICA.addprevious.DESCRIPTION"
+			}
+		},
+		"NSFW": {
+			"4k": {
+				"DESCRIPTION": "Get a 4k NSFW image"
+			},
+			"ANIME": {
+				"ahegao": {
+					"DESCRIPTION": "Get Ahegao Anime NSFW content"
+				},
+				"femdom": {
+					"DESCRIPTION": "Get Anime NSFW Female Domination content"
+				},
+				"futa": {
+					"DESCRIPTION": "Get Anime NSFW Futa content"
+				},
+				"glasses": {
+					"DESCRIPTION": "Get Anime NSFW Glasses Fetish content"
+				},
+				"hanal": {
+					"DESCRIPTION": "Get Anime NSFW Anal content"
+				},
+				"hass": {
+					"DESCRIPTION": "Get Anime NSFW Ass content"
+				},
+				"hblowjob": {
+					"DESCRIPTION": "Get Anime NSFW Blowjob content"
+				},
+				"hboobjob": {
+					"DESCRIPTION": "Get Anime NSFW BoobJob content"
+				},
+				"hboobs": {
+					"DESCRIPTION": "Get Anime NSFW Breasts content"
+				},
+				"hcreampie": {
+					"DESCRIPTION": "Get Anime NSFW Creampie content"
+				},
+				"hentai": {
+					"DESCRIPTION": "Get Anime NSFW Hentai content"
+				},
+				"hfootjob": {
+					"DESCRIPTION": "Get Anime NSFW Footjob content"
+				},
+				"hhandjob": {
+					"DESCRIPTION": "Get Anime NSFW Handjobs content"
+				},
+				"hkitsune": {
+					"DESCRIPTION": "Get Anime NSFW Kitsunes content"
+				},
+				"hmidriff": {
+					"DESCRIPTION": "Get Anime NSFW Midriffs content"
+				},
+				"hpussy": {
+					"DESCRIPTION": "Get Anime NSFW Pussy content"
+				},
+				"hthigh": {
+					"DESCRIPTION": "Get Anime NSFW Thighs content"
+				},
+				"neko": {
+					"DESCRIPTION": "Get Anime NSFW Nekos content"
+				},
+				"paizuri": {
+					"DESCRIPTION": "Get Anime NSFW Paizuri content"
+				},
+				"rule34": {
+					"USAGE": "<Search?>",
+					"DESCRIPTION": "Search for Rule 34 content",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Content to search"
+						}
+					}
+				},
+				"tentacle": {
+					"DESCRIPTION": "Get Anime NSFW Tentacles content"
+				},
+				"trap": {
+					"DESCRIPTION": "Get Anime NSFW Transsexuals content"
+				},
+				"uniform": {
+					"DESCRIPTION": "Get Anime NSFW Uniforms content"
+				},
+				"yaoi": {
+					"DESCRIPTION": "Get Anime NSFW Homosexuals content"
+				},
+				"yuri": {
+					"DESCRIPTION": "Get Anime NSFW Lesbians content"
+				}
+			},
+			"anal": {
+				"DESCRIPTION": "Get NSFW Anal content"
+			},
+			"asian": {
+				"DESCRIPTION": "Get NSFW Asian content"
+			},
+			"ass": {
+				"DESCRIPTION": "Get NSFW Ass content"
+			},
+			"blowjob": {
+				"DESCRIPTION": "Get NSFW Blowjob content"
+			},
+			"boobs": {
+				"DESCRIPTION": "Get NSFW Breasts content"
+			},
+			"cosplay": {
+				"DESCRIPTION": "Get NSFW Cosplay content"
+			},
+			"cowgirl": {
+				"DESCRIPTION": "Get NSFW Cowgirl content"
+			},
+			"cumshot": {
+				"DESCRIPTION": "Get NSFW Cumshot content"
+			},
+			"fishnets": {
+				"DESCRIPTION": "Get NSFW Fishnet content"
+			},
+			"footjob": {
+				"DESCRIPTION": "Get NSFW Footjob content"
+			},
+			"gonewild": {
+				"DESCRIPTION": "Get NSFW Naughty Women content"
+			},
+			"latina": {
+				"DESCRIPTION": "Get NSFW Latinas content"
+			},
+			"milf": {
+				"DESCRIPTION": "Get NSFW Milf content"
+			},
+			"panties": {
+				"DESCRIPTION": "Get NSFW Panties content"
+			},
+			"pov": {
+				"DESCRIPTION": "Get NSFW POV content"
+			},
+			"pussy": {
+				"DESCRIPTION": "Get NSFW Pussy content"
+			},
+			"realbooru": {
+				"USAGE": "<Search?>",
+				"DESCRIPTION": "Search NSFW content on Realbooru",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Content to search"
+					}
+				}
+			},
+			"socks": {
+				"DESCRIPTION": "Get NSFW Sock Fetish content"
+			},
+			"stockings": {
+				"DESCRIPTION": "Get NSFW Stockings content"
+			},
+			"swimsuit": {
+				"DESCRIPTION": "Get NSFW Swimsuit content"
+			},
+			"thighhighs": {
+				"DESCRIPTION": "Get NSFW ThighHighs content"
+			},
+			"titfuck": {
+				"DESCRIPTION": "Get NSFW TitFuck content"
+			},
+			"trans": {
+				"DESCRIPTION": "Get NSFW Transexual content"
+			}
+		},
+		"SORTEOS": {
+			"gend": {
+				"USAGE": "<Giveaway ID?>",
+				"DESCRIPTION": "A giveaway for this server ends",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Giveaway ID to be finalized"
+					}
+				},
+				"execute": {
+					"noargs": {
+						"name": "{{{noEmoji}}} **No active giveaways found on this channel!**",
+						"value": "> Use `{{{prefix}}}list` to see active giveaways on this server!"
+					},
+					"nogiveaway": {
+						"name": "{{{noEmoji}}} **The giveaway you specified was not found!**",
+						"value": "> Use `{{{prefix}}}list` to see active giveaways on this server!"
+					},
+					"loading": "{{{loadingEmoji}}} **Ending giveaway...**",
+					"success": {
+						"name": "{{{yesEmoji}}} Giveaway ended",
+						"value": "> **[`Click to go to the giveaway`]({{{giveawayUrl}}})**"
+					},
+					"giveaway": {
+						"goto": "Go to the giveaway"
+					}
+				}
+			},
+			"glist": {
+				"DESCRIPTION": "List all active giveaways on this server",
+				"execute": {
+					"embed": {
+						"name": "{{{noEmoji}}} There are no active giveaways on this server.",
+						"value": "> Use `{{{prefix}}}gstart` to create a new giveaway."
+					},
+					"giveawayMap": "> 🎁 **PRIZE:** `{{{prize}}}`\n> ⭐ **WINNERS:** `{{{embedFooter}}}`\n> 👤 **CREATED BY:** {{{hostedBy}}} *`{{{authorTag}}}`*\n> 🕜 **ENDS:** {{{endsAt}}}\n> {{{giveawayEmoji}}} **[`GO TO THE GIVEAWAY`]({{{giveawayUrl}}})** {{{giveawayEmoji}}}",
+					"pagination": "{{{giveawayEmoji}}} `[{{{giveawayLength}}}]` ACTIVE GIVEAWAYS {{{giveawayEmoji}}}"
+				}
+			},
+			"gpause": {
+				"USAGE": "<Giveaway ID?>",
+				"DESCRIPTION": "Pause an active giveaway on this server",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Giveaway ID to pause"
+					}
+				},
+				"execute": {
+					"noargs": {
+						"name": "{{{noEmoji}}} **No active giveaways found on this channel!**",
+						"value": "> Use `{{{prefix}}}list` to see active giveaways on this server!"
+					},
+					"nogiveaway": {
+						"name": "{{{noEmoji}}} **The giveaway you specified was not found!**",
+						"value": "> Use `{{{prefix}}}list` to see active giveaways on this server!"
+					},
+					"paused": {
+						"name": "{{{noEmoji}}} **The giveaway was already paused!**",
+						"value": "> Use `{{{prefix}}}resume` to resume the giveaway!"
+					},
+					"loading": "{{{loadingEmoji}}} **Pausing giveaway...**",
+					"success": {
+						"name": "{{{yesEmoji}}} Giveaway paused",
+						"value": "> **[`Click to go to the giveaway`]({{{giveawayUrl}}})**"
+					},
+					"giveaway": {
+						"goto": "Go to the giveaway"
+					}
+				}
+			},
+			"greroll": {
+				"USAGE": "<Giveaway ID?>",
+				"DESCRIPTION": "Choose a new giveaway winner",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Giveaway ID to select a new winner"
+					}
+				},
+				"execute": {
+					"noargs": {
+						"name": "{{{noEmoji}}} **No completed giveaway has been found on this channel!**",
+						"value": "> Use `{{{prefix}}}gstart` to create a new giveaway."
+					},
+					"nogiveaway": {
+						"name": "{{{noEmoji}}} **The giveaway you specified was not found!**",
+						"value": "> Use `{{{prefix}}}gstart` to create a new giveaway."
+					},
+					"loading": "{{{loadingEmoji}}} **Choosing new winner of the giveaway...**",
+					"giveawaysManager": {
+						"messages": {
+							"congrat": {
+								"content": {
+									"singular": "New winner:",
+									"plural": "New winners:"
+								}
+							},
+							"error": {
+								"content": "**There were not enough participants in the giveaway!**"
+							}
+						}
+					},
+					"success": {
+						"name": "{{{yesEmoji}}} New winner chosen",
+						"value": "> **[`Click to go to the giveaway`]({{{giveawayUrl}}})**"
+					},
+					"giveaway": {
+						"goto": "Go to the giveaway"
+					}
+				}
+			},
+			"gresume": {
+				"USAGE": "<giveaway ID?>",
+				"DESCRIPTION": "Resume a paused giveaway on the server",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Giveaway ID to resume"
+					}
+				},
+				"execute": {
+					"noargs": {
+						"name": "{{{noEmoji}}} **No paused giveaways found on this channel!**",
+						"value": "> Use `{{{prefix}}}list` to see active giveaways on this server!"
+					},
+					"nogiveaway": {
+						"name": "{{{noEmoji}}} **The giveaway you specified was not found!**",
+						"value": "> Use `{{{prefix}}}list` to see active giveaways on this server!"
+					},
+					"paused": {
+						"name": "{{{noEmoji}}} **The giveaway was not paused!**",
+						"value": "> Use `{{{prefix}}}pause` to pause the giveaway!"
+					},
+					"loading": "{{{loadingEmoji}}} **Resuming giveaway...**",
+					"success": {
+						"name": "{{{yesEmoji}}} Raffle resumed",
+						"value": "> **[`Click to go to the giveaway`]({{{giveawayUrl}}})**"
+					},
+					"giveaway": {
+						"goto": "Go to the giveaway"
+					}
+				}
+			},
+			"gstart": {
+				"USAGE": "<Duration> <Winners> <Reward> <Channel?> <Role?>",
+				"DESCRIPTION": "Start a new giveaway on the server",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Giveaway Duration"
+					},
+					"1NUMBER": {
+						"DESCRIPTION": "Number of winners"
+					},
+					"2STRING": {
+						"DESCRIPTION": "Giveaway Reward"
+					},
+					"3CHANNEL": {
+						"DESCRIPTION": "Giveaway start channel"
+					},
+					"4ROLE": {
+						"DESCRIPTION": "Role required to participate"
+					}
+				},
+				"execute": {
+					"noduration": {
+						"name": "{{{noEmoji}}} You have to specify the duration of the giveaway.",
+						"value": "> **Usage:** `{{{prefix}}}{{{cmdName}}} <duration> <winners> <prize>`"
+					},
+					"novalidtime": {
+						"name": "{{{noEmoji}}} You must specify a valid giveaway duration.",
+						"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} 5h 1 Gift`"
+					},
+					"lowtime": {
+						"name": "{{{noEmoji}}} The duration of the giveaway is very short.",
+						"value": "> Giveaway duration must be greater than `{{{duration}}}`"
+					},
+					"nowinners": {
+						"name": "{{{noEmoji}}} You have to specify the number of winners.",
+						"value": "> **Usage:** `{{{prefix}}}{{{cmdName}}} <duration> <winners> <prize>`"
+					},
+					"novalidwinners": {
+						"name": "{{{noEmoji}}} You must specify a valid number of winners.",
+						"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} 5h 1 Gift`"
+					},
+					"lowwinners": {
+						"name": "{{{noEmoji}}} The number of winners must be greater than or equal to 1.",
+						"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} 5h 1 Gift`"
+					},
+					"noprize": {
+						"name": "{{{noEmoji}}} You have to specify the prize of the giveaway.",
+						"value": "> **Usage:** `{{{prefix}}}{{{cmdName}}} <duration> <winners> <prize>`"
+					},
+					"loading": ">>> {{{loadingEmoji}}} **Starting giveaway in {{{channel}}}**",
+					"requiredRoles": "**Role Required**\n> <@&{{{role}}}>",
+					"giveawaysManager": {
+						"messages": {
+							"giveaway": "{{{giveawayEmoji}}} **GIVEAWAY** {{{giveawayEmoji}}}",
+							"giveawayEnded": "{{{giveawayEmoji}}} **GIVEAWAY COMPLETED** {{{giveawayEmoji}}}",
+							"inviteToParticipate": "React with {{{giveawayEmoji}}} to participate!",
+							"winMessage": {
+								"content": {
+									"singular": "Winner:",
+									"plural": "Winners:"
+								}
+							},
+							"dropMessage": "Be the first to participate by reacting with {{{giveawayEmoji}}}",
+							"embedFooter": {
+								"singular": "winner",
+								"plural": "winners"
+							},
+							"winners": {
+								"singular": "Winner",
+								"plural": "Winners"
+							},
+							"noWinner": "Giveaway cancelled, no one participated.",
+							"hostedBy": "Created by {this.hostedBy}",
+							"endedAt": "Ended at",
+							"drawing": "Ends {timestamp}"
+						},
+						"lastChance": {
+							"content": "🔥 **ABOUT TO END!** 🔥"
+						},
+						"pauseOptions": {
+							"content": "⏸️ **PAUSED GIVEAWAY** ⏸️",
+							"infiniteDurationText": "`⏸️ PAUSED`"
+						}
+					},
+					"giveaway": {
+						"goto": "Go to the giveaway"
+					},
+					"success": {
+						"name": "{{{yesEmoji}}} Giveaway started.",
+						"value": "> **[`Click to go to the giveaway`]({{{giveawayUrl}}})**"
+					}
+				}
+			}
+		},
+		"UTILIDAD": {
+			"enlarge": {
+				"USAGE": "<Emoji(s)>",
+				"DESCRIPTION": "Shows the original image of one or more emojis",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Emoji(s) to show"
+					}
+				},
+				"execute": {
+					"error": {
+						"invalid": {
+							"name": "{{{noEmoji}}} You have not specified any valid emoji!",
+							"value": ">>> **Use emojis from __this server__ or __native emojis__**\n**Example:** `{{{prefix}}}{{{cmdName}}} 🍋`"
+						}
+					},
+					"copy": {
+						"name": "Copy Emoji:"
+					}
+				}
+			},
+			"translate": {
+				"USAGE": "<Language> <Text>",
+				"DESCRIPTION": "Translate a text into a specific language",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Language to set"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Text to translate"
+					}
+				},
+				"execute": {
+					"error": {
+						"noargs": {
+							"name": "{{{noEmoji}}} | You have to specify the language to translate!",
+							"value": "> **Example:** `{{{prefix}}}{{{cmdName}}} in Hello! How are you?"
+						},
+						"invalid": {
+							"name": "{{{noEmoji}}} | You have not specified a valid language to translate!",
+							"value": "**Language list:**"
+						},
+						"name": "{{{noEmoji}}} An error occurred while translating the text!",
+						"value": ">>> **I have contacted my developer about this issue.**"
+					},
+					"success": {
+						"author": "Translated to"
+					}
+				}
+			},
+			"PREMIUM": {
+				"claim": {
+					"DESCRIPTION": "Claim a Niby Premium Key",
+					"USAGE": "<Key>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Key to claim"
+						}
+					},
+					"execute": {
+						"noargs": {
+							"name": "{{{noEmoji}}} | You have to specify the premium key to claim!",
+							"value": ">>> **Example:** `{{{prefix}}}{{{cmdName}}} XXXX-XXXX-XXXX-XXXX`"
+						},
+						"notfound": {
+							"name": "{{{noEmoji}}} | Premium key not found!",
+							"value": ">>> **Make sure you spelled it correctly!**"
+						},
+						"success": {
+							"user": "your account",
+							"guild": "the server",
+							"name": "{{{yesEmoji}}} | Premium activated/extended in {{{userOrGuild}}}!",
+							"value": ">>> {{{favouriteEmoji}}} **{{{userOrGuild}}} is now premium until <t:{{{expiration}}}:F>**\n**Total premium duration:** {{{premiumDuration}}}\n**Premium time added:** {{{keyDuration}}}"
+						}
+					}
+				}
+			}
+		},
+		"COOLDOWN": {
+			"user": {
+				"name": "{{{waitEmoji}}} Wait!",
+				"value": ">>> You can execute this command {{{timestamp}}}"
+			},
+			"guild": {
+				"name": "{{{waitEmoji}}} Wait!",
+				"value": ">>> This guild will be able to execute this command {{{timestamp}}}"
+			},
+			"global": {
+				"name": "{{{waitEmoji}}} Wait!",
+				"value": ">>> You will be able to execute a command again in {{{remaining}}}"
+			}
+		},
+		"PERMISSIONS": {
+			"HANDLER": {
+				"CATEGORY": {
+					"noUserPerms": {
+						"name": "{{{noEmoji}}} You need __all__ these permissions to use a `{{{executionName}}}` command:"
+					},
+					"noBotPerms": {
+						"name": "{{{noEmoji}}} You need __all__ these permissions to use a `{{{executionName}}}` command:"
+					}
+				},
+				"noSendMsgPerms": {
+					"name": "{{{noEmoji}}} I can't view or send messages on this channel.",
+					"value": ">>> I need the `View Channel` and `Send Messages` permissions to be able to interact."
+				},
+				"noEmbedPerms": {
+					"name": "{{{noEmoji}}} I can't send Embeds on this channel.",
+					"value": ">>> I need `Send Embeds` permissions to be able to send embeds."
+				},
+				"cmdError": {
+					"name": "{{{noEmoji}}} **An error occurred while executing `{{{cmdName}}}`.**"
+				},
+				"botMention": {
+					"name": "{{{yesEmoji}}} Hey! | My name is {{{botName}}}",
+					"value": ">>> Try {{{helpCmdMention}}} or `{{{prefix}}}help`"
+				},
+				"guildOnly": {
+					"name": "{{{noEmoji}}} Only on guilds!",
+					"value": ">>> You can only use this command within a guild."
+				},
+				"ownerOnly": {
+					"name": "{{{noEmoji}}} Only developers can run this command!",
+					"value": ">>> Developers: {{{owners}}}"
+				},
+				"noUserPerms": {
+					"name": "{{{noEmoji}}} You need the following permissions to run this command:"
+				},
+				"noBotPerms": {
+					"name": "{{{noEmoji}}} I need the following permissions to run this command:"
+				},
+				"level": {
+					"name": "{{{noEmoji}}} You do not have enough level to execute this command!",
+					"value": ">>> You need to be at least level `{{{level}}}`, and you are level `{{{userLevel}}}`."
+				},
+				"nsfw": {
+					"name": "{{{noEmoji}}} You can't run this command here!",
+					"value": ">>> **You have to go to a NSFW channel!**"
+				},
+				"premium": {
+					"name": "{{{favouriteEmoji}}} You have found a premium command!",
+					"value": ">>> **Do you want to get all the benefits?**\n*Click the button to find out more!*"
+				},
+				"userPremium": {
+					"name": "{{{favouriteEmoji}}} You have found a __user__ premium command!",
+					"value": ">>> **Do you want to get all the benefits?**\n*Click the button to find out more!*"
+				},
+				"guildPremium": {
+					"name": "{{{favouriteEmoji}}} You have found a __server__ premium command!",
+					"value": ">>> **Do you want to get all the benefits?**\n*Click the button to find out more!*"
+				}
+			}
+		}
+	},
+	"UTILS": {
+		"GENERAL": {
+			"DURATION": {
+				"time": {
+					"years": {
+						"singular": "Year",
+						"plural": "Years"
+					},
+					"months": {
+						"singular": "Month",
+						"plural": "Months"
+					},
+					"weeks": {
+						"singular": "Week",
+						"plural": "Weeks"
+					},
+					"days": {
+						"singular": "Day",
+						"plural": "Days",
+						"short": {
+							"singular": "Day",
+							"plural": "Days"
+						}
+					},
+					"hours": {
+						"singular": "Hour",
+						"plural": "Hours",
+						"short": {
+							"singular": "HR",
+							"plural": "Hours"
+						}
+					},
+					"minutes": {
+						"singular": "Minute",
+						"plural": "Minutes",
+						"short": {
+							"singular": "min",
+							"plural": "mins"
+						}
+					},
+					"seconds": {
+						"singular": "Second",
+						"plural": "Seconds",
+						"short": {
+							"plural": "Sec",
+							"singular": "Sec"
+						}
+					}
+				}
+			},
+			"CANMODERATE": {
+				"moderatorRoleLow": {
+					"name": "{{{noEmoji}}} | Your role is __below or equal__ to the member to act!",
+					"value": ">>> **You cannot take action against a member who is at a higher or equal level than you!**"
+				},
+				"notOwner": {
+					"name": "{{{noEmoji}}} | I cannot take action against the OWNER of the server!",
+					"value": ">>> **But what were you trying?**"
+				},
+				"botRoleLow": {
+					"name": "{{{noEmoji}}} | My role is __below or equal__ to the member to act!",
+					"value": ">>> **I cannot take action against a member who is at a higher or equal level than me!**"
+				}
+			},
+			"GETNSFWIMAGE": {
+				"button": {
+					"update": "Update",
+					"premiumOnly": "Update (Premium)"
+				},
+				"notFound": {
+					"name": "{{{noEmoji}}} | No results found!",
+					"value": ">>> **There are no such levels of perversion!**"
+				}
+			}
+		},
+		"MESSAGE": {
+			"PAGINATION": {
+				"message": {
+					"content": "***Click the __buttons__ to swap pages***",
+					"embed": {
+						"title": "Pagination",
+						"footer": "Page {{{page}}} / {{{pages}}}"
+					},
+					"buttons": {
+						"back": "Back",
+						"home": "Home",
+						"forward": "Forward",
+						"page": "Go to page"
+					},
+					"modal": {
+						"title": "Go to page",
+						"options": {
+							"modalPage": {
+								"label": "Page number",
+								"execute": {
+									"invalidNumber": "{{{noEmoji}}} You have not specified a valid number."
+								}
+							}
+						}
+					}
+				},
+				"collector": {
+					"wrongUser": "{{{noEmoji}}} **Only the person who has executed this command can do that!**",
+					"expire": "*This message has expired.*"
+				}
+			}
+		},
+		"MUSIC": {
+			"check": {
+				"noplayer": {
+					"embed": {
+						"name": "{{{noEmoji}}} | There is nothing currently playing!",
+						"value": ">>> **Add tracks using `{{{prefix}}}play <Search?>`**"
+					}
+				},
+				"nochannel": {
+					"embed": {
+						"name": "{{{noEmoji}}} | You are not on a voice channel!",
+						"value": ">>> **Join a voice channel to play songs!**"
+					}
+				},
+				"notsamevc": {
+					"embed": {
+						"name": "{{{noEmoji}}} | You're not on the same voice channel as me!",
+						"value": ">>> **You have to join {{{vcChannel}}}!**"
+					}
+				},
+				"cantconnect": {
+					"embed": {
+						"name": "{{{noEmoji}}} | I can't connect to your voice channel!",
+						"value": ">>> **I need `Connect` permission to join!**"
+					}
+				},
+				"cantspeak": {
+					"embed": {
+						"name": "{{{noEmoji}}} | I can't talk on your voice channel!",
+						"value": ">>> **I need `Talk` permission to play tracks!**"
+					}
+				},
+				"channelfull": {
+					"embed": {
+						"name": "{{{noEmoji}}} | I can't join your voice channel!",
+						"value": ">>> **The channel is full, I don't have enough space!**"
+					}
+				},
+				"noyoutube": {
+					"embed": {
+						"name": "{{{noEmoji}}} | Playback from YouTube is disabled",
+						"value": ">>> **Due to issues related to Discord's terms of service, Youtube will remain disabled until further notice!**\n*You can search from Spotify, Soundcloud, Twitch, Deezer or direct links.*"
+					}
+				},
+				"twitchpremium": {
+					"embed": {
+						"name": "{{{favouriteEmoji}}} You've found a premium feature!",
+						"value": ">>> **Only premium users can stream Twitch streams!**"
+					}
+				}
+			},
+			"play": {
+				"loading": ">>> {{{lupaEmoji}}} **| Searching results...**",
+				"notfound": {
+					"embed": {
+						"name": "{{{noEmoji}}} | No results found!",
+						"value": ">>> **Check if you have spelled the name / url correctly!**"
+					}
+				},
+				"track": {
+					"embed": {
+						"name": "{{{yesEmoji}}} | Track `{{{title}}}` found!",
+						"value": ">>> **Track added to queue!**"
+					}
+				},
+				"playlist": {
+					"embed": {
+						"name": "{{{yesEmoji}}} | Playlist `{{{title}}}` found!",
+						"value": ">>> **Added `{{{tracksLength}}}` tracks to the queue.**"
+					}
+				}
+			},
+			"getPlayingEmbed": {
+				"title": "Playing",
+				"duration": "Duration",
+				"artist": "Artist",
+				"ends": "Ends",
+				"ended": "Finished",
+				"playerEnded": "{{{yesEmoji}}} | Finished player",
+				"gotDisconnected": ">>> **I have been disconnected from {{{channel}}}!**",
+				"left": ">>> **I have left {{{channel}}} since it was empty for {{{leaveDuration}}}.**",
+				"noqueueleft": ">>> **I have left {{{channel}}} since the queue was empty for {{{leaveDuration}}}.**",
+				"playerPaused": {
+					"247": ">>> **There is no one left in my voice room, so i paused the player in {{{channel}}} to save resources!**",
+					"name": "{{{pauseEmoji}}} | Player paused!",
+					"noqueue": ">>> **If no more tracks are added {{{leaveTimestamp}}}, I will leave {{{channel}}}.**",
+					"empty": ">>> **There is no one left in my voice room, if no one joins, I will leave {{{channel}}} {{{leaveTimestamp}}}.**"
+				}
+			},
+			"reconnected": ">>> {{{yesEmoji}}} **| Player connection recovered!**",
+			"skipSong": {
+				"error": ">>> {{{noEmoji}}} **| There are no more tracks to jump to!**",
+				"success": ">>> {{{skipEmoji}}} | **Skipping to the next track!**"
+			},
+			"stopPlayer": {
+				"success": ">>> {{{yesEmoji}}} **| Player disconnected!**"
+			},
+			"alreadyConnected": ">>> {{{noEmoji}}} **| I was already connected to your voice channel!**",
+			"noTracksToPlay": ">>> {{{noEmoji}}} **| There are no more tracks to play!**",
+			"toggleLoop": {
+				"track": ">>> {{{yesEmoji}}} **| Looping has been activated for the current track!**",
+				"queue": ">>> {{{yesEmoji}}} **| The entire queue has been looped!**",
+				"off": ">>> {{{yesEmoji}}} **| Loop mode has been disabled!**"
+			},
+			"toggleAutoplay": {
+				"success": ">>> {{{yesEmoji}}} **| {{{toggleMode}}} Automatic track playback has been completed!**"
+			},
+			"pausePlayer": {
+				"success": ">>> {{{pauseEmoji}}} **| The player has been paused!**",
+				"alreadyPaused": ">>> {{{noEmoji}}} **| The player was already paused!**"
+			},
+			"resumePlayer": {
+				"success": ">>> {{{resumeEmoji}}} **| The player has resumed!**",
+				"notPaused": ">>> {{{noEmoji}}} **| The player was not paused!**"
+			},
+			"setVolume": {
+				"success": ">>> {{{yesEmoji}}} **| Volume set to `{{{volume}}}%`!**",
+				"invalid": {
+					"name": ">>> {{{yesEmoji}}} **| You didn't specify a valid volume amount!**",
+					"value": ">>> **Example:** `100`"
+				}
+			},
+			"playPrevious": {
+				"error": ">>> {{{noEmoji}}} **| No previous tracks!**"
+			},
+			"output": {
+				"set": ">>> {{{yesEmoji}}} | **Audio output set to: `{{{output}}}`!**"
+			},
+			"filter": {
+				"set": ">>> {{{yesEmoji}}} | **Filter `{{{filter}}}` set!**"
+			},
+			"toggle247": {
+				"enabled": {
+					"name": "{{{yesEmoji}}} | 24/7 mode has been activated!",
+					"value": ">>> **Now I won't leave {{{channel}}} until I get shut down or logged out!**"
+				},
+				"disabled": {
+					"name": "{{{yesEmoji}}} | 24/7 mode has been disabled!",
+					"value": ">>> **Now I will leave {{{channel}}} according to the departure time!**"
+				}
+			},
+			"forwarded": "Forwarded",
+			"playSong": {
+				"error": {
+					"name": "{{{noEmoji}}} | An error occurred in the query search!",
+					"value": ">>> **Try again!**"
+				}
+			},
+			"rewinded": "Rewinded",
+			"replay": {
+				"success": ">>> {{{yesEmoji}}} | **Replaying the current track!**"
+			}
+		}
+	},
+	"COMMON": {
+		"TEXTS": {
+			"clickHere": "Click",
+			"loading": "Loading...",
+			"enabled": "Enabled",
+			"disabled": "Disabled",
+			"disable": "Disable",
+			"enable": "Enable",
+			"noReason": "No reason specified",
+			"actionAuthor": "Author of the action: {{{name}}}",
+			"noMember": {
+				"noargs": {
+					"name": "{{{noEmoji}}} | You haven't specified a member!",
+					"value": ">>> **Mention him or indicate its ID/Username!**"
+				},
+				"notfound": {
+					"name": "{{{noEmoji}}} | The specified member was not found!",
+					"value": ">>> **Make sure it's on the server!**"
+				}
+			},
+			"onStream": "Live",
+			"economyPremiumBoost": "{{{favouriteEmoji}}} ***X2 PREMIUM BOOST ENABLED!***"
+		},
+		"getPlayingEmbed": {
+			"addedBy": "Added by"
+		},
+		"COMMAND": {
+			"giveaway": {
+				"error": {
+					"name": "{{{noEmoji}}} | An error has occurred",
+					"value": ">>> **The operation could not be performed!**\n*I have contacted my developer about this issue.*"
+				},
+				"support": "Support",
+				"entrants": {
+					"singular": "Entrant",
+					"plural": "Entrants"
+				}
+			},
+			"notFound": ">>> **Couldn't find the command {{{mentionedCmd}}}!**\n*¿Did you mean {{{closestCmd}}}?*\nHere are all the available commands from {{{categoryName}}}:"
+		}
+	},
+	"EVENTS": {
+		"messageDelete": {
+			"SYSTEMS": {
+				"snipe": {
+					"execute": {
+						"noContent": "No message content"
+					}
+				}
+			}
+		}
+	},
+	"LANGUAGES": {
+		"SpanishES": "Spanish",
+		"EnglishUS": "English",
+		"German": "German",
+		"Romanian": "Romanian",
+		"French": "French",
+		"Bulgarian": "Bulgarian",
+		"Croatian": "Croatian",
+		"Czech": "Czech",
+		"Danish": "Danish",
+		"Dutch": "Dutch",
+		"Finnish": "Finnish",
+		"Greek": "Greek",
+		"Hindi": "Hindi",
+		"Hungarian": "Hungarian",
+		"Italian": "Italian",
+		"ChineseCN": "Chinese (CN)",
+		"Japanese": "Japanese",
+		"Korean": "Korean",
+		"Lithuanian": "Lithuanian",
+		"Norwegian": "Norwegian",
+		"Polish": "Polish",
+		"PortugueseBR": "Portuguese (BR)",
+		"Russian": "Russian",
+		"Swedish": "Swedish",
+		"Thai": "Thai",
+		"Turkish": "Turkish",
+		"Ukrainian": "Ukrainian",
+		"Vietnamese": "Vietnamese"
+	},
+	"PRESENCES": {
+		"offline": "Offline",
+		"online": "Online",
+		"idle": "Idle",
+		"dnd": "Busy",
+		"null": "Disconnected"
+	},
+	"USER_FLAGS": {
+		"HypeSquadOnlineHouse3": "Hypesquad Balance Sheet",
+		"ActiveDeveloper": "Active Developer",
+		"HypeSquadOnlineHouse1": "Bravery by Hypesquad"
+	},
+	"PERMISSIONS": {
+		"CreateInstantInvite": "Create instant invites",
+		"KickMembers": "Kick members",
+		"BanMembers": "Ban members",
+		"Administrator": "Administrator",
+		"ManageChannels": "Manage channels",
+		"ManageRoles": "Manage roles",
+		"ManageGuild": "Manage guild",
+		"ManageMessages": "Manage messages",
+		"ManageNicknames": "Manage nicknames",
+		"ManageWebhooks": "Manage webhooks",
+		"ManageEvents": "Manage events",
+		"ManageThreads": "Manage threads",
+		"ManageEmojisAndStickers": "Manage emojis and stickers",
+		"AddReactions": "Add reactions",
+		"ViewAuditLog": "View audit log",
+		"PrioritySpeaker": "Voice priority",
+		"Stream": "Stream",
+		"ViewChannel": "View channel",
+		"SendMessages": "Send messages",
+		"SendTTSMessages": "Send voice text messages",
+		"EmbedLinks": "Send embeds",
+		"AttachFiles": "Attach files",
+		"ReadMessageHistory": "Read message history",
+		"MentionEveryone": "Mention @everyone",
+		"UseExternalEmojis": "Use external emojis",
+		"ViewGuildInsights": "View server statistics",
+		"Connect": "Connect",
+		"Speak": "Speak",
+		"MuteMembers": "Mute members",
+		"DeafenMembers": "Deafen members",
+		"MoveMembers": "Move members",
+		"UseVAD": "Use voice activity",
+		"ChangeNickname": "Change nicknames",
+		"UseApplicationCommands": "Use application commands",
+		"RequestToSpeak": "Request to speak",
+		"CreatePublicThreads": "Create public threads",
+		"CreatePrivateThreads": "Create private threads",
+		"UseExternalStickers": "Use external stickers",
+		"SendMessagesInThreads": "Send messages in threads",
+		"UseEmbeddedActivities": "Use voice channel mini-games",
+		"ModerateMembers": "Moderate members",
+		"ManageGuildExpressions": "Manage expressions",
+		"SendVoiceMessages": "Send voice messages",
+		"UseExternalSounds": "Use external sounds",
+		"UseSoundboard": "Use sound panel",
+		"ViewCreatorMonetizationAnalytics": "View creator monetization analytics",
+		"Owner": "Server owner"
+	},
+	"COMPONENTS": {
+		"BUTTONS": {
+			"COOLDOWN": {
+				"user": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> You will be able to press this button again {{{timestamp}}}"
+				},
+				"guild": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> This server will be able to press this button {{{timestamp}}}"
+				},
+				"global": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> You will be able to press a button again in {{{remaining}}}"
+				}
+			},
+			"music": {
+				"execute": {
+					"searchSong": {
+						"modal": {
+							"inputLabel": "Enter the name of the track",
+							"title": "Search track"
+						}
+					},
+					"volume": {
+						"modal": {
+							"label": "Change volume",
+							"title": "Volume Settings"
+						}
+					},
+					"favSong": {
+						"add": ">>> {{{yesEmoji}}} **| Track saved in favorites!**",
+						"delete": ">>> {{{yesEmoji}}} **| Track removed from favorites!**"
+					}
+				}
+			},
+			"PREMIUM": {
+				"label": "See advantages"
+			},
+			"help-category": {
+				"execute": {
+					"buttons": {
+						"showSlash": "[/] Show Slash",
+						"showPrefix": "[{{{prefix}}}] Show Prefix",
+						"shortFormat": "Short format",
+						"goBack": "Go back",
+						"fullFormat": "Full format"
+					}
+				}
+			}
+		},
+		"MENUS": {
+			"COOLDOWN": {
+				"user": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> You will be able to choose an option again {{{timestamp}}}"
+				},
+				"guild": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> This server will be able to choose an option again {{{timestamp}}}"
+				},
+				"global": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> You will be able to choose an option again in {{{remaining}}}"
+				}
+			}
+		},
+		"CONTEXTMENUS": {
+			"COOLDOWN": {
+				"user": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> You will be able to run this context menu again {{{timestamp}}}"
+				},
+				"guild": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> This server will be able to press this context menu {{{timestamp}}}"
+				},
+				"global": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> You will be able to press a context menu again in {{{remaining}}}"
+				}
+			}
+		},
+		"MODALS": {
+			"COOLDOWN": {
+				"user": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> You can resubmit this form again {{{timestamp}}}"
+				},
+				"guild": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> This server will be able to send this form again {{{timestamp}}}"
+				},
+				"global": {
+					"name": "{{{waitEmoji}}} Wait!",
+					"value": ">>> You will be able to resubmit the form again in {{{remaining}}}"
+				}
+			}
+		}
+	},
+	"CHANNEL": {
+		"TYPES": {
+			"0": "Text Channel",
+			"1": "DM Channel",
+			"2": "Voice Channel",
+			"3": "DM Group Channel",
+			"4": "Parent",
+			"5": "Announcements Channel",
+			"10": "Thread Announcements",
+			"11": "Public thread",
+			"12": "Private thread",
+			"13": "Voice Stage",
+			"14": "Guild Directory",
+			"15": "Guild Forum"
+		}
+	}
+}

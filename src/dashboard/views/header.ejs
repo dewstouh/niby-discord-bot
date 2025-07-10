@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <meta name="description" content="<%= bot.user.username %>">
+    <meta name="theme-color" content="<%= process.env.DEFAULT_COLOR %>">
+    <meta property="og:title" content="<%= bot.user.username %>">
+    <meta property="og:url" content="https://niby.elmundodeniby.com">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Niby, tu bot multifuncional de confianza. Administra y controla tu servidor, reproduce música, configura sistemas automáticos, haz todo más dinámico. Compatible con +20 idiomas. ¿Prefieres seguir configurando varios bots uno por uno? ¿O configurar un bot que tiene todo lo que necesitas? Esa es tu decisión.">
+    <meta property="og:image" content="<%= bot.user.displayAvatarURL() %>">
+    <meta property="og:image:alt" content="Logo de <%= bot.user.username %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    <%= bot.user.username %>
+  </title>
+
+  <!-- Favicons -->
+  <link href="<%= bot.user.displayAvatarURL() %>" rel="icon">
+  <link href="<%= bot.user.displayAvatarURL() %>" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link href="css/style.css" rel="stylesheet">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlActual = window.location.pathname;
+      console.log(urlActual);
+
+      const enlaces = document.querySelectorAll('a.nav-link');
+
+      enlaces.forEach(enlace => {
+        if (enlace.getAttribute('href') === urlActual) {
+          enlace.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <% if(user && user.id ) {%>
+  <div class="modal fade modal-dark" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+      <div class="modal-content">
+        <!-- Contenido del modal -->
+        <div class="modal-header">
+          <h4 class="modal-title" id="infoUserModal">Información de usuario</h4>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
+          </button>
+        </div>
+        <div class="modal-body">
+          <span class="field">Nombre:</span> <span class="value"><%= user.username %></span>
+          <br>
+          <span class="field">Servidores:</span> <span class="value">Estás en <%= user.guilds.length %> servidores</span>
+          <br>
+          <span class="field">Servidores en común:</span> <span class="value">Coincidimos en <%= bot.guilds.cache.filter(g => user.guilds.map(g => g.id).includes(g.id)).size %> servidores</span>
+          <br>
+          <span class="field">Id:</span> <span class="value"><%= user.id %></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <!-- Puedes agregar botones adicionales aquí si es necesario -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+
+
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="<%= bot.user.displayAvatarURL({dynamic: true}) %>" alt style="border-radius: 50%;">
+        <!-- <span><%= bot.user.username %></span> -->
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="/">Inicio</a></li>
+          <li><a class="nav-link scrollto" href="/commands">Comandos</a></li>
+          <li><a class="nav-link scrollto" href="/premium">⭐ Premium</a></li>
+          <li><a class="nav-link scrollto" href="/status">Estado</a></li>
+          <li class="dropdown"><a href="#"><span>Enlaces</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="<%= bot.invite %>">Invitar <%= bot.user.username %></a></li>
+              <li class="dropdown"><a href="#"><span>Otros Bots</span>
+                  <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="https://discord.com/api/oauth2/authorize?client_id=1008497910029226064&permissions=8&scope=applications.commands%20bot">Niby Guard</a></li>
+                  <li><a href="https://discord.com/api/oauth2/authorize?client_id=988026891485196378&permissions=3147776&scope=bot%20applications.commands">Bass</a></li>
+                  <li><a href="https://discord.com/api/oauth2/authorize?client_id=939952555839078401&permissions=8&scope=bot%20applications.commands">Bot del Canal</a></li>
+                </ul>
+              </li>
+              <li><a href="https://elmundodeniby.com/tos">Términos de Servicio</a></li>
+              <li><a href="https://elmundodeniby.com/privacy-policy">Política de Privacidad</a></li>
+              <li><a href="<%= process.env.DISCORD %>">Comunidad de Discord</a></li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link scrollto" href="<%= process.env.DISCORD %>">Soporte</a></li>
+          <% if(user && user.id) { %>
+          <li class="getstarted dropdown">
+            <span class="nav-link dropdown-toggle" href="/settings/account" id="navbarDropdown" role="button" data-bs-toggle="dropdown"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png" alt width="32" style="margin-right: 5px; border-radius: 20px; background-color: rgba(0, 0, 0, 0.719);">
+              <%= user.username %>
+            </span>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/guilds"><i class="bi bi-gear"></i>Ajustes</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="" data-bs-target="#userInfoModal" data-bs-toggle="modal"><i class="bi bi-info-circle"></i>Información</a>
+              </li>
+              <!-- Modal -->
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/logout"><i class="bi bi-box-arrow-right"></i>Cerrar
+                  sesión</a></li>
+            </ul>
+          </li>
+          <% } else { %>
+          <li><a class="getstarted scrollto" href="/login">Iniciar sesión</a></li>
+
+          <% } %>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->

@@ -1,0 +1,15 @@
+#config
+
+#packages
+node_modules
+dist
+
+#garbage
+dump.rdb
+logs/*.txt
+logs/*.log
+
+# environment
+.env
+.env.*
+.npmrc

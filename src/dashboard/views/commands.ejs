@@ -1,0 +1,80 @@
+<%
+  // Definición de constantes
+  // FIXME: Representar comandos y categorías bien en dashboard
+  const CATEGORIES = bot.categories.filter(c => !["Dueño", "Nsfw"].includes(c.DEFAULT_NAME)).map(c => c.NAME);
+  const commands = bot.commands.filter(c => c.CATEGORY && c.CATEGORY.PARENT_CATEGORY ? CATEGORIES.includes(c.CATEGORY.PARENT_CATEGORY.NAME) : CATEGORIES.includes(c.CATEGORY.NAME));
+%>
+
+<%- include('header') %>
+
+<main class="othermain">
+  <section id="portfolio" class="otherhero portfolio">
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" onload="scroll(0,0);">
+
+      <header class="section-header" data-aos="fade-up">
+        <h2>COMANDOS</h2>
+        <p>Echa un vistazo al contenido de <%= bot.user.username %></p>
+      </header>
+
+
+      <!-- Muestra el emoji de carga si los comandos no han terminado de cargar -->
+      <div class="spinner-border" id="loadingSpinner" role="status">
+        <span class="sr-only"></span>
+      </div>
+
+      <div id="commandsContainer" style="visibility: hidden !important;" data-aos="fade-up"  data-aos-delay="200">
+        <div class="row aos-init aos-animate">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Todos</li>
+              <% CATEGORIES.map((cat, i) => { %>
+              <li data-filter=".filter-<%= cat.toLowerCase() %>"><%= cat %></li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row gy-4 portfolio-container aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+          <!-- Renderiza los comandos -->
+          <% commands.map((cmd, i) => { %>
+          <% const cmdName = `${cmd.PREMIUM ? "⭐" : ""} /${cmd.CATEGORY.KEY.toLowerCase()} ${cmd.NAME.toLowerCase()}` %>
+          <div class="col-lg-3 portfolio-item filter-<%= (cmd.CATEGORY.PARENT_CATEGORY?.NAME || cmd.CATEGORY.NAME).toLowerCase() %>" style="position: absolute; left: 0px; top: 0px;">
+            <div class="card mb-3">
+              <div class="card-header"><%= cmd.CATEGORY.PARENT_CATEGORY?.NAME || cmd.CATEGORY.NAME %></div>
+              <div class="card-body">
+                <h5 class="card-title"><%= cmdName %></h5>
+                <p class="card-text"><%= cmd.DESCRIPTION %></p>
+              </div>
+              <div class="card-footer"><%= cmdName %> <%= cmd.USAGE %></div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<%- include('footer') %>
+
+<script>
+  // Evento que se ejecuta cuando todo el contenido de la página se ha cargado
+  window.onload = function() {
+    // Obtener elementos por su ID
+    const loadingSpinner = document.getElementById("loadingSpinner");
+    const commandsContainer = document.getElementById("commandsContainer");
+
+    // Cambiar el estado de carga
+    loadingSpinner.style.display = "none";
+    commandsContainer.style.visibility = "visible";
+  };
+
+
+</script>
+
+<script>
+  window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}</script>

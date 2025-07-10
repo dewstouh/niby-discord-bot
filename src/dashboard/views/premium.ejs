@@ -1,0 +1,108 @@
+<%- include('header') %>
+
+<main class="premium othermain">
+
+  <!-- ======= Pricing Section ======= -->
+  <section id="pricing" class="otherhero pricing">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>Planes</h2>
+        <p>Elige un plan a tu medida</p>
+      </header>
+
+      <div class="row" data-aos="fade-left">
+
+        <div class="col-5 mx-auto" data-aos="zoom-in" data-aos-delay="100">
+          <div class="box">
+            <span class="featured">DESTACADO</span>
+            <h3>Plan de Usuario</h3>
+            <div class="price">3<span><sup>€</sup> / 3 meses</span></div>
+            <img src="img/pricing-free.png" class="img-fluid" alt>
+            <ul>
+              <li>3 meses premium</li>
+              <li>ESTE PLAN SOLO SE TE APLICARÁ A TI.</li>
+              <li>Solo tú tendrás accesso a las funciones premium.</li>
+              <li>Desbloqueo completo de comandos premium</li>
+              <li>Sin de espera de ejecución entre comandos</li>
+              <li>Reproduce directos de Twitch</li>
+              <li>Radio 24/7</li>
+              <li>x2 Recompensa de Monedas y XP</li>
+              <li><a href="#premium-features" style="color: aqua">Y todas estas ventajas</a></li>
+            </ul>
+            <a href="#" class="btn-buy" style="cursor: not-allowed">PRÓXIMAMENTE...</a>
+          </div>
+        </div>
+
+
+
+        <div class="col-5 mx-auto" data-aos="zoom-in" data-aos-delay="100">
+          <div class="box">
+            <span class="featured">DESTACADO</span>
+            <h3>Plan de Servidor</h3>
+            <div class="price">5<span><sup>€</sup> / 3 meses</span></div>
+            <img src="img/pricing-free.png" class="img-fluid" alt>
+            <ul>
+              <li>3 meses premium</li>
+              <li>ESTE PLAN SOLO SE APLICARÁ EN TU SERVIDOR.</li>
+              <li>Todos los usuarios tendrán acceso a las funciones premium en tu servidor</li>
+              <li>Desbloqueo completo de comandos premium</li>
+              <li>Sin de espera de ejecución entre comandos</li>
+              <li>Reproduce directos de Twitch</li>
+              <li>Radio 24/7</li>
+              <li>x2 Recompensa de Monedas y XP</li>
+              <li><a href="#premium-features" style="color: aqua">Y todas estas ventajas</a></li>
+            </ul>
+            <a href="#" class="btn-buy" style="cursor: not-allowed">PRÓXIMAMENTE...</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section><!-- End Pricing Section -->
+
+  <section id="premium-features"  class="otherhero features">
+
+    <div class="container aos-init aos-animate"  data-aos="fade-up">
+
+      <div class="container" ></div>
+
+        <header class="section-header"  data-aos="fade-up">
+          <h2 class="premium-title">⭐ Características Premium ⭐</h2>
+          <h2 class="shorth2">⭐ Premium ⭐</h2>
+          <p>Estas son las ventajas de tener premium</p>
+        </header>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="300" style="text-align: left  ">
+
+          <% config.premiumFeatures.map((feature) => { %>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <i class="<%= feature.icon.id %>" style="color: <%= feature.icon.color %>;"></i>
+              <h3 class><a href=""><%= feature.title %></a></h3>
+              <p><%= feature.description.replace(/{botName}/, bot.user.username).replace(/{prefix}/, process.env.PREFIX) %></p>
+            </div>
+          </div>
+          <% }) %>
+
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+
+
+<%- include('footer') %>

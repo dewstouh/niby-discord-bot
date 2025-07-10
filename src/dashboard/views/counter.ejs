@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <meta name="description" content="<%= bot.user.username %>">
+    <meta name="theme-color" content="<%= process.env.DEFAULT_COLOR %>">
+    <meta property="og:title" content="<%= bot.user.username %>">
+    <meta property="og:url" content="https://niby.elmundodeniby.com">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="La cuenta atrás ya ha comenzado para la salida de Niby! ¿Estás listo?">
+    <meta property="og:image" content="<%= bot.user.displayAvatarURL() %>">
+    <meta property="og:image:alt" content="Logo de <%= bot.user.username %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    <%= bot.user.username %>
+  </title>
+
+
+  <!-- Favicons -->
+  <link href="<%= bot.user.displayAvatarURL() %>" rel="icon">
+  <link href="<%= bot.user.displayAvatarURL() %>" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link href="css/style.css" rel="stylesheet">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlActual = window.location.pathname;
+      console.log(urlActual);
+
+      const enlaces = document.querySelectorAll('a.nav-link');
+
+      enlaces.forEach(enlace => {
+        if (enlace.getAttribute('href') === urlActual) {
+          enlace.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+
+
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="<%= bot.user.displayAvatarURL({dynamic: true}) %>" alt style="border-radius: 50%;">
+        <span style="z-index: 1" id="countdown">Cargando...</span>
+        <!-- <span><%= bot.user.username %></span> -->
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="/">Inicio</a></li>
+          <li class="dropdown"><a href="#"><span>Enlaces</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="<%= bot.invite %>">Invitar <%= bot.user.username %></a></li>
+              <li class="dropdown"><a href="#"><span>Otros Bots</span>
+                  <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="https://discord.com/api/oauth2/authorize?client_id=1008497910029226064&permissions=8&scope=applications.commands%20bot">Niby Guard</a></li>
+                  <li><a href="https://discord.com/api/oauth2/authorize?client_id=988026891485196378&permissions=3147776&scope=bot%20applications.commands">Bass</a></li>
+                  <li><a href="https://discord.com/api/oauth2/authorize?client_id=939952555839078401&permissions=8&scope=bot%20applications.commands">Bot del Canal</a></li>
+                </ul>
+              </li>
+              <li><a href="<%= process.env.DISCORD %>">Comunidad de Discord</a></li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link scrollto" href="<%= process.env.DISCORD %>">Soporte</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">
+            <%= bot.user.username %>
+          </h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Tu bot
+            multifuncional de confianza.</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400" style="color:#0ffc03">Lanzamiento oficial en: <span id="countdown">Cargando...</span></h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center">
+              <a href="<%= bot.invite %>" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Invítame</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Servidor de Soporte</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="<%= `https://cdn.discordapp.com/avatars/${bot?.user?.id}/${bot?.user?.avatar}.png?size=4096` %>" width="256px" style="border-radius: 50%;" class="img-fluid" alt>
+        </div>
+      </div>
+    </div>
+
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path fill="currentColor" fill-opacity="0.2" id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0 mb-10">
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>¿Qué es <%= bot.user.username %>?</h3>
+              <h2>
+                <%= bot.user.username %> es un bot multifuncional con
+                más de 150 comandos y
+                9 categorías únicas para
+                explorar.
+              </h2>
+              <p>Todo lo que necesites lo vas a encontrar en <%= bot.user.username %>,
+                ya sea administración de servidores,
+                seguridad, música, entretenimiento, utilidades o
+                cualquier otra función que puedas imaginar para
+                mejorar tu experiencia en Discord. Desde moderar tu
+                servidor hasta proporcionar información
+                útil, <%= bot.user.username %> está diseñado para
+                adaptarse a las necesidades de tu comunidad y
+                hacer que tu servidor sea más dinámico y amigable.</p>
+
+              <div class="text-center text-lg-start">
+                <a href="/commands" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Ver comandos</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="img/bot-about.png" class="img-fluid" alt>
+          </div>
+
+        </div>
+
+        <div class="row gx-0">
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center order-lg-1" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Todos tus bots, en uno.</h3>
+              <h2>
+                <%= bot.user.username %> hará que te deshagas de
+                todos tus bots.
+              </h2>
+              <p><%= bot.user.username %> llega pisando fuerte para
+                superar a los demás bots sin mirar atrás. Mientras
+                los
+                otros luchan por
+                destacar, nosotros dominamos con funciones exclusivas
+                y
+                velocidad que arrasa. Cada comando que
+                usas es un recordatorio de su irrelevancia, y cada
+                interacción subraya quién está al mando. Mientras
+                ellos
+                tropiezan, nosotros ya hemos cruzado la línea de
+                meta,
+                liderando la carrera con confianza implacable. ¿A qué
+                esperas para deshacerte de tus bots? Nosotros ya
+                tenemos
+                todo lo que necesitas.</p>
+
+              <div class="text-center text-lg-start">
+                <a href="<%= bot.invite %>" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Probar <%= bot.user.username %></span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="img/bot-about2.png" class="img-fluid" alt>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <h2>Características</h2>
+          <p>La razón por la que <%= bot.user.username %> destaca sobre el resto</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="300">
+
+          <% config.features.map((feature) => { %>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box">
+              <i class="<%= feature.icon.id %>" style="color: <%= feature.icon.color %>;"></i>
+              <h3 class=><a href=""><%= feature.title %></a></h3>
+              <p><%= feature.description.replace(/{botName}/, bot.user.username).replace(/{prefix}/, process.env.PREFIX) %></p>
+            </div>
+          </div>
+          <% }) %>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>ESTADÍSTICAS</h2>
+          <p>Estadísticas en tiempo real</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="bi bi-people-fill" style="color: #c6f7ff;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="<%= bot.guilds.cache.reduce((acc, g) => acc+g.memberCount, 0) %>" data-purecounter-duration="2" class="purecounter" id="userCount"></span>
+                <p>Usuarios</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="bi bi-house-check-fill" style="color: #b9baff;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="<%= bot.guilds.cache.size %>" data-purecounter-duration="2" class="purecounter" id="serverCount"></span>
+                <p>Servidores</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="bi bi-slash-square-fill" style="color: #ffffff;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="169" data-purecounter-duration="2" class="purecounter" id="commandCount"></span>
+                <p>Comandos</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="bi bi-wifi" style="color: #00cf61;"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="<%= bot.ws.ping %>" data-purecounter-duration="2" class="purecounter" id="ping">
+                </span>
+                <p>Ping</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+
+
+  </main><!-- End #main -->
+
+  <!-- En tu archivo HTML -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // Escucha el evento 'updateStats' emitido desde el servidor
+    socket.on('updateStats', (data) => {
+      // Actualiza los elementos HTML con los datos recibidos
+      // updateCounter('userCount', data.userCount);
+      // updateCounter('serverCount', data.serverCount);
+      updateCounter('ping', data.ping);
+    });
+
+    function updateCounter(elementId, newValue) {
+      const element = document.getElementById(elementId);
+      const startValue = parseInt(element.textContent);
+      const defaultDuration = 2000; // Duración de la animación por defecto en milisegundos (2 segundos)
+      const durationAttribute = element.getAttribute('data-purecounter-duration');
+      const duration = durationAttribute ? parseInt(durationAttribute) * 1000 : defaultDuration;
+
+      const range = newValue - startValue;
+      const increment = range > 0 ? 1 : -1; // Determina si aumentar o disminuir
+      const steps = Math.abs(range);
+      const stepDuration = duration / steps;
+      let currentValue = startValue;
+
+
+
+      const update = () => {
+        element.textContent = Math.round(currentValue);
+
+        if ((increment > 0 && currentValue < newValue) || (increment < 0 && currentValue > newValue)) {
+          currentValue += increment;
+          requestAnimationFrame(update);
+        } else {
+          element.textContent = newValue;
+        }
+      };
+
+      update();
+    }
+  </script>
+
+  <script>
+    var countDownDate = parseInt(<%= process.env.RELEASE_DATE %>);
+
+    var x = setInterval(function() {
+
+      var now = new Date().getTime();
+
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const countdownElements = document.querySelectorAll('#countdown');
+
+      countdownElements.forEach((element) => {
+        element.innerHTML = days + "d " + hours + "h " +
+          minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(x);
+          element.innerHTML = "LANZADO!";
+        }
+      })
+
+
+    }, 1000);
+  </script>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="<%= bot.user.displayAvatarURL() %>" style="border-radius: 50%" alt>
+              <span>
+                <%= bot.user.username %>
+              </span>
+            </a>
+            <p>¿Prefieres seguir perdiendo el tiempo configurando bots uno por uno? ¿O configurar uno que tiene todo lo que necesitas? Esa es tu decisión.</p>
+            <div class="social-links mt-3">
+              <a href="<%= process.env.DISCORD %>" class="discord"><i class="bi bi-discord"></i></a>
+              <a href="https://www.youtube.com/channel/UCFEt74PJAXUKBBWyVFZaCrw" class="youtube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-6 footer-links">
+            <h4>Links útiles</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="<%=process.env.DISCORD%>">El Mundo de Niby</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Servicios</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="<%= process.env.DISCORD %>">Comunidad de Discord</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://www.youtube.com/channel/UCFEt74PJAXUKBBWyVFZaCrw">Videos de aprendizaje</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://shop.elmundodeniby.com">Tienda Oficial</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>El Mundo de Niby, dewstouh | 2023</span></strong>.
+        Todos los derechos reservados
+      </div>
+      <div class="credits">
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="vendor/php-email-form/validate.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

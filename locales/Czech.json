@@ -1,0 +1,1298 @@
+{
+	"COMMANDS": {
+		"ADMIN": {
+			"ban": {
+				"DESCRIPTION": "Prohíbe la entrada a un usuario del servidor",
+				"USAGE": "<Usuario> <Razón?>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a banear"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Razón de baneo"
+					}
+				}
+			},
+			"kick": {
+				"DESCRIPTION": "Expulsa a un usuario del servidor",
+				"USAGE": "<Usuario> <Razón?>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a expulsar"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Razón de expulsión"
+					}
+				}
+			},
+			"unban": {
+				"DESCRIPTION": "Desbanea a un usuario del servidor",
+				"USAGE": "<IdUsuario> <Razón?>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Usuario a desbanear"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Razón de desbaneo"
+					}
+				}
+			}
+		},
+		"AJUSTES": {
+			"MUSICA": {
+				"defaultautoplay": {
+					"DESCRIPTION": "Activa o desactiva la reproducción automática de pistas en el servidor por defecto."
+				},
+				"defaultvolume": {
+					"DESCRIPTION": "Establece un volumen del reproductor por defecto en el servidor.",
+					"USAGE": "<Volumen>",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Volumen predeterminado a establecer"
+						}
+					}
+				},
+				"leavetimeout": {
+					"DESCRIPTION": "Establece el tiempo de espera máximo antes de que Niby se salga del canal de voz.",
+					"USAGE": "<Tiempo>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Tiempo a establecer"
+						}
+					}
+				},
+				"platform": {
+					"DESCRIPTION": "Cambia el motor de búsqueda predeterminado de Niby"
+				},
+				"playingmsg": {
+					"DESCRIPTION": "Activa o Desactiva el mensaje de reproducción de pistas."
+				},
+				"dj": {
+					"DESCRIPTION": "COMMANDS.AJUSTES.MUSICA.dj.DESCRIPTION"
+				},
+				"autoshuffle": {
+					"DESCRIPTION": "COMMANDS.AJUSTES.MUSICA.autoshuffle.DESCRIPTION"
+				},
+				"djmode": {
+					"DESCRIPTION": "COMMANDS.AJUSTES.MUSICA.djmode.DESCRIPTION"
+				}
+			},
+			"SORTEOS": {
+				"gcolor": {
+					"DESCRIPTION": "Cambia el color de los sorteos",
+					"USAGE": "<Color>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Color a establecer"
+						}
+					}
+				}
+			},
+			"language": {
+				"DESCRIPTION": "Configura el idioma predeterminado de Niby en el servidor.",
+				"execute": {
+					"menu": {
+						"options": {
+							"selectLanguage": "({{{percentageTranslated}}}) | Establecer el idioma de Niby a {{{name}}}"
+						}
+					},
+					"embed": {
+						"availableRadios": "Idiomas disponibles"
+					},
+					"content": {
+						"selectRadio": "**Selecciona un idioma a establecer!**"
+					}
+				}
+			},
+			"noprefix": {
+				"DESCRIPTION": "Ejecuta comandos sin utilizar el prefijo (PREMIUM)"
+			},
+			"prefix": {
+				"DESCRIPTION": "Cambia el prefijo de Niby en el servidor.",
+				"USAGE": "<Prefijo>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Prefijo a establecer"
+					}
+				}
+			}
+		},
+		"DIVERSION": {
+			"TEXTO": {
+				"8ball": {
+					"DESCRIPTION": "Hazle una pregunta a la bola del 8",
+					"USAGE": "<Pregunta>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Pregunta a hacer"
+						}
+					}
+				},
+				"fliptext": {
+					"DESCRIPTION": "Dale la vuelta a un texto",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a voltear"
+						}
+					}
+				},
+				"leetify": {
+					"DESCRIPTION": "Letifica un texto",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a letificar"
+						}
+					}
+				},
+				"mirrortext": {
+					"DESCRIPTION": "Pasa un texto a modo espejo",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a poner en modo espejo"
+						}
+					}
+				},
+				"morse": {
+					"DESCRIPTION": "Pasa un texto a código morse",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a código morse"
+						}
+					}
+				},
+				"randomcase": {
+					"DESCRIPTION": "Modifica un texto con mayúsculas aleatorias",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a modificar"
+						}
+					}
+				},
+				"reversetext": {
+					"DESCRIPTION": "Invierte un texto",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a invertir"
+						}
+					}
+				},
+				"shuffletext": {
+					"DESCRIPTION": "Mezcla las palabras de un texto",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a mezclar"
+						}
+					}
+				},
+				"tinytext": {
+					"DESCRIPTION": "Pasa un texto a miniatura",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a pasar a miniatura"
+						}
+					}
+				},
+				"vaporwave": {
+					"DESCRIPTION": "Aplica el efecto vaporwave a un texto",
+					"USAGE": "<Texto>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Texto a vaporwave"
+						}
+					}
+				}
+			}
+		},
+		"DUEÑO": {
+			"PREMIUM": {
+				"keygen": {
+					"DESCRIPTION": "Genera una clave premium con una duración concreta",
+					"OPTIONS": {
+						"1STRING_CHOICES": {
+							"CHOICES": {
+								"guild": "Servidor",
+								"user": "Usuario"
+							},
+							"DESCRIPTION": "Tipo de clave premium"
+						},
+						"0STRING": {
+							"DESCRIPTION": "Duración premium"
+						}
+					},
+					"USAGE": "<Duración> <Tipo?>"
+				}
+			},
+			"eval": {
+				"DESCRIPTION": "Evalúa un código de Javascript",
+				"USAGE": "<Código>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Código a evaluar"
+					}
+				}
+			},
+			"leaveserver": {
+				"DESCRIPTION": "Saca Niby de un servidor",
+				"USAGE": "<Id Servidor>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Id del Servidor a salir"
+					}
+				}
+			},
+			"reload": {
+				"DESCRIPTION": "Recarga un módulo de Niby",
+				"OPTIONS": {
+					"0STRING_CHOICES": {
+						"CHOICES": {
+							"comandos": "Comandos",
+							"menciones": "Menciones",
+							"eventos": "Eventos",
+							"handlers": "Handlers",
+							"clusters": "Clusters",
+							"botones": "Botones",
+							"menus": "Menús",
+							"contextmenus": "Menús Contextuales",
+							"modales": "Modales",
+							"componentes": "Todos los componentes"
+						},
+						"DESCRIPTION": "Módulo a recargar"
+					}
+				},
+				"USAGE": "<Módulo>"
+			},
+			"servers": {
+				"DESCRIPTION": "Mira los servidores en los que se encuentra Niby"
+			}
+		},
+		"ECONOMIA": {
+			"INFO": {
+				"balance": {
+					"DESCRIPTION": "Mira la información económica de un usuario",
+					"USAGE": "<Usuario?>",
+					"OPTIONS": {
+						"0USER": {
+							"DESCRIPTION": "Usuario a consultar"
+						}
+					}
+				},
+				"leaderboard": {
+					"DESCRIPTION": "Consulta el top 10 de usuarios más ricos"
+				},
+				"level": {
+					"DESCRIPTION": "Mira el nivel de un usuario",
+					"USAGE": "<Usuario?>",
+					"OPTIONS": {
+						"0USER": {
+							"DESCRIPTION": "Usuario a consultar"
+						}
+					}
+				}
+			},
+			"bet": {
+				"DESCRIPTION": "Apuesta una cantidad de monedas",
+				"USAGE": "<Cantidad>",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Cantidad a apostar"
+					}
+				}
+			},
+			"daily": {
+				"DESCRIPTION": "Reclama tu recompensa diaría"
+			},
+			"monthly": {
+				"DESCRIPTION": "Reclama tu recompensa mensual"
+			},
+			"work": {
+				"DESCRIPTION": "Trabaja y consigue monedas"
+			}
+		},
+		"INFO": {
+			"BOT": {
+				"help": {
+					"DESCRIPTION": "Mira toda la información y funciones disponibles en Niby",
+					"USAGE": "<Comando | Categoría>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Comando o Categoría a consultar"
+						}
+					},
+					"execute": {
+						"helpEmbed": {
+							"title": "Menú de Ayuda",
+							"description": "{{{flechaderEmoji}}} Prefijo del servidor: `{{{prefix}}}`\n{{{flechaderEmoji}}} Escribe: `{{{prefix}}}help <comando>` para más info.\n",
+							"field1": {
+								"name": "{{{commandEmoji}}} Comandos",
+								"value": "> `{{{commandCount}}} Comandos`"
+							},
+							"field2": {
+								"name": "{{{wifiEmoji}}} Ping"
+							},
+							"field3": {
+								"name": "{{{infoEmoji}}} Versión"
+							},
+							"field4": {
+								"name": "{{{nibyEmoji}}} Categorías"
+							}
+						},
+						"menu": {
+							"category": {
+								"description": "Mira los {{{amount}}} Comandos de {{{category}}}"
+							}
+						}
+					}
+				},
+				"invite": {
+					"DESCRIPTION": "Invita Niby a tu servidor"
+				},
+				"memory": {
+					"DESCRIPTION": "Mira el uso de memoria de Niby"
+				},
+				"ping": {
+					"DESCRIPTION": "Mira la estabilidad de la conexión de Niby"
+				},
+				"stats": {
+					"DESCRIPTION": "Mira las estadísticas globales de Niby"
+				},
+				"support": {
+					"DESCRIPTION": "Recibe soporte en el servidor oficial"
+				},
+				"uptime": {
+					"DESCRIPTION": "Mira el tiempo activo de Niby"
+				}
+			},
+			"SERVIDOR": {
+				"admins": {
+					"DESCRIPTION": "Mira los administradores del servidor"
+				},
+				"avatar": {
+					"DESCRIPTION": "Mira el avatar del servidor"
+				},
+				"banner": {
+					"DESCRIPTION": "Mira el banner del servidor"
+				},
+				"members": {
+					"DESCRIPTION": "Mira la cantidad de miembros en el servidor"
+				},
+				"splash": {
+					"DESCRIPTION": "Mira la imagen de bienvenida del servidor (Splash)"
+				}
+			},
+			"USUARIO": {
+				"avatar": {
+					"DESCRIPTION": "Mira el avatar de un usuario",
+					"USAGE": "<Usuario?>",
+					"OPTIONS": {
+						"0USER": {
+							"DESCRIPTION": "Usuario a consultar"
+						}
+					}
+				},
+				"banner": {
+					"DESCRIPTION": "Mira el banner de un usuario",
+					"USAGE": "<Usuario?>",
+					"OPTIONS": {
+						"0USER": {
+							"DESCRIPTION": "Usuario a consultar"
+						}
+					}
+				}
+			},
+			"channel": {
+				"DESCRIPTION": "Mira la información de un canal en el servidor",
+				"USAGE": "<Canal?>",
+				"OPTIONS": {
+					"0CHANNEL": {
+						"DESCRIPTION": "Canal a consultar"
+					}
+				}
+			},
+			"emoji": {
+				"DESCRIPTION": "Mira información de uno o varios emojis",
+				"USAGE": "<Emoji(s)>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Emoji(s) a consultar"
+					}
+				}
+			},
+			"emojis": {
+				"DESCRIPTION": "Mira la lista de emojis en el servidor"
+			},
+			"guild": {
+				"DESCRIPTION": "Mira la información del servidor"
+			},
+			"id": {
+				"DESCRIPTION": "Mira la Id de un usuario / canal / rol del servidor",
+				"USAGE": "<Usuario | Canal | Rol>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Usuario/Canal/Rol a consultar"
+					}
+				}
+			},
+			"member": {
+				"DESCRIPTION": "Mira la información de un usuario en el servidor",
+				"USAGE": "<Usuario?>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a consultar"
+					}
+				}
+			},
+			"permissions": {
+				"DESCRIPTION": "Mira los permisos de un usuario o un rol en el servidor",
+				"USAGE": "<Usuario | Rol>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Usuario/Rol a consultar"
+					}
+				}
+			},
+			"premium": {
+				"DESCRIPTION": "Mira tu estado premium y del servidor."
+			},
+			"role": {
+				"DESCRIPTION": "Mira la información de un rol",
+				"USAGE": "<Rol>",
+				"OPTIONS": {
+					"0ROLE": {
+						"DESCRIPTION": "Rol a consultar"
+					}
+				}
+			},
+			"roles": {
+				"DESCRIPTION": "Mira los roles de un usuario o los del servidor",
+				"USAGE": "<Usuario?>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a consultar"
+					}
+				}
+			}
+		},
+		"MODERACION": {
+			"baninfo": {
+				"DESCRIPTION": "Mira la información de un baneo en el servidor",
+				"USAGE": "<Id Usuario>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Id de Usuario a consultar"
+					}
+				}
+			},
+			"bans": {
+				"DESCRIPTION": "Mira los baneos totales en el servidor y sus detalles"
+			},
+			"clear": {
+				"DESCRIPTION": "Elimina una cantidad de mensajes en un canal (Máximo: 100) (Premium: 500)",
+				"USAGE": "<Cantidad>",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Cantidad de mensajes a eliminar"
+					}
+				}
+			},
+			"clearwarnings": {
+				"DESCRIPTION": "Elimina todos los avisos de un usuario en el servidor",
+				"USAGE": "<Usuario>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a remover avisos"
+					}
+				}
+			},
+			"fixusername": {
+				"DESCRIPTION": "Reemplaza los caracteres extraños de un usuario en el servidor por caracteres normales",
+				"USAGE": "<Usuario>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a normalizar"
+					}
+				}
+			},
+			"lock": {
+				"DESCRIPTION": "Bloquea un canal en el servidor para que nadie pueda enviar mensajes",
+				"USAGE": "<Canal?> <Usuarios?> <Roles?>",
+				"OPTIONS": {
+					"0CHANNEL": {
+						"DESCRIPTION": "Canal a bloquear"
+					},
+					"1USER": {
+						"DESCRIPTION": "Usuarios a bloquear"
+					},
+					"2ROLE": {
+						"DESCRIPTION": "Roles a bloquear"
+					}
+				}
+			},
+			"slowmode": {
+				"DESCRIPTION": "Establece un cooldown en el canal actual",
+				"USAGE": "<Tiempo> <Canal?>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Canal a establecer el cooldown"
+					},
+					"1CHANNEL": {
+						"DESCRIPTION": "Tiempo de espera entre mensaje"
+					}
+				}
+			},
+			"timeout": {
+				"DESCRIPTION": "Mutea a un miembro del servidor",
+				"USAGE": "<Usuario> <Duración> <Razón?>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a mutear"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Duración de muteo"
+					},
+					"2STRING": {
+						"DESCRIPTION": "Razón de muteo"
+					}
+				}
+			},
+			"unlock": {
+				"DESCRIPTION": "Desbloquea un canal previamente bloqueado en el servidor.",
+				"USAGE": "<Canal?> <Usuarios?> <Roles?>",
+				"OPTIONS": {
+					"0CHANNEL": {
+						"DESCRIPTION": "Canal a desbloquear"
+					},
+					"1USER": {
+						"DESCRIPTION": "Usuarios a desbloquear"
+					},
+					"2ROLE": {
+						"DESCRIPTION": "Roles a desbloquear"
+					}
+				}
+			},
+			"untimeout": {
+				"DESCRIPTION": "Desmutea a un miembro en el servidor.",
+				"USAGE": "<Usuario> <Razón?>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a desmutear"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Razón de desmuteo"
+					}
+				}
+			},
+			"unwarn": {
+				"DESCRIPTION": "Elimina un aviso de un usuario en base a su id",
+				"USAGE": "<Usuario> <Id Aviso>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a eliminar el aviso"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Razón de eliminación de aviso"
+					}
+				}
+			},
+			"warn": {
+				"DESCRIPTION": "Envía un aviso a un usuario del servidor",
+				"USAGE": "<Usuario> <Razón?>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a avisar"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Razón de aviso"
+					}
+				}
+			},
+			"warnings": {
+				"DESCRIPTION": "Mira todos los avisos de un usuario en el servidor.",
+				"USAGE": "<Usuario>",
+				"OPTIONS": {
+					"0USER": {
+						"DESCRIPTION": "Usuario a consultar"
+					}
+				}
+			}
+		},
+		"MUSICA": {
+			"247": {
+				"DESCRIPTION": "Haz que Niby se quede 24/7 en un tu canal de voz reproduciendo música."
+			},
+			"COLA": {
+				"autoplay": {
+					"DESCRIPTION": "Activa o Desactiva la reproducción automática de pistas nuevas en el servidor."
+				},
+				"clearqueue": {
+					"DESCRIPTION": "Limpia toda la cola de canciones"
+				},
+				"jump": {
+					"DESCRIPTION": "Salta a una pista de la cola",
+					"USAGE": "<Id Pista>",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Id de Pista a saltar"
+						}
+					}
+				},
+				"loop": {
+					"DESCRIPTION": "Activa o desactiva el bucle de pista/cola",
+					"OPTIONS": {
+						"0STRING_CHOICES": {
+							"CHOICES": {
+								"track": "Pista",
+								"queue": "Cola",
+								"off": "Desactivado"
+							},
+							"DESCRIPTION": "Bucle a establece"
+						}
+					},
+					"USAGE": "<(cola | pista | desactivado)?>"
+				},
+				"move": {
+					"DESCRIPTION": "Cambia la posición de una pista a una posición nueva",
+					"USAGE": "<Id Pista Origen> <Id Pista Destino>",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Pista origen a cambiar"
+						},
+						"1NUMBER": {
+							"DESCRIPTION": "Pista destino a reemplazar"
+						}
+					}
+				},
+				"shuffle": {
+					"DESCRIPTION": "Mezcla la cola de pistas"
+				},
+				"unshuffle": {
+					"DESCRIPTION": "Deshaz la mezcla de la cola de pistas"
+				}
+			},
+			"FILTRO": {
+				"3d": {
+					"DESCRIPTION": "Establece el filtro 3d en el reproductor"
+				},
+				"clearfilters": {
+					"DESCRIPTION": "Limpia todos los filtros y ecualizadores del reproductor"
+				},
+				"echo": {
+					"DESCRIPTION": "Establece el filtro echo en el reproductor"
+				},
+				"karaoke": {
+					"DESCRIPTION": "Establece el filtro karaoke en el reproductor"
+				},
+				"left": {
+					"DESCRIPTION": "Establece la salida de audio por el auricular izquierdo en el reproductor"
+				},
+				"lowpass": {
+					"DESCRIPTION": "Establece el filtro lowpass en el reproductor"
+				},
+				"mono": {
+					"DESCRIPTION": "Establece la salida de audio por ambos auriculares por igual en el reproductor"
+				},
+				"nightcore": {
+					"DESCRIPTION": "Establece el filtro nightcore en el reproductor"
+				},
+				"pitch": {
+					"DESCRIPTION": "Cambia el tono del reproductor",
+					"USAGE": "<Cantidad Tono>",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Tono a establecer"
+						}
+					}
+				},
+				"rate": {
+					"DESCRIPTION": "Cambia la velocidad y la pista del tono de manera proporcional",
+					"USAGE": "<Cantidad Tono + Velocidad>",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Tono+Velocidad a establecer"
+						}
+					}
+				},
+				"reverb": {
+					"DESCRIPTION": "Establece el filtro reveerb en el reproductor"
+				},
+				"right": {
+					"DESCRIPTION": "Establece la salida de audio por el auricular derecho en el reproductor"
+				},
+				"speed": {
+					"DESCRIPTION": "Cambia la velocidad del reproductor",
+					"USAGE": "<Velocidad>",
+					"OPTIONS": {
+						"0NUMBER": {
+							"DESCRIPTION": "Velocidad a establecer"
+						}
+					}
+				},
+				"stereo": {
+					"DESCRIPTION": "Establece la salida de audio por ambos auriculares en el reproductor"
+				},
+				"tremolo": {
+					"DESCRIPTION": "Establece el filtro tremolo en el reproductor"
+				},
+				"vaporwave": {
+					"DESCRIPTION": "Establece el filtro vaporwave en el reproductor"
+				},
+				"vibrato": {
+					"DESCRIPTION": "Establece el filtro vibrato en el reproductor"
+				}
+			},
+			"INFO": {
+				"nowplaying": {
+					"DESCRIPTION": "Mira la información de la pista actual del reproductor"
+				},
+				"queue": {
+					"DESCRIPTION": "Mira la cola de pistas del reproductor"
+				},
+				"save": {
+					"DESCRIPTION": "Guarda la pista actual en tus DMs"
+				}
+			},
+			"forward": {
+				"DESCRIPTION": "Avanza una cantidad de segundos del reproductor",
+				"USAGE": "<Segundos>",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Cantidad a avanzar"
+					}
+				}
+			},
+			"mix": {
+				"DESCRIPTION": "Reproduce un Mix de la lista de mixes disponibles!"
+			},
+			"pause": {
+				"DESCRIPTION": "Pausa el reproductor"
+			},
+			"play": {
+				"DESCRIPTION": "Reproduce una pista en el reproductor o deja que Niby busque una",
+				"USAGE": "<Búsqueda>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Pista a buscar"
+					}
+				}
+			},
+			"playnext": {
+				"DESCRIPTION": "Añade una pista próxima a la actual",
+				"USAGE": "<Búsqueda>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Pista a buscar"
+					}
+				}
+			},
+			"playnow": {
+				"DESCRIPTION": "Reproduce una pista en el reproductor ahora",
+				"USAGE": "<Búsqueda>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Pista a buscar"
+					}
+				}
+			},
+			"playprevious": {
+				"DESCRIPTION": "Añade la pista anterior reproducida"
+			},
+			"playskip": {
+				"DESCRIPTION": "Reproduce una pista ahora y salta la actual"
+			},
+			"radio": {
+				"DESCRIPTION": "Reproduce una emisora de las radios disponibles!"
+			},
+			"reconnect": {
+				"DESCRIPTION": "Reconecta el reproductor en caso de haber sufrido una caída"
+			},
+			"remove": {
+				"DESCRIPTION": "Elimina una pista de la cola",
+				"USAGE": "<Id Pista>",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Id de Pista a remover"
+					}
+				}
+			},
+			"replay": {
+				"DESCRIPTION": "Repite la pista actual"
+			},
+			"resume": {
+				"DESCRIPTION": "Reanuda el reproductor"
+			},
+			"rewind": {
+				"DESCRIPTION": "Retrocede el reproductor una cantidad de segundos",
+				"USAGE": "<Segundos>",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Segundos a retroceder"
+					}
+				}
+			},
+			"seek": {
+				"DESCRIPTION": "Establece una posición concreta del reproductor",
+				"USAGE": "<Segundo>",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Segundo a establecer"
+					}
+				}
+			},
+			"skip": {
+				"DESCRIPTION": "Salta la pista actual"
+			},
+			"stop": {
+				"DESCRIPTION": "Detén el reproductor"
+			},
+			"volume": {
+				"DESCRIPTION": "Cambia la cantidad de volumen del reproductor",
+				"USAGE": "<Cantidad>",
+				"OPTIONS": {
+					"0NUMBER": {
+						"DESCRIPTION": "Volumen a establecer"
+					}
+				}
+			},
+			"lyrics": {
+				"DESCRIPTION": "COMMANDS.MUSICA.lyrics.DESCRIPTION"
+			},
+			"addprevious": {
+				"DESCRIPTION": "COMMANDS.MUSICA.addprevious.DESCRIPTION"
+			}
+		},
+		"NSFW": {
+			"4k": {
+				"DESCRIPTION": "Muestra una imagen en 4k NSFW"
+			},
+			"ANIME": {
+				"ahegao": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Ahegao"
+				},
+				"femdom": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Dominación Femenina"
+				},
+				"futa": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Mujeres con Pene"
+				},
+				"glasses": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Fetiche con Gafas"
+				},
+				"hanal": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Anales"
+				},
+				"hass": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Culos"
+				},
+				"hblowjob": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Mamadas"
+				},
+				"hboobjob": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Pajas Rusas"
+				},
+				"hboobs": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Pechos"
+				},
+				"hcreampie": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Corridas internas"
+				},
+				"hentai": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Hentai"
+				},
+				"hfootjob": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Pajas con Pies"
+				},
+				"hhandjob": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Pajas"
+				},
+				"hkitsune": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Kitsunes"
+				},
+				"hmidriff": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Diafragmas"
+				},
+				"hpussy": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Vaginas"
+				},
+				"hthigh": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Muslos"
+				},
+				"neko": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Nekos"
+				},
+				"paizuri": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Paizuri"
+				},
+				"rule34": {
+					"DESCRIPTION": "Busca una imagen en Rule 34",
+					"USAGE": "<Búsqueda?>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Contenido a buscar"
+						}
+					}
+				},
+				"tentacle": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Tentáculos"
+				},
+				"trap": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Transexuales"
+				},
+				"uniform": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Uniformes"
+				},
+				"yaoi": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Homosexuales"
+				},
+				"yuri": {
+					"DESCRIPTION": "Muestra una imagen Anime NSFW de Lesbianas"
+				}
+			},
+			"anal": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Anales"
+			},
+			"asian": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Asiáticas"
+			},
+			"ass": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Culos"
+			},
+			"blowjob": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Mamadas"
+			},
+			"boobs": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Pechos"
+			},
+			"cosplay": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Cosplays"
+			},
+			"cowgirl": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Montura Vaquera"
+			},
+			"cumshot": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Eyaculaciones"
+			},
+			"fishnets": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Medias de red"
+			},
+			"footjob": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Pajas con Pies"
+			},
+			"gonewild": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Mujeres traviesas"
+			},
+			"latina": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Latinas"
+			},
+			"milf": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Maduras"
+			},
+			"panties": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Bragas"
+			},
+			"pov": {
+				"DESCRIPTION": "Muestra una imagen NSFW en Primera Persona"
+			},
+			"pussy": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Vaginas"
+			},
+			"realbooru": {
+				"DESCRIPTION": "Busca contenido NSFW en Realbooru",
+				"USAGE": "<Búsqueda?>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Contenido a buscar"
+					}
+				}
+			},
+			"socks": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Fetiche con calcetines"
+			},
+			"stockings": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Fetiche con medias"
+			},
+			"swimsuit": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Bañador"
+			},
+			"thighhighs": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Fetiche con muslos altos"
+			},
+			"titfuck": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Pajas Rusas"
+			},
+			"trans": {
+				"DESCRIPTION": "Muestra una imagen NSFW de Transexuales"
+			}
+		},
+		"SORTEOS": {
+			"gend": {
+				"DESCRIPTION": "Finaliza un sorteo de este servidor",
+				"USAGE": "<Id Sorteo?>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Id de Sorteo a finalizar"
+					}
+				}
+			},
+			"glist": {
+				"DESCRIPTION": "Lista todos los sorteos activos en este servidor"
+			},
+			"gpause": {
+				"DESCRIPTION": "Pausa un sorteo activo de este servidor",
+				"USAGE": "<Id Sorteo?>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Id de Sorteo a pausar"
+					}
+				}
+			},
+			"greroll": {
+				"DESCRIPTION": "Elige un nuevo ganador del sorteo",
+				"USAGE": "<Id Sorteo?>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Id de Sorteo a seleccionar un nuevo ganador"
+					}
+				}
+			},
+			"gresume": {
+				"DESCRIPTION": "Reanuda un sorteo pausado del servidor",
+				"USAGE": "<Id Sorteo?>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Id de Sorteo a reanudar"
+					}
+				}
+			},
+			"gstart": {
+				"DESCRIPTION": "Comienza un nuevo sorteo en el servidor",
+				"USAGE": "<Duración> <Ganadores> <Recompensa> <Canal?> <Rol?>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Duración del sorteo"
+					},
+					"1NUMBER": {
+						"DESCRIPTION": "Cantidad de ganadores"
+					},
+					"2STRING": {
+						"DESCRIPTION": "Recompensa del sorteo"
+					},
+					"3CHANNEL": {
+						"DESCRIPTION": "Canal de comienzo del sorteo"
+					},
+					"4ROLE": {
+						"DESCRIPTION": "Rol requerido para participar"
+					}
+				}
+			}
+		},
+		"UTILIDAD": {
+			"PREMIUM": {
+				"claim": {
+					"DESCRIPTION": "Reclama una Clave Premium de Niby",
+					"USAGE": "<Clave>",
+					"OPTIONS": {
+						"0STRING": {
+							"DESCRIPTION": "Clave a reclamar"
+						}
+					}
+				}
+			},
+			"enlarge": {
+				"DESCRIPTION": "Muestra la imagen original de uno o varios emojis",
+				"USAGE": "<Emoji(s)>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Emoji(s) a mostrar"
+					}
+				}
+			},
+			"translate": {
+				"DESCRIPTION": "Traduce un texto en un idioma específico",
+				"USAGE": "<Idioma> <Texto>",
+				"OPTIONS": {
+					"0STRING": {
+						"DESCRIPTION": "Idioma a establecer"
+					},
+					"1STRING": {
+						"DESCRIPTION": "Texto a traducir"
+					}
+				}
+			}
+		}
+	},
+	"CATEGORIES": {
+		"Admin": {
+			"NAME": "Administración",
+			"DESCRIPTION": "Administra el servidor, prohíbe la entrada a miembros, controla las acciones de los usuarios, moderadores y más."
+		},
+		"Ajustes": {
+			"NAME": "Ajustes",
+			"Musica": {
+				"NAME": "Música",
+				"DESCRIPTION": "Configura los ajustes predeterminados de la música"
+			},
+			"Sorteos": {
+				"NAME": "Sorteos",
+				"DESCRIPTION": "Configura el sistema de sorteos en el servidor"
+			},
+			"DESCRIPTION": "Configura Niby para que sea el bot perfecto en tu servidor, activa / desactiva comandos o categorías que no quieras utilizar o funciones que no necesites."
+		},
+		"Diversion": {
+			"NAME": "Diversión",
+			"Texto": {
+				"NAME": "Texto",
+				"DESCRIPTION": "Comandos de diversión textuales"
+			},
+			"DESCRIPTION": "Diviértete con los comandos de diversión disponibles"
+		},
+		"Dueño": {
+			"NAME": "Dueño",
+			"Premium": {
+				"NAME": "Premium",
+				"DESCRIPTION": "Administración del Premium de Niby"
+			},
+			"DESCRIPTION": "Administra el funcionamiento de Niby"
+		},
+		"Economia": {
+			"NAME": "Economía",
+			"Info": {
+				"NAME": "Información",
+				"DESCRIPTION": "Mira la información de la economía de los usuarios"
+			},
+			"DESCRIPTION": "¿Quién será el más rico? Apuesta monedas, juega a la ruleta, cara o cruz, sube de nivel y sé el #1 en la lista."
+		},
+		"Info": {
+			"NAME": "Información",
+			"Bot": {
+				"NAME": "Bot",
+				"DESCRIPTION": "Información de Niby"
+			},
+			"Servidor": {
+				"NAME": "Servidor",
+				"DESCRIPTION": "Información del servidor"
+			},
+			"Usuario": {
+				"NAME": "Usuario",
+				"DESCRIPTION": "Información de los usuarios"
+			},
+			"DESCRIPTION": "Consulta la información disponible en tu servidor, sus miembros o Niby."
+		},
+		"Moderacion": {
+			"NAME": "Moderación",
+			"DESCRIPTION": "Mantén un orden en el servidor, sanciona a los usuarios temporal o permanentemente para evitar un descontrol."
+		},
+		"Musica": {
+			"NAME": "Música",
+			"Cola": {
+				"NAME": "Cola",
+				"DESCRIPTION": "Administra la cola del reproductor"
+			},
+			"Filtro": {
+				"NAME": "Filtro",
+				"DESCRIPTION": "Añade filtros de audio al reproductor"
+			},
+			"Info": {
+				"NAME": "Información",
+				"DESCRIPTION": "Mira información del reproductor y la cola"
+			},
+			"DESCRIPTION": "Escucha tus temas favoritos a una calidad increíble"
+		},
+		"Nsfw": {
+			"NAME": "Nsfw",
+			"Anime": {
+				"NAME": "Anime",
+				"DESCRIPTION": "Contenido NSFW Animado (Anime)"
+			},
+			"DESCRIPTION": "Pasa un buen rato con los comandos +18"
+		},
+		"Sorteos": {
+			"NAME": "Sorteos",
+			"DESCRIPTION": "Crea y configura sorteos completamente personalizados en tu servidor"
+		},
+		"Utilidad": {
+			"NAME": "Utilidad",
+			"Premium": {
+				"NAME": "Premium",
+				"DESCRIPTION": "Mira las utilidades premium disponibles"
+			},
+			"DESCRIPTION": "Agiliza tu trabajo con los comandos de utilidad."
+		}
+	},
+	"UTILS": {
+		"GENERAL": {
+			"DURATION": {
+				"time": {
+					"seconds": {
+						"short": {
+							"plural": "Seg"
+						},
+						"plural": "Segundos"
+					},
+					"minutes": {
+						"short": {
+							"singular": "Min",
+							"plural": "Mins"
+						},
+						"singular": "Minuto",
+						"plural": "Minutos"
+					}
+				}
+			}
+		},
+		"MESSAGE": {
+			"PAGINATION": {
+				"message": {
+					"buttons": {
+						"back": "Atrás",
+						"home": "Inicio",
+						"forward": "Avanzar",
+						"page": "Ir a página"
+					},
+					"embed": {
+						"footer": "Página {{{page}}} / {{{pages}}}"
+					}
+				},
+				"collector": {
+					"expire": "*El mensaje ha expirado.*"
+				}
+			}
+		}
+	},
+	"LANGUAGES": {
+		"SpanishES": "Español",
+		"EnglishUS": "Inglés",
+		"German": "Alemán",
+		"Romanian": "Rumano",
+		"French": "Francés",
+		"Bulgarian": "Búlgaro",
+		"Croatian": "Croata",
+		"Czech": "Checo",
+		"Danish": "Danés",
+		"Dutch": "Neerlandés",
+		"Finnish": "Finlandés",
+		"Greek": "Griego",
+		"Hindi": "Hindi",
+		"Hungarian": "Húngaro",
+		"Italian": "Italiano",
+		"ChineseCN": "Chino (CN)",
+		"Japanese": "Japonés",
+		"Korean": "Coreano",
+		"Lithuanian": "Lituano",
+		"Norwegian": "Noruego",
+		"Polish": "Polaco",
+		"PortugueseBR": "Portugués (BR)",
+		"Russian": "Ruso",
+		"Swedish": "Sueco",
+		"Thai": "Tailandés",
+		"Turkish": "Turco",
+		"Ukrainian": "Ucraniano",
+		"Vietnamese": "Vietnamita"
+	}
+}

@@ -1,0 +1,111 @@
+import { Embed, ErrorEmbed } from "../../../extenders/discord/Embed";
+import Client from "../../../structures/Client";
+import { Command } from "../../../structures/Command";
+export default {
+    COOLDOWN: {
+        user: 30 * 1000,
+    },
+    async execute(client:Client, interaction, args, prefix, guildData) {
+
+        let emoji;
+        const time = 180e3;
+        const reactionMessage = await interaction.reply({
+            embeds: [
+                new Embed()
+                    .addField(
+                        client.translate(guildData.language, `${this.LANG_KEY}.embed1.name`),
+                        client.translate(guildData.language, `${this.LANG_KEY}.embed1.value`,
+                            { time: client.utils.general.duration(time, guildData.language).map(d => `\`${d}\``).join(", "), defaultEmoji: process.env.GIVEAWAY_EMOJI })
+
+                    )
+                // .addField(`Reacciona en este mensaje con el emoji que quieras utilizar para los sorteos.`, `> Tienes ${client.utils.general.duration(time).map(d => `\`${d}\``).join(", ")} para reaccionar en este mensaje.\n\n*Si quieres reestablecer al emoji predeterminado, reacciona en ${process.env.GIVEAWAY_EMOJI}*`)
+            ],
+            fetchReply: true
+        })
+
+        await reactionMessage.react(process.env.GIVEAWAY_EMOJI).catch(() => { });
+
+        reactionMessage.awaitReactions({
+            filter: (reaction, user) => user.id == interaction.user.id,
+            max: 1,
+            time
+        }).then(async collected => {
+            if (collected.first().emoji?.id && collected.first().emoji?.id.length > 2) {
+                emoji = collected.first().emoji?.id;
+                if (collected.first().emoji?.animated) emoji = "<" + "a:" + collected.first().emoji?.name + ":" + collected.first().emoji?.id + ">";
+                else emoji = "<" + ":" + collected.first().emoji?.name + ":" + collected.first().emoji?.id + ">";
+            } else if (collected.first().emoji?.name) {
+                emoji = collected.first().emoji?.name;
+            } else {
+                return await client.utils.message.edit(interaction, reactionMessage, {
+                    embeds: [
+                        new ErrorEmbed()
+                            .addField(
+                                client.translate(guildData.language, `${this.LANG_KEY}.invalid.name`),
+                                client.translate(guildData.language, `${this.LANG_KEY}.invalid.value`, { emoji: guildData.giveaway.emoji }))
+                    ],
+
+                });
+            }
+
+            try {
+                await reactionMessage.react(emoji);
+
+                guildData.updateOne({
+                    "giveaway.emoji": emoji
+                })
+                .then(() => {
+                    return client.utils.message.edit(interaction, reactionMessage, {
+                        embeds: [
+                            new Embed()
+                                .addField(
+                                    client.translate(guildData.language, `${this.LANG_KEY}.success.name`),
+                                    client.translate(guildData.language, `${this.LANG_KEY}.success.value`, { emoji })
+                                )
+                            // .addField(`${client.allemojis.yes} Se ha cambiado el emoji para los sorteos.`, `> Se utilizará el emoji ${emoji} para los sorteos.`)
+                        ],
+    
+                    });
+                })
+                .catch(() => {
+                    return client.utils.message.edit(interaction, reactionMessage, {
+                        embeds: [
+                            new Embed()
+                                .addField(
+                                    client.translate(guildData.language, `${this.LANG_KEY}.error.name`),
+                                    client.translate(guildData.language, `${this.LANG_KEY}.error.value`, { emoji })
+                                )
+                            // .addField(`${client.allemojis.yes} Se ha cambiado el emoji para los sorteos.`, `> Se utilizará el emoji ${emoji} para los sorteos.`)
+                        ],
+    
+                    });
+                });
+
+               
+            } catch (e) {
+                return await client.utils.message.edit(interaction, reactionMessage, {
+                    embeds: [
+                        new ErrorEmbed()
+                            .addField(
+                                client.translate(guildData.language, `${this.LANG_KEY}.unavailable.name`),
+                                client.translate(guildData.language, `${this.LANG_KEY}.unavailable.value`, { emoji: guildData.giveaway.emoji })
+                            )
+                    ],
+
+                });
+            }
+        })
+            .catch(async () => {
+                return await client.utils.message.edit(interaction, reactionMessage, {
+                    embeds: [
+                        new ErrorEmbed()
+                            .addField(
+                                client.translate(guildData.language, `${this.LANG_KEY}.expired.name`),
+                                client.translate(guildData.language, `${this.LANG_KEY}.expired.value`))
+                    ],
+
+                });
+            });
+
+    }
+} as Command

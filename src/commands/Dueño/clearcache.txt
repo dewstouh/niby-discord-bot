@@ -1,0 +1,120 @@
+import { Locale } from 'discord.js';
+import { Embed, ErrorEmbed } from '../../extenders/discord/Embed';
+import Client from '../../structures/Client';
+import { Command } from '../../structures/Command';
+export default {
+   OPTIONS: [
+      {
+         STRING_CHOICES: {
+            REQUIRED: false,
+            CHOICES: [
+               'users',
+               'channels',
+               'roles',
+               'presences',
+               'voiceStates',
+               'stageInstances',
+               'invites',
+               'scheduledEvents',
+               'autoModerationRules',
+            ],
+         },
+      },
+   ],
+   USAGE: '<módulo>',
+   async execute(client: Client, message, args, prefix, guildData) {
+         // @ts-ignore
+         const thisCmdChoices = [...new Set([
+         // @ts-ignore
+         ...this.OPTIONS[0].STRING_CHOICES.CHOICES.map((choice) => choice.value),
+         // @ts-ignore
+         ...this.OPTIONS[0].STRING_CHOICES.CHOICES.map((choice) => choice.name_localizations[Locale[guildData.language]])
+         ])];
+         // @ts-ignore
+      const selectedChoice: string = args[0];
+      const sendReloadingMessage = (module) => {
+         return message.reply({
+            embeds: [
+               new Embed().addFields({
+                  name: client.translate(guildData.language, `${this.LANG_KEY}.loading.name`, {
+                     module,
+                  }), // `${client.allemojis.loading} Recargando ${FIRST_UPPER}`,
+                  value: client.translate(guildData.language, `${this.LANG_KEY}.loading.value`), // `>>> Espera unos segundos...`
+               }),
+            ],
+            ephemeral: true,
+            fetchReply: true,
+         });
+      };
+
+      try {
+         if (selectedChoice && thisCmdChoices.includes(selectedChoice)) {
+            const RELOADING_MSG = await sendReloadingMessage(selectedChoice.capitalizeFirstChar());
+            try {
+               this[`clear${selectedChoice.capitalizeFirstChar()}Cache`]();
+            } catch (e) {
+               console.error(e);
+               return await client.utils.message.edit(message, RELOADING_MSG, {
+                  embeds: [
+                     new ErrorEmbed().addField(
+                        client.translate(guildData.language, `${this.LANG_KEY}.error.name`), // `${client.allemojis.no} Ha ocurrido un error a al recargar el bot!`,
+                        client.translate(guildData.language, `${this.LANG_KEY}.error.value`), // `> *Mira la consola para más detalles.*`)
+                     ),
+                  ],
+                  ephemeral: true,
+               });
+            }
+         }
+      } catch (e) {
+         console.error(e);
+      }
+
+      function clearUsersCache() {
+         client.users.cache.filter((u) => u.id !== client.user!.id).clear();
+      }
+
+      function clearChannelsCache() {
+         client.channels.cache.clear();
+      }
+
+      function clearMembersCache() {
+         client.guilds.cache.forEach((g) => g.members.cache.filter((m) => m.user.id !== client.user!.id).clear());
+      }
+
+      function clearBansCache() {
+         client.guilds.cache.forEach((g) => g.bans.cache.clear());
+      }
+
+      function clearRolesCache() {
+         client.guilds.cache.forEach((g) => g.roles.cache.clear());
+      }
+
+      function clearPresencesCache() {
+         client.guilds.cache.forEach((g) => g.presences.cache.clear());
+      }
+
+      function clearInvitesCache() {
+         client.guilds.cache.forEach((g) => g.invites.cache.clear());
+      }
+
+      function clearVoiceStatesCache() {
+         client.guilds.cache.forEach((g) =>
+            g.voiceStates.cache
+               .filter((state) => state.id !== state.client.user.id || (state?.channel?.members && state.channel.members.size >= 1))
+               .clear(),
+         );
+      }
+
+      function clearStageInstancesCache() {
+         client.guilds.cache.forEach((g) => g.stageInstances.cache.clear());
+      }
+
+      function clearScheduledEvents() {
+         client.guilds.cache.forEach((g) => g.scheduledEvents.cache.clear());
+      }
+
+      function clearAutoModerationRulesCache() {
+         client.guilds.cache.forEach((g) => g.autoModerationRules.cache.clear());
+      }
+   },
+} as Command;

@@ -1,0 +1,24 @@
+import { Command } from '../../structures/Command';
+import Client from '../../structures/Client';
+import { ErrorEmbed } from '../../extenders/discord/Embed';
+export default {
+	OPTIONS: [
+		{
+			STRING: {
+				REQUIRED: true,
+			},
+		},
+	],
+	USAGE: '<texto>',
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	execute(client:Client, message, args, prefix, guildData, userData, player) {
+        if(!args.length) return message.reply({
+            embeds: [
+                new ErrorEmbed()
+                .addField(`${client.allemojis.no} Tienes que especificar un texto para vocalizar!`, `>>> **Ejemplo:** \`${this.NAME} hola que tal\``)
+            ]
+        });
+        
+        return client.utils.music.tts(message, args.join(" "), player, guildData);
+	},
+} as Command;

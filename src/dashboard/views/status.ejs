@@ -1,0 +1,127 @@
+<%- include('header') %>
+
+<main class="othermain">
+  <section id="values" class="otherhero status">
+
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+      <header class="section-header" data-aos="fade-up">
+        <h2>Estado</h2>
+        <p>Estado de <%= bot.user.username %></p>
+      </header>
+
+
+
+      <!-- Muestra el emoji de carga si los comandos no han terminado de cargar -->
+      <div class="spinner-border" id="loadingSpinner" role="status">
+        <span class="sr-only"></span>
+      </div>
+
+      <div class="row gx-0 mb-10" style="visibility: hidden !important;">
+
+        <div class="d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="content" id="shardsContainer">
+            <h1>Clusters</h1>
+            <span>Hay un total de <%= totalData.length %> clusters.</span>
+            <div class="data-container">
+            <% for (let i = 0; i < totalData.length; i++) { %>
+            <div class="shard-box">
+              <div class="shard-container mt-4" id="shardContainer<%= i %>"><span>#1</span></div>
+              <div class="shard-container-info" id="shardContainerInfo<%= i %>">
+                <span>ID del Cluster: <strong><%= i %></strong></span>
+                <span>Shards: <strong><%= totalData[i].shards %></strong></span>
+                <span>Usuarios: <strong><%= totalData[i].members %> usuarios</strong></span>
+                <span>Servidores: <strong><%= totalData[i].guilds %> servidores</strong></span>
+                <span>Reproductores: <strong><%= totalData[i].players %> reproductores</strong></span>
+                <span>Tiempo activo: <strong><%= totalData[i].formattedShortUptime %></strong></span>
+                <span>Latencia: <strong><%= totalData[i].ping %>ms</strong></span>
+                <span>Uso de RAM: <strong><%= totalData[i].memory %></strong></span>
+                <span>Uso de CPU: <strong><%= totalData[i].CPUUsage %>%</strong></span>
+              </div>
+            </div>
+            <% } %>
+            </div>
+
+            <div class="container mt-5">
+              <div class="row">
+                <div class="col-sm-4">
+                  <h1 class="text-center">Usuarios</h1>
+                  <p class="text-center"><%= totalData.reduce((acc, data) => acc + data.members, 0) %></p>
+                </div>
+                <div class="col-sm-4">
+                  <h1 class="text-center">Servidores</h1>
+                  <p class="text-center"><%= totalData.reduce((acc, data) => acc + data.guilds, 0) %></p>
+                </div>
+                <div class="col-sm-4">
+                  <h1 class="text-center">RAM</h1>
+                  <p class="text-center"><%= totalData.reduce((acc, data) => acc + data.ram.heapUsed, 0) %>mb/<%= totalData.reduce((acc, data) => acc + data.ram.rss, 0) %>mb</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+
+
+
+<%- include('footer') %>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+<script type="text/javascript">
+  window.onload = function() {
+
+    // Obtener elementos por su ID
+    const loadingSpinner = document.getElementById("loadingSpinner");
+    const shardsContainer = document.getElementById("shardsContainer");
+
+    // Cambiar el estado de carga
+    loadingSpinner.style.display = "none";
+    shardsContainer.style.visibility = "visible";
+  }
+</script>
+
+<script>
+  const socket = io();
+  socket.on("updateShards", doHttpRequest);
+
+
+  function doHttpRequest() {
+    var url = "/status";
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        try {
+          // if it worked, parse that string, make it back into an object
+          var data = this.responseText
+          parser = new DOMParser();
+          var doc = parser.parseFromString(data, "text/html");
+
+          function checkData(dataString) {
+            if (document.getElementById(`${dataString}`) && document.getElementById(`${dataString}`).innerHTML != doc.querySelector(`#${dataString}`).innerHTML) {
+              data = doc.querySelector(`#${dataString}`).innerHTML;
+              document.getElementById(`${dataString}`).innerHTML = data;
+            }
+            return true;
+          }
+          checkData("shardsContainer");
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    };
+
+    xmlhttp.open("GET", url, false);
+    xmlhttp.send(null);
+  }
+</script>

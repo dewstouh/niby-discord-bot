@@ -1,0 +1,19 @@
+module.exports = {
+    PERMISSIONS: ["ManageGuild"], //Permisos requeridos del usuario
+    BOT_PERMISSIONS: ["ManageGuild"], //Permisos requeridos del bot,
+    //OWNER: true
+    //GUILD_ONLY: true,
+    //NSFW: true,
+    LEVEL: 0, //nivel requerido para ejecutar el componente
+    COOLDOWN: 0,//en segundos,
+    /*COOLDOWN: {
+        user: 0, //en segundos
+        guild: 0, //en segundos
+        global: 0 //en segundos
+    }*/
+    async execute(client, interaction, args, prefix, guildData, userData) {
+        // const fields = interaction.fields;
+        // const fieldValue = interaction.fields.getTextInputValue("id");
+        //return interaction.reply({content: `Seleccionado: ${fieldValue}`, ephemeral: true})
+    }
+}

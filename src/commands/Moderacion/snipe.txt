@@ -1,0 +1,39 @@
+import { TextChannel } from 'discord.js';
+import { Embed, ErrorEmbed } from '../../extenders/discord/Embed';
+import Client from '../../structures/Client';
+import { Command } from '../../structures/Command';
+export default {
+   PERMISSIONS: ['ManageMessages'],
+   BOT_PERMISSIONS: ['ManageMessages'],
+   OPTIONS: [
+      {
+         CHANNEL: {
+            REQUIRED: false,
+         },
+      },
+   ],
+   USAGE: '<Canal?>',
+   ALIASES: ["snipes"],
+   async execute(client: Client, message, args, prefix, guildData) {
+      const channel = ((await client.utils.general.getChannel(message, args[0])) || message.channel) as TextChannel;
+
+      const snipes = client.snipes.filter((s) => s.channelId === channel.id);
+      if (!snipes || snipes.size < 1)
+         return message.reply({
+            embeds: [new ErrorEmbed().setDescription(client.translate(guildData.language, `${this.LANG_KEY}.error.nosnipes`, {channel: channel.toString()}))],
+         });
+
+      const embeds = snipes.map((s) => {
+         const embed = new Embed()
+            .setAuthor({ name: s.author.displayName, iconURL: s.author.displayAvatarURL() })
+            .setDescription(s.content || client.translate(guildData.language, `${this.LANG_KEY}.embed.description.content`))
+            .setFooter({text: `${client.translate(guildData.language, `${this.LANG_KEY}.embed.footer.userid`)} ${s.authorId}\n${client.translate(guildData.language, `${this.LANG_KEY}.embed.footer.messageid`)} ${s.messageId}\n\u200b`})
+            .setTimestamp(s.deletedAtTimestamp);
+
+            if(s.attachments.length >= 1) embed.addField(`[${s.attachments.length}] ${client.translate(guildData.language, `${this.LANG_KEY}.embed.field.attachments`)}`, `>>> ${s.attachments.map((a, i) => `${i+1}. [\`${client.translate(guildData.language, "COMMON.TEXTS.clickHere")}\`](${a})`).join("\n")}`)
+            return embed;
+      });
+
+      return client.utils.message.paginateEmbeds(message, guildData.language, embeds)
+   },
+} as Command;

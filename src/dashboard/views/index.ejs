@@ -1,0 +1,332 @@
+<%- include('header') %>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center">
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <h1 data-aos="fade-up">
+          <%= bot.user.username %>
+        </h1>
+        <h2 data-aos="fade-up" data-aos-delay="400">Tu bot
+          multifuncional de confianza.</h2>
+        <div data-aos="fade-up" data-aos-delay="600">
+          <div class="text-center">
+            <a href="<%= bot.invite %>" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <span>Invítame</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <span>Servidor de Soporte</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
+        <img src="<%= `https://cdn.discordapp.com/avatars/${bot?.user?.id}/${bot?.user?.avatar}.png?size=4096` %>" width="256px" style="border-radius: 50%;" class="img-fluid" alt>
+      </div>
+    </div>
+  </div>
+
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+      <path fill="currentColor" fill-opacity="0.2" id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+  </svg>
+
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+
+    <div class="container" data-aos="fade-up">
+      <div class="row gx-0 mb-10">
+
+        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="content">
+            <h3>¿Qué es <%= bot.user.username %>?</h3>
+            <h2>
+              <%= bot.user.username %> es un bot multifuncional con
+              más de <%= bot.commands.size %> comandos y
+              <%= bot.categories.size %> categorías únicas para
+              explorar.
+            </h2>
+            <p>Todo lo que necesites lo vas a encontrar en <%= bot.user.username %>,
+              ya sea administración de servidores,
+              seguridad, música, entretenimiento, utilidades o
+              cualquier otra función que puedas imaginar para
+              mejorar tu experiencia en Discord. Desde moderar tu
+              servidor hasta proporcionar información
+              útil, <%= bot.user.username %> está diseñado para
+              adaptarse a las necesidades de tu comunidad y
+              hacer que tu servidor sea más dinámico y amigable.</p>
+
+            <div class="text-center text-lg-start">
+              <a href="/commands" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Ver comandos</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+          <img src="img/bot-about.png" class="img-fluid" alt>
+        </div>
+
+      </div>
+
+      <div class="row gx-0">
+
+        <div class="col-lg-6 d-flex flex-column justify-content-center order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <div class="content">
+            <h3>Todos tus bots, en uno.</h3>
+            <h2>
+              <%= bot.user.username %> hará que te deshagas de
+              todos tus bots.
+            </h2>
+            <p><%= bot.user.username %> llega pisando fuerte para
+              superar a los demás bots sin mirar atrás. Mientras
+              los
+              otros luchan por
+              destacar, nosotros dominamos con funciones exclusivas
+              y
+              velocidad que arrasa. Cada comando que
+              usas es un recordatorio de su irrelevancia, y cada
+              interacción subraya quién está al mando. Mientras
+              ellos
+              tropiezan, nosotros ya hemos cruzado la línea de
+              meta,
+              liderando la carrera con confianza implacable. ¿A qué
+              esperas para deshacerte de tus bots? Nosotros ya
+              tenemos
+              todo lo que necesitas.</p>
+
+            <div class="text-center text-lg-start">
+             <a href="<%= bot.invite %>" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Probar <%= bot.user.username %></span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+          <img src="img/bot-about2.png" class="img-fluid" alt>
+        </div>
+
+      </div>
+    </div>
+
+  </section><!-- End About Section -->
+
+  <!-- ======= Values Section ======= -->
+  <section id="values" class="values">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>NUESTROS SOCIOS</h2>
+        <p>Servidores que confían en <%= bot.user.username %>
+        </p>
+      </header>
+
+      <div class="swiper">
+        <div class="swiper-wrapper">
+
+          <% bot.guilds.cache.filter(g => !g.name.toLowerCase().includes("nsfw")).sort((a, b) => b.memberCount - a.memberCount).map((g, i) => { %>
+          <div class="swiper-slide">
+            <div class=>
+              <div class="count-box" style="display: flex; align-items: center;">
+                <img src="<%= g.iconURL({dynamic: true})%>" alt="">
+                <div>
+                  <span><%= g.name %></span>
+                  <p data-purecounter-start="0" data-purecounter-end="<%= g.memberCount %>" data-purecounter-duration="2" class="purecounter"><%= g.memberCount %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+  </section><!-- End Values Section -->
+
+
+  <!-- ======= Features Section ======= -->
+  <section id="features" class="features">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <h2>Características</h2>
+        <p>La razón por la que <%= bot.user.username %> destaca sobre el resto</p>
+      </div>
+
+      <div class="row" data-aos="fade-up" data-aos-delay="300">
+
+        <% config.features.map((feature) => { %>
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box">
+            <i class="<%= feature.icon.id %>" style="color: <%= feature.icon.color %>;"></i>
+            <h3 class=><a href=""><%= feature.title %></a></h3>
+            <p><%= feature.description.replace(/{botName}/, bot.user.username).replace(/{prefix}/, process.env.PREFIX) %></p>
+          </div>
+        </div>
+        <% }) %>
+
+
+      </div>
+
+    </div>
+  </section><!-- End Features Section -->
+
+  <!-- ======= Counts Section ======= -->
+  <section id="counts" class="counts">
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>ESTADÍSTICAS</h2>
+        <p>Estadísticas en tiempo real</p>
+      </header>
+
+      <div class="row gy-4">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="count-box">
+            <i class="bi bi-people-fill" style="color: #c6f7ff;"></i>
+            <div>
+              <span data-purecounter-start="0" data-purecounter-end="<%= bot.guilds.cache.reduce((acc, g) => acc+g.memberCount, 0) %>" data-purecounter-duration="2" class="purecounter" id="userCount"></span>
+              <p>Usuarios</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="count-box">
+            <i class="bi bi-house-check-fill" style="color: #b9baff;"></i>
+            <div>
+              <span data-purecounter-start="0" data-purecounter-end="<%= bot.guilds.cache.size %>" data-purecounter-duration="2" class="purecounter" id="serverCount"></span>
+              <p>Servidores</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="count-box">
+            <i class="bi bi-slash-square-fill" style="color: #ffffff;"></i>
+            <div>
+              <span data-purecounter-start="0" data-purecounter-end="<%= bot.commands.size %>" data-purecounter-duration="2  " class="purecounter" id="commandCount"></span>
+              <p>Comandos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="count-box">
+            <i class="bi bi-wifi" style="color: #00cf61;"></i>
+            <div>
+              <span data-purecounter-start="0" data-purecounter-end="<%= bot.ws.ping %>" data-purecounter-duration="2" class="purecounter" id="ping">
+              </span>
+              <p>Ping</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Counts Section -->
+
+
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>Servicios</h2>
+        <p>Servicios que ofrece <%= bot.user.username %></p>
+      </header>
+
+      <div class="row gy-4">
+
+        <% bot.categories.filter(c => !["Nsfw", "Dueño"].includes(c.DEFAULT_NAME)).map((c, i) => {%>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<%= i+1 %>00">
+          <div class="service-box blue">
+            <i class="ri-discuss-line icon"></i>
+            <h3><%= c.NAME %></h3>
+            <p><%= c.DESCRIPTION %></p>
+            <!--<a href="#" class="read-more">  <span>Leer más</span>  <i class="bi bi-arrow-right"></i></a>--->
+          </div>
+        </div>
+
+        <% }) %>
+
+
+      </div>
+
+    </div>
+
+  </section><!-- End Services Section -->
+
+</main><!-- End #main -->
+
+<!-- En tu archivo HTML -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  // Escucha el evento 'updateStats' emitido desde el servidor
+  socket.on('updateStats', (data) => {
+    // Actualiza los elementos HTML con los datos recibidos
+    updateCounter('ping', data.ping );
+  });
+
+  function updateCounter(elementId, newValue) {
+    const element = document.getElementById(elementId);
+    const startValue = parseInt(element.textContent);
+    const defaultDuration = 2000; // Duración de la animación por defecto en milisegundos (2 segundos)
+    const durationAttribute = element.getAttribute('data-purecounter-duration');
+    const duration = durationAttribute ? parseInt(durationAttribute) * 1000 : defaultDuration;
+
+    const range = newValue - startValue;
+    const increment = range > 0 ? 1 : -1; // Determina si aumentar o disminuir
+    const steps = Math.abs(range);
+    const stepDuration = duration / steps;
+    let currentValue = startValue;
+
+
+
+    const update = () => {
+      element.textContent = Math.round(currentValue);
+
+      if ((increment > 0 && currentValue < newValue) || (increment < 0 && currentValue > newValue)) {
+        currentValue += increment;
+        requestAnimationFrame(update);
+      } else {
+        element.textContent = newValue;
+      }
+    };
+
+    update();
+  }
+</script>
+
+<%- include('footer') %>
