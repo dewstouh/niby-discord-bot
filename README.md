@@ -1,5 +1,5 @@
 <div align="center">
- <a href="https://github.com/dewstouh/handler-v14/actions" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/dewstouh/handler-v14/ci.yml?branch=main&style=for-the-badge&label=CI" alt="CI Status" /></a>
+ <a href="https://github.com/dewstouh/niby-discord-bot/actions" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/dewstouh/niby-discord-bot/ci.yml?branch=main&style=for-the-badge&label=CI" alt="CI Status" /></a>
  <a href="https://discord.gg/MBPsvcphGf" target="_blank"><img src="https://img.shields.io/maintenance/yes/2025?style=for-the-badge&label=MAINTAINED" /></a>
  <a href="https://discord.gg/MBPsvcphGf" target="_blank"><img src="https://img.shields.io/discord/879397504075063297?color=blue&label=support&style=for-the-badge&logoColor=white" /></a>
  <a href="https://github.com/sponsors/dewstouh" target="_blank"><img src="https://img.shields.io/badge/Sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA"/></a>
