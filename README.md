@@ -9,7 +9,9 @@
  <a href="https://github.com/mashpie/i18n-node" target="_blank"><img src="https://img.shields.io/badge/i18n-Multilingual-blue?style=for-the-badge&logo=translate&logoColor=white"/></a>
 </div>
 
-# Hybrid, Sharded, Clustered & Cached Handler! | V14
+# Niby Discord Bot! Hybrid, Sharded, Clustered & Cached! | V14
+
+Niby is an all-in-one Discord bot used by **more than 60k users** across **300 servers**.
 
 The best Discord.js handler **in history** in English, Spanish (and 17 more languages...)
 
@@ -20,9 +22,56 @@ The best Discord.js handler **in history** in English, Spanish (and 17 more lang
 ![](./assets/help-menu.png)
 ![](./assets/music-menu.png)
 
+**Fully cached with Redis**. Niby delivers **extreme performance** and **reliability**, **no matter how big your community is**.
+
+Advanced moderation, a **premium music system** including sources like **Spotify**, **Youtube**, **Reddit**, **Sonudcloud**... More than **400 sources**, a **complete economy** and **fun system**, **multilanguage support** in **19 languages** (including full Spanish and English), and a **next-level handler** designed for **scalability** and **modular development.**
+
+## 💪 Bot Features
+
+-  ✅ In TYPESCRIPT! With TYPINGS!
+-  ✅ SECURE Code.
+-  ✅ MongoDB Database
+-  ✅ Database Cache with Redis (< 2ms)
+-  ✅ General Bot Cache with Redis
+-  ✅ Sharded and Clustered
+-  ✅ Dashboard
+-  ✅ Dashboard Handler
+-  ✅ Highly scalable
+-  ✅ Organized, easy to understand.
+-  ✅ Custom logs.
+-  ✅ Error logs in files (`./logs/{date}.log`).
+-  ✅ Error logs in Discord (Webhook).
+-  ✅ Prefix Commands.
+-  ✅ Slash Commands.
+-  ✅ Button Handler.
+-  ✅ Menu Handler.
+-  ✅ Context Menu Handler.
+-  ✅ Modal Handler.
+-  ✅ Semi-Automatically Configured Handlers.
+-  ✅ Commands and Interactions with Cooldown System.
+-  ✅ Commands and Interactions with Permission System.
+-  ✅ Premium system.
+-  ✅ Reload the bot without having to restart, avoiding spam to the Discord API.
+-  ✅ Semi-Automatic Multilanguage System.
+-  ✅ Custom Javascript functions (Array.random, Number.random, String.isValidUrl()... etc).
+-  ✅ Ready to support +50k servers.
+
+
+## 👌 Bot Content
+- 👑 Owner Commands
+- ⚙️ Settings `(Bot | Systems | Server | Commands)`
+- 🔰 Information `(Bot | User | Server)`
+- 🎶 Music System
+- 🪙 Economy System
+- 👀 Filters `(Audio | Equalization | Speed | Pitch)`
+- 🔞 NSFW Commands `(Anime | Real | Others)`
+- 🌍 [Website](https://niby.elmundodeniby.com)
+
 # 📋 Table of Contents
 
-- [Hybrid, Sharded, Clustered \& Cached Handler! | V14](#hybrid-sharded-clustered--cached-handler--v14)
+- [Niby Discord Bot! Hybrid, Sharded, Clustered \& Cached! | V14](#niby-discord-bot-hybrid-sharded-clustered--cached--v14)
+  - [💪 Bot Features](#-bot-features)
+  - [👌 Bot Content](#-bot-content)
 - [📋 Table of Contents](#-table-of-contents)
   - [✍ Setup](#-setup)
     - [☑️ Requirements](#️-requirements)
@@ -38,8 +87,6 @@ The best Discord.js handler **in history** in English, Spanish (and 17 more lang
     - [🔲 Creating Modals](#-creating-modals)
       - [🔼 Passing Data in CustomIDs](#-passing-data-in-customids)
         - [Button Handler `ticket-create`](#button-handler-ticket-create)
-  - [💪 Handler Features](#-handler-features)
-  - [👌 Handler Content](#-handler-content)
   - [💛 Contributions](#-contributions)
   - [🔰 Support](#-support)
 
@@ -67,7 +114,7 @@ The best Discord.js handler **in history** in English, Spanish (and 17 more lang
 
 1. Clone repository
 ```bash
-git clone https://github.com/El-Mundo-de-Niby/handler-v14
+git clone https://github.com/dewstouh/niby-discord-bot
 ```
 
 2. Install modules
@@ -302,50 +349,9 @@ In the `args` variable we'll find the array of data passed in the customId, whic
 
 _Each property available in commands like PERMISSIONS, BOT_PERMISSIONS, COOLDOWN, GUILD_ONLY... can also be added in interaction handlers (Buttons, Menus, Context Menus and Modals)_
 
-## 💪 Handler Features
-
--  ✅ In TYPESCRIPT! With TYPINGS!
--  ✅ SECURE Code.
--  ✅ MongoDB Database
--  ✅ Database Cache with Redis (< 2ms)
--  ✅ General Bot Cache with Redis
--  ✅ Sharded and Clustered
--  ✅ Dashboard
--  ✅ Dashboard Handler
--  ✅ Highly scalable
--  ✅ Organized, easy to understand.
--  ✅ Custom logs.
--  ✅ Error logs in files (`./logs/{date}.log`).
--  ✅ Error logs in Discord (Webhook).
--  ✅ Prefix Commands.
--  ✅ Slash Commands.
--  ✅ Button Handler.
--  ✅ Menu Handler.
--  ✅ Context Menu Handler.
--  ✅ Modal Handler.
--  ✅ Semi-Automatically Configured Handlers.
--  ✅ Commands and Interactions with Cooldown System.
--  ✅ Commands and Interactions with Permission System.
--  ✅ Premium system.
--  ✅ Reload the bot without having to restart, avoiding spam to the Discord API.
--  ✅ Semi-Automatic Multilanguage System.
--  ✅ Custom Javascript functions (Array.random, Number.random, String.isValidUrl()... etc).
--  ✅ Ready to support +50k servers.
-
-
-## 👌 Handler Content
-- 👑 Owner Commands
-- ⚙️ Settings `(Bot | Systems | Server | Commands)`
-- 🔰 Information `(Bot | User | Server)`
-- 🎶 Music System
-- 🪙 Economy System
-- 👀 Filters `(Audio | Equalization | Speed | Pitch)`
-- 🔞 NSFW Commands `(Anime | Real | Others)`
-- 🌍 [Website](https://niby.elmundodeniby.com)
-
 ## 💛 Contributions
 
-Thanks for using this code! If you want to support us you can do it by making a [donation through PayPal](https://paypal.me/elmundodeniby).
+Thanks for using this code! If you want to support us you can do it by making a [donation through PayPal](https://paypal.me/elmundodeniby) or by **sponsoring me** on Github.
 
 All donations will be used to improve the service, bots, video quality and content. Thank you!
 
