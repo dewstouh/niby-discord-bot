@@ -1,4 +1,4 @@
-import { applySpeedGooseCacheLayer, SpeedGooseCacheAutoCleaner } from '@dewstouh/speedgoose';
+import { applySpeedGooseCacheLayer, SpeedGooseCacheAutoCleaner } from 'speedgoose';
 import mongoose, { connect, plugin } from 'mongoose';
 import Client from '../structures/Client';
 
