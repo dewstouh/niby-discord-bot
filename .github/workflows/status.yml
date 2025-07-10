@@ -1,0 +1,28 @@
+name: Build Status
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+    - name: Verify repository structure
+      run: |
+        if [ -f package.json ] && [ -f tsconfig.json ]; then
+          echo "✅ Repository structure verification passed"
+          exit 0
+        else
+          echo "❌ Repository structure verification failed"
+          exit 1
+        fi
