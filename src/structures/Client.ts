@@ -223,15 +223,15 @@ export default class Client extends DiscordClient {
       if(this.released){
          await this.loadExtenders();
          await this.loadRedis(); // Carga la caché de redis o usa la default como fallback
-   
+
          this.lavalink = new LavalinkManager(this);
-   
+
          await this.loadEvents();
          await this.loadHandlers();
-   
+
          // WRAPPERS | PRE-ESSENTIALS
          await this.loadWrappers();
-   
+
          // BOT ESSENTIALS
          this.loadAllComponents();
          await this.loadCommands();
@@ -239,7 +239,7 @@ export default class Client extends DiscordClient {
       } else {
          await this.loadExtenders();
          await this.loadRedis(); // Carga la caché de redis o usa la default como fallback
-   
+
          this.lavalink = new LavalinkManager(this);
          const ruta = `${process.cwd()}/dist/events/bot/client/ready.js`;
          const PULL = (await import(ruta)).default;
@@ -248,13 +248,13 @@ export default class Client extends DiscordClient {
          PULL.PATH = ruta;
          PULL.LANG_KEY = `EVENTS.${PULL_NAME}.execute`;
          this.on(PULL_NAME, PULL.bind(null, this));
-   
+
          // await this.loadEvents();
          // await this.loadHandlers();
-   
+
          // WRAPPERS | PRE-ESSENTIALS
          // await this.loadWrappers();
-   
+
          // BOT ESSENTIALS
          // this.loadAllComponents();
          // await this.loadCommands();
@@ -620,7 +620,7 @@ export default class Client extends DiscordClient {
          for (const option of command.OPTIONS) {
             const OPTION_KEY = `${Object.keys(option)}`;
             const THIS_OPTION = option[OPTION_KEY];
-            
+
             const optionNameNormalized = this.utils.locale
                .inlineLocale(process.env.LANGUAGE as Locale, `${command.LANG_PATH}.USAGE`)
                .replace(/[^a-zA-Z0-9\sáéíóúü]/g, '') // Elimina caracteres especiales
@@ -776,7 +776,7 @@ export default class Client extends DiscordClient {
       if (customStatus.text.startsWith('Shard')) {
          for (let i = shardIds.length - 1; i >= 0; i--) {
             const shardId = shardIds[i];
-            this.user.setActivity(customStatus.text.replace('{shard}', shardId).replace('{cluster}', clusterId.toString()), {
+            this.user.setActivity(customStatus.text.replace('{shard}', shardId.toString()).replace('{cluster}', clusterId.toString()), {
                shardId,
                type: customStatus.type,
             });
