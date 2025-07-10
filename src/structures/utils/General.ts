@@ -132,7 +132,9 @@ export default class GeneralUtils {
          const botinfoCache = this.client.cache.get('botInfo');
          if (botinfoCache && useCache) return botinfoCache;
          const cluster = this.client.cluster.id;
-         const shards = this.client.cluster.ids.map((d) => `#${d.id}`).join(', ');
+         const shards = Array.isArray(this.client.cluster.ids)
+            ? this.client.cluster.ids.map((id) => `#${id}`).join(', ')
+            : this.client.cluster.ids.map((shard, id) => `#${id}`).join(', ');
          const guilds = this.client.guilds.cache.size;
          const members = this.client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0);
          const memoryUsage = process.memoryUsage();
@@ -508,7 +510,7 @@ export default class GeneralUtils {
             });
 
          const data = await response.json();
-         const url = Object.values(data).find((v) => String(v).isValidUrl());
+         const url = data && typeof data === 'object' ? Object.values(data).find((v) => String(v).isValidUrl()) : null;
 
          return reply(url);
       } catch (e) {
