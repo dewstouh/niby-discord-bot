@@ -92,8 +92,8 @@ export async function SlashCMDHandler(client: Client, interaction: ChatInputComm
       } catch (e: any) {
          console.error(e);
          if (interaction?.replied) {
-            return interaction
-               .channel!.send({
+            return interaction.channel && 'send' in interaction.channel ? interaction.
+               channel.send({
                   embeds: [
                      new ErrorEmbed().addField(
                         client.translate(GUILD_DATA.language, `${type.toUpperCase()}.PERMISSIONS.HANDLER.cmdError.name`, {
@@ -103,7 +103,7 @@ export async function SlashCMDHandler(client: Client, interaction: ChatInputComm
                      ),
                   ],
                })
-               .catch(() => null);
+               .catch(() => null) : null;
          }
          return (
             interaction
@@ -120,7 +120,7 @@ export async function SlashCMDHandler(client: Client, interaction: ChatInputComm
                })
                // eslint-disable-next-line require-await
                .catch(async () => {
-                  return interaction.channel!.send({
+                  return interaction.channel && 'send' in interaction.channel ? interaction.channel.send({
                      embeds: [
                         new ErrorEmbed().addField(
                            client.translate(GUILD_DATA.language, `${type.toUpperCase()}.PERMISSIONS.HANDLER.cmdError.name`, {
@@ -129,7 +129,7 @@ export async function SlashCMDHandler(client: Client, interaction: ChatInputComm
                            `>>> \`\`\`\n${String(e?.message ?? e).substring(0, 500)}\n\`\`\``.substring(0, 1000),
                         ),
                      ],
-                  });
+                  }) : null;
                })
          );
       }
@@ -240,7 +240,7 @@ export async function MessageCMDHandler(client: Client, message) {
                ephemeral: true,
             })
             .catch(() => {
-               return message.channel
+               return message.channel && 'send' in message.channel ? message.channel
                   .send({
                      embeds: [
                         new ErrorEmbed().addField(
@@ -252,7 +252,7 @@ export async function MessageCMDHandler(client: Client, message) {
                      ],
                      ephemeral: true,
                   })
-                  .catch(() => null);
+                  .catch(() => null) : null;
             });
       }
    }
