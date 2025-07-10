@@ -1,9 +1,9 @@
-import { Schema, model } from 'mongoose';
+import { Document, Schema, model } from 'mongoose';
 import music from '../../config/music';
 import EmojiList from '../../config/EmojiList';
 import { ColorResolvable } from 'discord.js';
 import { Locale } from '../../typings/locales';
-import { SearchPlatform } from 'lavalink-client/dist/types';
+import { SearchPlatform } from 'lavalink-client';
 
 export interface IEmbedSettings {
    color: string | ColorResolvable;
