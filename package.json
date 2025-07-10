@@ -18,8 +18,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dewstouh/nibybin-api": "^1.1.0",
-    "@dewstouh/speedgoose": "^2.0.1-beta.1",
     "@flytri/lyrics-finder": "^1.0.7",
     "@iamtraction/google-translate": "^2.0.1",
     "@parvineyvazov/json-translator": "^1.8.0",
@@ -56,6 +54,7 @@
     "passport-discord": "^0.1.4",
     "redis": "^4.6.8",
     "socket.io": "^4.7.2",
+    "speedgoose": "^2.1.0",
     "utf-8-validate": "^6.0.3",
     "zlib-sync": "^0.1.8"
   },
