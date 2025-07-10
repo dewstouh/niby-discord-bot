@@ -1,7 +1,7 @@
 {
   "name": "niby",
   "description": "A multipurpose Discord bot with a variety of features including music, moderation, and more.",
-  "version": "beta-1.2.1",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run clean; npx tsc && pm2 start ecosystem.config.js",
