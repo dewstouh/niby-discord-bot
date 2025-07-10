@@ -41,7 +41,7 @@ export default {
             ],
          })
          .then((msg) => {
-            
+
             fetch(`${music.lyricsApi.url}?title=${formattedTitle}&author=${currentAuthor}`, {
                headers: {
                   authorization: music.lyricsApi.token
@@ -51,9 +51,10 @@ export default {
                   if(response.status == 403) throw '[LYRICS API] - Forbidden (403)'
                   return response.json()
                })
-               .then((json) => {
-                  if (!json.lyrics) throw '[LYRICS API] - Not found (404)';
-                  const paragraphs = json.lyrics.split('\n\n');
+               .then((json: unknown) => {
+                  if (!json) throw '[LYRICS API] - Not found (404)';
+                  const lyricsData = json as { lyrics: string };
+                  const paragraphs = lyricsData.lyrics.split('\n\n');
                   const paragraphsPerEmbed = 5;
                   const embeds: EmbedBuilder[] = [];
                   for (let i = 0; i < paragraphs.length; i += paragraphsPerEmbed) {
