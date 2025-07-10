@@ -1,12 +1,15 @@
 <div align="center">
  <a href="https://discord.gg/MBPsvcphGf" target="_blank"><img src="https://img.shields.io/maintenance/yes/2025?style=for-the-badge&label=MAINTAINED" /></a>
  <a href="https://discord.gg/MBPsvcphGf" target="_blank"><img src="https://img.shields.io/discord/879397504075063297?color=blue&label=support&style=for-the-badge&logoColor=white" /></a>
+ <a href="https://github.com/sponsors/dewstouh" target="_blank"><img src="https://img.shields.io/badge/Sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA"/></a>
+ <a href="https://paypal.me/elmundodeniby" target="_blank"><img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white"/></a>
  <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/></a>
  <a href="https://www.mongodb.com/" target="_blank"><img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"/></a>
  <a href="https://redis.io/" target="_blank"><img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/></a>
  <a href="https://www.nodejs.org" target="_blank"><img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"/></a>
  <a href="https://expressjs.com/" target="_blank"><img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white"/></a>
  <a href="https://github.com/mashpie/i18n-node" target="_blank"><img src="https://img.shields.io/badge/i18n-Multilingual-blue?style=for-the-badge&logo=translate&logoColor=white"/></a>
+ 
 </div>
 
 # Niby Discord Bot! Hybrid, Sharded, Clustered & Cached! | V14
@@ -351,7 +354,7 @@ _Each property available in commands like PERMISSIONS, BOT_PERMISSIONS, COOLDOWN
 
 ## 💛 Contributions
 
-Thanks for using this code! If you want to support us you can do it by making a [donation through PayPal](https://paypal.me/elmundodeniby) or by **sponsoring me** on Github.
+Thanks for using this code! If you want to support us you can do it by making a [donation through PayPal](https://paypal.me/elmundodeniby) or by [sponsoring me](https://github.com/sponsors/dewstouh) on Github.
 
 All donations will be used to improve the service, bots, video quality and content. Thank you!
 
