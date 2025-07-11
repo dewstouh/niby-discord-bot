@@ -19,7 +19,7 @@ We take security seriously. If you discover a security vulnerability, please fol
 
 Instead, please report security vulnerabilities by:
 
-1. **Email**: Contact us directly at [security contact - add your email]
+1. **Email**: Contact us directly at security@elmundodeniby.com
 2. **Discord**: Send a direct message to `dewstouh` on our [Discord Server](https://discord.gg/MBPsvcphGf)
 3. **GitHub Security**: Use GitHub's private vulnerability reporting feature
 
