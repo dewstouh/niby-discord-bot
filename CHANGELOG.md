@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/dewstouh/niby-discord-bot/compare/v1.1.0...v1.2.0) (2025-07-20)
+
+
+### Features
+
+* add Docker support with Dockerfile, docker-compose and CI workflow for Niby ([5b50910](https://github.com/dewstouh/niby-discord-bot/commit/5b509105da957ad1cd8a63bec6c7e1dea70e5e47))
+
+
+### Bug Fixes
+
+* **ci:** write repo name to $GITHUB_ENV instead of invalid $GITHUB to fix env setup ([6618b96](https://github.com/dewstouh/niby-discord-bot/commit/6618b962e732bf01e3d3b00cbf863893391a6080))
+* **db:** fallback to local mongodb if DATABASE_URL is undefined and enable autoIndex ([9e58a00](https://github.com/dewstouh/niby-discord-bot/commit/9e58a00f2d84858a4da0b76787cd1b05124939f9))
+
 ## [1.1.0](https://github.com/dewstouh/niby-discord-bot/compare/v1.0.0...v1.1.0) (2025-07-10)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "niby",
   "description": "A multipurpose Discord bot with a variety of features including music, moderation, and more.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc && tsc-alias",
@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "docker:build": "docker build -t niby-discord-bot -f docker/images/niby/Dockerfile .",
     "docker:run": "docker run -d --name niby-discord-bot --env-file .env -p 3000:3000 niby-discord-bot",
-   "docker:restart": "docker restart niby-discord-bot",
+    "docker:restart": "docker restart niby-discord-bot",
     "docker:logs": "docker logs -f niby-discord-bot",
     "docker:stop": "docker stop niby-discord-bot",
     "docker:rm": "docker rm niby-discord-bot"
